@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 import btnGoTop from '../../images/svg/btnGoTop.svg'
 
-export function GoTopBTN() {
+export function GoToTopBtn() {
   return (
     <section className='goTop'>
       <div className='goTop__container container'>

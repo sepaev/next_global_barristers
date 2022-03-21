@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import { PageLayout } from '../../components/layouts'
+import { GoToTopBtn } from '../../components/common'
 import { Info, Projects, Reasons, Seo, Slider } from '../../components/home'
 
 function Home() {
@@ -21,10 +22,11 @@ function Home() {
     <>
       <PageLayout lang={lang} title={title}>
         <Slider></Slider>
-        <Reasons></Reasons>
-        <Info></Info>
-        <Projects></Projects>
-        <Seo></Seo>
+        {/* <Reasons></Reasons> */}
+        {/* <Info></Info> */}
+        {/* <Projects></Projects> */}
+        {/* <Seo></Seo> */}
+        {/* <GoToTopBtn></GoToTopBtn> */}
       </PageLayout>
     </>
   )

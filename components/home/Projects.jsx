@@ -1,6 +1,9 @@
 import Image from 'next/image'
 import arrow from '../../images/svg/arrow.svg'
 import list from '../../images/svg/list.svg'
+import projectsOrignImg from '../../images/projectsOrignImg.jpg'
+import projects263Img from '../../images/projects263Img.jpg'
+import projects768Img from '../../images/projects768Img.jpg'
 
 export function Projects() {
   return (
@@ -9,17 +12,13 @@ export function Projects() {
         <div className='projects__info'>
           <div className='projects__picture-box jsActivateAnimation' data-animation='fadeInUpBig'>
             <Image
-              width='801'
-              height='913'
-              src='https://mitrax.com.ua/wp-content/uploads/2020/05/0_-5.jpg'
+              width={801}
+              height={913}
+              src={projectsOrignImg}
               className='projects__picture-img attachment-full size-full'
               alt=''
               loading='lazy'
-              srcSet='
-          https://mitrax.com.ua/wp-content/uploads/2020/05/0_-5.jpg         801w,
-          https://mitrax.com.ua/wp-content/uploads/2020/05/0_-5-263x300.jpg 263w,
-          https://mitrax.com.ua/wp-content/uploads/2020/05/0_-5-768x875.jpg 768w
-        '
+              srcSet={projectsOrignImg + ' 801w,' + projects768Img + ' 768w,' + projects263Img + ' 263w'}
               sizes='(max-width: 801px) 100vw, 801px'
             />
           </div>

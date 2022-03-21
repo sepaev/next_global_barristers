@@ -1,5 +1,9 @@
 import Image from 'next/image'
 import infoOrignImg from '../../images/infoOrignImg.jpg'
+import info300Img from '../../images/info300Img.jpg'
+import info768Img from '../../images/info768Img.jpg'
+import info1024Img from '../../images/info1024Img.jpg'
+
 export function Info() {
   return (
     <section className='info'>
@@ -34,12 +38,7 @@ export function Info() {
           className='info__image-img'
           alt='building'
           loading='lazy'
-          srcSet={
-            infoOrignImg +
-            ' 1075w,https://mitrax.com.ua/wp-content/uploads/2020/05/virtual-reality-voor-architecten-en-interieurontwerpers-1-5-300x271.jpg 300w,' +
-            'https://mitrax.com.ua/wp-content/uploads/2020/05/virtual-reality-voor-architecten-en-interieurontwerpers-1-5-1024x924.jpg 1024w,' +
-            'https://mitrax.com.ua/wp-content/uploads/2020/05/virtual-reality-voor-architecten-en-interieurontwerpers-1-5-768x693.jpg 768w'
-          }
+          srcSet={infoOrignImg + ' 1075w,' + info300Img + ' 300w,' + info1024Img + ' 1024w,' + info768Img + ' 768w'}
           sizes='(max-width: 1075px) 100vw, 1075px'
         />
       </div>
