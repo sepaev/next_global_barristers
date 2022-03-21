@@ -6,23 +6,26 @@ import { Info, Projects, Reasons, Seo, Slider } from '../../components/home'
 function Home() {
   const router = useRouter()
   const lang = router.query.lang ? router.query.lang : 'uk'
-  let title
+  let title, details
   switch (lang) {
     case 'ru':
       title = 'Главная страница'
+      details = 'Подробнее'
       break
     case 'en':
       title = 'Home page'
+      details = 'More details'
       break
     default:
       title = 'Головна сторінка'
+      details = 'Детальніше'
       break
   }
   return (
     <>
       <PageLayout lang={lang} title={title}>
         <Slider></Slider>
-        {/* <Reasons></Reasons> */}
+        <Reasons lang={lang} details={details}></Reasons>
         {/* <Info></Info> */}
         {/* <Projects></Projects> */}
         {/* <Seo></Seo> */}

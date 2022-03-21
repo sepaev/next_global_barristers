@@ -1,4 +1,6 @@
-export function Reasons() {
+import Link from 'next/link'
+
+export function Reasons({ lang, details }) {
   return (
     <section className='reasons'>
       <div className='reasons__container container'>
@@ -12,14 +14,14 @@ export function Reasons() {
               <h3 className='ability__title'>Відповідальність - довгострокові відносини</h3>
               <p className='ability__description'>
                 Наш головний актив - довіра клієнтів. Завданням у взаєминах з клієнтом є довгострокові відносини. Такі
-                відносини в юридичному бізнесі можна побудувати лише, виконуючи взяті на себе перед клієнтом
-                зобов{"'"}язання. Ми несемо повну відповідальність за результати своєї діяльності перед клієнтом. Ми ніколи
-                не будемо клієнту радити непотрібні або свідомо програшні ходи з метою збільшення чека.
+                відносини в юридичному бізнесі можна побудувати лише, виконуючи взяті на себе перед клієнтом зобов{"'"}
+                язання. Ми несемо повну відповідальність за результати своєї діяльності перед клієнтом. Ми ніколи не
+                будемо клієнту радити непотрібні або свідомо програшні ходи з метою збільшення чека.
               </p>
             </div>
-            <a href='{{HOST}}rasons/{{lang}}/' className='ability__link btn-default'>
-              ДЕТАЛЬНІШЕ
-            </a>
+            <Link href={'/rasons/' + { lang } + '/'}>
+              <a className='ability__link btn-default'>{details}</a>
+            </Link>
           </li>
           <li className='ability__item jsActivateAnimation' data-animation='fadeInUp'>
             <div className='ability__content'>
@@ -32,9 +34,9 @@ export function Reasons() {
                 ми спеціалізуємося.
               </p>
             </div>
-            <a href='{{HOST}}business-solutions/{{lang}}/' className='ability__link btn-default'>
-              ДЕТАЛЬНІШЕ
-            </a>
+            <Link href={'/business-solutions/' + { lang } + '/'}>
+              <a className='ability__link btn-default'>{details}</a>
+            </Link>
           </li>
           <li className='ability__item jsActivateAnimation' data-animation='fadeInUp'>
             <div className='ability__content'>
@@ -45,9 +47,9 @@ export function Reasons() {
                 своєю репутацією, тож ми повністю откриті і чесні зі своїми клієнтами.
               </p>
             </div>
-            <a href='{{HOST}}our-team/{{lang}}/' className='ability__link btn-default'>
-              ДЕТАЛЬНІШЕ
-            </a>
+            <Link href={'/our-team/' + { lang } + '/'}>
+              <a className='ability__link btn-default'>{details}</a>
+            </Link>
           </li>
         </ul>
       </div>

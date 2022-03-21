@@ -1,5 +1,12 @@
 import background from '../../images/slider/site_slide_bg-4-2.webp'
 export function Slider() {
+  function inputHandler(e) {
+    console.log(e)
+  }
+  function formSubmit(e) {
+    e.preventDefault
+    alert('Заявка відправлена')
+  }
   return (
     <section className='slider'>
       <div className='slider__backgrnd' style={{ backgroundImage: `url(${background.src})` }}>
@@ -10,7 +17,7 @@ export function Slider() {
           </h1>
 
           <div className='form__container'>
-            <form action='submit' className='slider__form'>
+            <form action='submit' className='slider__form' onSubmit={formSubmit}>
               <div className='form__line'>
                 <span className='form__mask'>
                   <input
@@ -22,11 +29,13 @@ export function Slider() {
                     aria-required='true'
                     placeholder='+38 (___) ___-__-__'
                     data-mask='+38 (___) ___-__-__'
-                    tabIndex={-1}
+                    onChange={inputHandler}
                   />
                 </span>
                 <div className='form__submit-bg'>
-                  <input type='submit' value='Отримати консультацію' className='form__submit-btn' tabIndex={-1} />
+                  <button type='submit' className='form__submit-btn'>
+                    Отримати консультацію
+                  </button>
                 </div>
               </div>
             </form>
