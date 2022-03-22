@@ -26,7 +26,7 @@ function Home() {
       <PageLayout lang={lang} title={title}>
         <Slider></Slider>
         <Reasons lang={lang} details={details}></Reasons>
-        {/* <Info></Info> */}
+        <Info></Info>
         {/* <Projects></Projects> */}
         {/* <Seo></Seo> */}
         {/* <GoToTopBtn></GoToTopBtn> */}
