@@ -21,11 +21,34 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    // display: flex;
+    filter: drop-shadow(2px 4px 6px $black-color);
   }
   &__heading {
     max-width: 693px;
     color: $white-color;
+  }
+  &__button {
+    width: 46px;
+    height: 46px;
+    position: absolute;
+    bottom: 50px;
+    z-index: 500;
+    background: rgba(255, 255, 255, 0.5);
+    transition: background 0.3s;
+    border-radius: 1.29px;
+    border: none;
+    cursor: pointer;
+    font-size: 30px;
+    &:hover {
+      background-color: $wheat-background-color;
+    }
+  }
+  &__button.right {
+    right: 0;
+  }
+  &__button.left {
+    transform: rotate(180deg);
+    right: 61px;
   }
 }
 

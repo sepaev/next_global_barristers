@@ -3,8 +3,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import logo from '../../images/svg/logo.svg'
+// import favicon from '../../public/favicon.png'
 
 export function Header({ lang = 'uk', title = '' }) {
+  console.log('Header', lang)
+
   let [enActive, ruActive, ukActive] = ['', '', '']
   let [keywords, description, consultButton, menuItems, practicesItems, offices] = ['', '', '', [], [], []]
   switch (lang) {
@@ -12,7 +15,7 @@ export function Header({ lang = 'uk', title = '' }) {
       ruActive = ' active'
       keywords = 'Адвокат,Адвокат Киев,Консультации'
       description = 'Адвокатское объединение «Global Barristers» ≡ Адвокат Киев ≡ Консультации'
-      consultButton = 'Замовити консультацію'
+      consultButton = 'Заказать консультацию'
       menuItems = ['О нас', 'Наша команда', 'Отрасли', 'Города', 'Бизнес решения', 'Партнеры', 'Контакты']
       practicesItems = [
         'Уголовное Право',
@@ -25,13 +28,22 @@ export function Header({ lang = 'uk', title = '' }) {
         'Споры с банком',
         'Автомобильное Право',
       ]
+      offices = [
+        'Офис в Киеве',
+        'Офис в Харькове',
+        'Офис в Одессе',
+        'Офис в Днепре',
+        'Офис в Запорожье',
+        'Офис в Кривом Роге',
+      ]
       break
+
     case 'en':
       enActive = ' active'
       keywords = 'Lawyer, Lawyer Kiev, Consulting'
       description = 'Law Firm «Global Barristers» ≡ Kyiv Lawyer ≡ Consultations'
-      consultButton = 'Замовити консультацію'
-      menuItems = ['About us', 'Our team', 'Industries', 'Cities', 'Business solutions', 'Partners', 'Contacts']
+      consultButton = 'Request consultation'
+      menuItems = ['About us', 'Our team', 'Departments', 'Cities', 'Business solutions', 'Partners', 'Contacts']
       practicesItems = [
         'Criminal Law',
         'Commercial Law',
@@ -43,8 +55,18 @@ export function Header({ lang = 'uk', title = '' }) {
         'Bank Disputes',
         'Car Law',
       ]
+      offices = [
+        'Office in Kyiv',
+        'Office in Kharkiv',
+        'Office in Odessa',
+        'Office in the Dnieper',
+        'Office in Zaporozhye',
+        'Office in Kryvyi Rih',
+      ]
       break
+
     default:
+      console.log('default')
       ukActive = ' active'
       keywords = 'Адвокат,Адвокат Київ,Консультації'
       description = "Адвокатське об'єднання «Global Barristers» ≡ Адвокат Київ ≡ Консультації"
@@ -61,7 +83,14 @@ export function Header({ lang = 'uk', title = '' }) {
         'Спори з банком',
         'Автомобільне Право',
       ]
-      offices = ['', '', '']
+      offices = [
+        'Офіс в Києві',
+        'Офіс в Харкові',
+        'Офіс в Одесі',
+        'Офіс в Дніпрі',
+        'Офіс в Запоріжжі',
+        'Офіс в Кривому Розі',
+      ]
       break
   }
 
@@ -73,7 +102,7 @@ export function Header({ lang = 'uk', title = '' }) {
         <meta charSet='UTF-8' />
         <meta name='keywords' content={keywords} />
         <meta name='description' content={description} />
-        <link rel='icon' href='/favicon.ico' />
+        <link rel='icon' href='/favicon.png' />
       </Head>
       <header>
         <section className='header__pre'></section>
@@ -206,32 +235,32 @@ export function Header({ lang = 'uk', title = '' }) {
                     <ul className='sub-menu'>
                       <li className='menu__item sub-menu__item'>
                         <Link href={'/contacts/kyiv/' + lang + '/'}>
-                          <a>Офіс в Києві</a>
+                          <a>offices[0]</a>
                         </Link>
                       </li>
                       <li className='menu__item sub-menu__item'>
                         <Link href={'/contacts/kharkiv/' + lang + '/'}>
-                          <a>Офіс в Харкові</a>
+                          <a>offices[1]</a>
                         </Link>
                       </li>
                       <li className='menu__item sub-menu__item'>
                         <Link href={'/contacts/odessa/' + lang + '/'}>
-                          <a>Офіс в Одессі</a>
+                          <a>offices[2]</a>
                         </Link>
                       </li>
                       <li className='menu__item sub-menu__item'>
                         <Link href={'/contacts/dnipro/' + lang + '/'}>
-                          <a>Офіс в Дніпрі</a>
+                          <a>offices[3]</a>
                         </Link>
                       </li>
                       <li className='menu__item sub-menu__item'>
                         <Link href={'/contacts/zaporizhzhia/' + lang + '/'}>
-                          <a>Офіс в Запоріжжі</a>
+                          <a>offices[4]</a>
                         </Link>
                       </li>
                       <li className='menu__item sub-menu__item'>
                         <Link href={'/contacts/kryviy-rih/' + lang + '/'}>
-                          <a>Офіс в Кривому Розі</a>
+                          <a>offices[5]</a>
                         </Link>
                       </li>
                     </ul>

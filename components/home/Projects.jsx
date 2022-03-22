@@ -4,8 +4,9 @@ import list from '../../images/svg/list.svg'
 import projectsOrignImg from '../../images/projectsOrignImg.jpg'
 import projects263Img from '../../images/projects263Img.jpg'
 import projects768Img from '../../images/projects768Img.jpg'
+import Link from 'next/link'
 
-export function Projects() {
+export function Projects({ lang }) {
   return (
     <section className='projects'>
       <div className='container'>
@@ -25,52 +26,48 @@ export function Projects() {
 
           <ul className='projects__list'>
             <h2 className='projects__title jsActivateAnimation' data-animation='fadeInUp'>
-              {' '}
-              Проекти{' '}
+              Проекти
             </h2>
             <p className='projects__text'>Наша результативність визначає вибір і довіру клієнтів</p>
 
             <li className='projects__item'>
-              <a
-                href='https://mitrax.com.ua/uk/projects/bitva-dvoh-zakoniv-yak-bezbolisno-pereuklasti-dogovir-orendi-derzhmajna-pri-zmini-zakonodavstva/'
-                className='projects__item-link'
-              >
-                <Image src={list} alt='list' className='projects__img-list' />
-                <h4 className='projects__item-title'>
-                  Битва двох законів: як безболісно переукласти договір оренди держмайна при зміні законодавства
-                </h4>
-                <Image src={arrow} alt='arrow' className='projects__img-arrow' />
-              </a>
+              <Link href='https://mitrax.com.ua/uk/projects/bitva-dvoh-zakoniv-yak-bezbolisno-pereuklasti-dogovir-orendi-derzhmajna-pri-zmini-zakonodavstva/'>
+                <a className='projects__item-link'>
+                  <Image src={list} alt='list' className='projects__img-list' />
+                  <h4 className='projects__item-title'>
+                    Битва двох законів: як безболісно переукласти договір оренди держмайна при зміні законодавства
+                  </h4>
+                  <Image src={arrow} alt='arrow' className='projects__img-arrow' />
+                </a>
+              </Link>
             </li>
             <li className='projects__item'>
-              <a
-                href='https://mitrax.com.ua/uk/projects/yak-zahistiti-pravo-ditini-na-koristuvannya-zhitlom-yakshho-zakon-ne-na-vashomu-boczi/'
-                className='projects__item-link'
-              >
-                <Image src={list} alt='list' className='projects__img-list' />
+              <Link href='https://mitrax.com.ua/uk/projects/yak-zahistiti-pravo-ditini-na-koristuvannya-zhitlom-yakshho-zakon-ne-na-vashomu-boczi/'>
+                <a className='projects__item-link'>
+                  <Image src={list} alt='list' className='projects__img-list' />
 
-                <h4 className='projects__item-title'>
-                  Як захистити право дитини на користування житлом, якщо закон не на вашому боці
-                </h4>
+                  <h4 className='projects__item-title'>
+                    Як захистити право дитини на користування житлом, якщо закон не на вашому боці
+                  </h4>
 
-                <Image src={arrow} alt='arrow' className='projects__img-arrow' />
-              </a>
+                  <Image src={arrow} alt='arrow' className='projects__img-arrow' />
+                </a>
+              </Link>
             </li>
             <li className='projects__item'>
-              <a
-                href='https://mitrax.com.ua/uk/projects/spir-z-minoboroni-yak-uniknuti-shtrafnih-sankczij-u-25-mln-grn-za-dogovorom-budivelnogo-pidryadu/'
-                className='projects__item-link'
-              >
-                <Image src={list} alt='list' className='projects__img-list' />
+              <Link href='https://mitrax.com.ua/uk/projects/spir-z-minoboroni-yak-uniknuti-shtrafnih-sankczij-u-25-mln-grn-za-dogovorom-budivelnogo-pidryadu/'>
+                <a className='projects__item-link'>
+                  <Image src={list} alt='list' className='projects__img-list' />
 
-                <h4 className='projects__item-title'>
-                  Спір з Міноборони: як уникнути штрафних санкцій у 2,5 млн грн за договором будівельного підряду
-                </h4>
-                <Image src={arrow} alt='arrow' className='projects__img-arrow' />
-              </a>
+                  <h4 className='projects__item-title'>
+                    Спір з Міноборони: як уникнути штрафних санкцій у 2,5 млн грн за договором будівельного підряду
+                  </h4>
+                  <Image src={arrow} alt='arrow' className='projects__img-arrow' />
+                </a>
+              </Link>
             </li>
 
-            <a href='{{HOST}}business-solutions/{{lang}}' className='btn-default'>
+            <a href={'/business-solutions/' + lang} className='btn-default'>
               Усі проекти
             </a>
           </ul>

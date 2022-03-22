@@ -17,8 +17,8 @@
   }
   &__heading {
     visibility: visible;
-    // animation-name: fadeInUp;
-    opacity: 0;
+    animation-name: fadeInUp;
+    // opacity: 0;
     animation-timing-function: $fadeInUp-function;
     animation-duration: $fadeInUp-duration;
     animation-fill-mode: both;
@@ -34,8 +34,8 @@
   }
   &__image-container {
     visibility: visible;
-    // animation-name: fadeInUpBig;
-    opacity: 0;
+    animation-name: fadeInUpBig;
+    // opacity: 0;
     top: 0;
     height: 100%;
     width: 49.95074%;
