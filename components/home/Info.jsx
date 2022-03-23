@@ -3,29 +3,24 @@ import infoOrignImg from '../../images/infoOrignImg.jpg'
 import info300Img from '../../images/info300Img.jpg'
 import info768Img from '../../images/info768Img.jpg'
 import info1024Img from '../../images/info1024Img.jpg'
+import { getTranslate } from '../../translations/home/info'
+import { useMemo } from 'react'
 
-export function Info() {
+export function Info({ lang }) {
+  const { infoHeading, paragraphs, buttonText } = useMemo(() => getTranslate(lang), [lang])
   return (
     <section className='info'>
       <div className='info__container container'>
         <div className='info__photo-block'>
           <div className='info__text-block'>
             <h2 className='info__heading jsActivateAnimation' data-animation='fadeInUp'>
-              Про нас
+              {infoHeading}
             </h2>
-            <p className='info__text-p'>
-              GLOBAL BARRISTERS – адвокатське об’єднання, яке надає юридичні послуги тільки в тих сферах, в яких має
-              винятковий досвід і спеціалізацію.
-            </p>
-            <p className='info__text-p'>
-              Ми вважаємо, що для того, щоб стати професіоналом в якійсь діяльності, нею необхідно результативно
-              займатися щодня багато років. Тому наша компанія об’єднує вузькопрофільних фахівців, які ведуть практику в
-              конкретних галузях права. В нашу спеціалізацію входить вирішення спорів, захист бізнесу, сімейне та
-              спадкове право, кримінальне право, проблемні борги і антирейдерство.
-            </p>
+            <p className='info__text-p'>{paragraphs[0]}</p>
+            <p className='info__text-p'>{paragraphs[1]}</p>
 
             <a href='{{HOST}}our-team/uk/' className='btn-default'>
-              ДЕТАЛЬНІШЕ
+              {buttonText}
             </a>
           </div>
         </div>
