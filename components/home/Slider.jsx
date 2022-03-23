@@ -6,29 +6,49 @@ import React, { useEffect, useState, useMemo, useRef } from 'react'
 
 export function Slider({ lang = 'uk' }) {
   const [counter, setCounter] = useState(1)
+  const [auto, setAuto] = useState(true)
+  const [formInput, setFormInput] = useState('')
+
   const sliderBackgroundRef = useRef()
   const sliderHeadingRef = useRef()
 
-  function inputHandler(e) {
-    console.log(e)
+  function inputChange(e) {}
+  function inputHandler({ key, keyCode }) {
+    if (keyCode === 8) {
+      setFormInput(prev => prev.substring(0, prev.length - 1))
+      return
+    }
+    if (keyCode === 46) {
+      setFormInput('')
+      return
+    }
+    if (keyCode >= 48 && keyCode <= 57) {
+      if (formInput.length === 9) return
+      console.log('here')
+      setFormInput(prev => prev + key)
+      return
+    }
   }
   function formSubmit(e) {
     e.preventDefault
-    alert('Заявка відправлена')
+    if (formInput.length < 9) {
+      alert('введите номер')
+      return
+    }
+    const number = formValue()
+    alert(number + ' - заявка відправлена')
   }
-  function slideLeft(e) {
-    e.preventDefault
-    console.log('slide', counter)
-    sliderBackgroundRef.current.style.backgroundImage = `url(${sliders[counter - 1]})`
-    sliderHeadingRef.current.innerText = sliderHeading[counter - 1]
+  function setSlide(index) {
+    console.log('slide', index + 1)
+    sliderBackgroundRef.current.style.backgroundImage = `url(${sliders[index]})`
+    sliderHeadingRef.current.innerText = sliderHeading[index] ? sliderHeading[index] : sliderHeading[0]
+  }
+  function slideLeft() {
+    setSlide(counter - 1)
     setCounter(prev => (prev === 1 ? sliders.length : prev - 1))
   }
-  function slideRight(e) {
-    e.preventDefault
-    console.log('slide', counter)
-    console.dir(sliderBackgroundRef)
-    sliderBackgroundRef.current.style.backgroundImage = `url(${sliders[counter - 1]})`
-    sliderHeadingRef.current.innerText = sliderHeading[counter - 1]
+  function slideRight() {
+    setSlide(counter - 1)
     setCounter(prev => (prev === sliders.length ? 1 : prev + 1))
   }
 
@@ -66,9 +86,20 @@ export function Slider({ lang = 'uk' }) {
     }
     return { sliderHeading, buttonText, sliders }
   }
-
+  function formValue() {
+    const [d1 = '_', d2 = '_', d3 = '_', d4 = '_', d5 = '_', d6 = '_', d7 = '_', d8 = '_', d9 = '_'] = formInput
+    console.log(formInput)
+    return '+380 (' + d1 + d2 + ') ' + d3 + d4 + d5 + ' ' + d6 + d7 + ' ' + d8 + d9
+  }
   const { sliderHeading, buttonText, sliders } = getTranslate(lang)
 
+  // useEffect(() => {
+  //   if (!auto) return
+  //   const interval = setTimeout(_ => {
+  //     slideRight()
+  //   }, 5000)
+  //   return _ => clearTimeout(interval)
+  // }, [auto, slideRight])
   return (
     <section className='slider'>
       <div className='slider__backgrnd' ref={sliderBackgroundRef} style={{ backgroundImage: `url(${sliders[0]})` }}>
@@ -78,28 +109,29 @@ export function Slider({ lang = 'uk' }) {
           </h1>
 
           <div className='form__container'>
-            <form action='submit' className='slider__form' onSubmit={formSubmit}>
+            <div className='slider__form'>
               <div className='form__line'>
                 <span className='form__mask'>
                   <input
-                    type='tel'
+                    // type='tel'
                     name='mask-500'
-                    value=''
+                    value={formValue()}
                     className='form__input'
                     size={40}
                     aria-required='true'
-                    placeholder='+38 (___) ___-__-__'
-                    data-mask='+38 (___) ___-__-__'
-                    onChange={inputHandler}
+                    placeholder='+380 (__) ___-__-__'
+                    // data-mask='+380 (__) ___-__-__'
+                    onKeyDown={inputHandler}
+                    onChange={inputChange}
                   />
                 </span>
                 <div className='form__submit-bg'>
-                  <button type='submit' className='form__submit-btn'>
+                  <button onClick={formSubmit} className='form__submit-btn'>
                     {buttonText}
                   </button>
                 </div>
               </div>
-            </form>
+            </div>
           </div>
           <button onClick={slideLeft} className='slider__button left'>
             {'>'}
