@@ -1,4 +1,4 @@
-import { Header } from '../common'
+import { Header, Footer } from '../common'
 
 export function PageLayout({ children, lang = 'uk', title = '' }) {
   console.log('PageLayout', lang)
@@ -6,6 +6,7 @@ export function PageLayout({ children, lang = 'uk', title = '' }) {
     <>
       <Header lang={lang} title={title} />
       <main>{children}</main>
+      <Footer lang={lang} />
     </>
   )
 }

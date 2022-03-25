@@ -49,6 +49,12 @@
   }
   &__item {
     margin-bottom: 35px;
+    &-pre {
+      width: 10%;
+    }
+    &-post {
+      width: 10%;
+    }
   }
   &__item-link {
     display: flex;
@@ -58,6 +64,7 @@
     color: $gray-color;
     font-size: 16px;
     line-height: 26px;
+    width: 80%;
     &:hover {
       color: $aqua-color;
     }
@@ -68,6 +75,8 @@
   }
   &__img-list {
     margin-right: 15px;
+    width: 14px;
+    height: 15px;
   }
   &__img-arrow {
     transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1), opacity 1s cubic-bezier(0.19, 1, 0.22, 1),
