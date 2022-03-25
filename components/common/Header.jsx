@@ -235,32 +235,32 @@ export function Header({ lang = 'uk', title = '' }) {
                     <ul className='sub-menu'>
                       <li className='menu__item sub-menu__item'>
                         <Link href={'/contacts/kyiv/' + lang + '/'}>
-                          <a>offices[0]</a>
+                          <a>{offices[0]}</a>
                         </Link>
                       </li>
                       <li className='menu__item sub-menu__item'>
                         <Link href={'/contacts/kharkiv/' + lang + '/'}>
-                          <a>offices[1]</a>
+                          <a>{offices[1]}</a>
                         </Link>
                       </li>
                       <li className='menu__item sub-menu__item'>
                         <Link href={'/contacts/odessa/' + lang + '/'}>
-                          <a>offices[2]</a>
+                          <a>{offices[2]}</a>
                         </Link>
                       </li>
                       <li className='menu__item sub-menu__item'>
                         <Link href={'/contacts/dnipro/' + lang + '/'}>
-                          <a>offices[3]</a>
+                          <a>{offices[3]}</a>
                         </Link>
                       </li>
                       <li className='menu__item sub-menu__item'>
                         <Link href={'/contacts/zaporizhzhia/' + lang + '/'}>
-                          <a>offices[4]</a>
+                          <a>{offices[4]}</a>
                         </Link>
                       </li>
                       <li className='menu__item sub-menu__item'>
                         <Link href={'/contacts/kryviy-rih/' + lang + '/'}>
-                          <a>offices[5]</a>
+                          <a>{offices[5]}</a>
                         </Link>
                       </li>
                     </ul>
