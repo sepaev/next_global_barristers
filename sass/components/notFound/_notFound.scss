@@ -26,28 +26,30 @@
 }
 .sub_not_par {
   font-size: 16px;
-  color: #1a1a1a;
+  color: $lightblack-color;
   letter-spacing: 0.1px;
   line-height: 20px;
   text-align: center;
   max-width: 545px;
   margin: 35px auto 15px;
-  & p {
+  & span {
+    display: block;
     margin: 10px 0;
     color: $aqua-color;
   }
   &_link {
-    opacity: 0;
+    opacity: 1;
     font-size: 14px;
+    margin-bottom: 40px;
     & span {
       margin: 0 20px;
     }
   }
 }
 .link_to_home {
-  display: inline-block;
   background: $aqua-color;
   color: $white-color;
+  display: inline-block;
   padding: 10px 25px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -56,4 +58,9 @@
   letter-spacing: 0.09px;
   line-height: 1.71429;
   margin-bottom: 16px;
+  border-radius: 5px;
+  &:hover {
+    background: $orange-color;
+    // color: $aqua-color;
+  }
 }

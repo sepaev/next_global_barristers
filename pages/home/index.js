@@ -24,12 +24,12 @@ function Home({ lang = 'uk' }) {
   return (
     <>
       <PageLayout lang={lang} title={title}>
-        <Slider lang={lang}></Slider>
-        <Reasons lang={lang} details={details}></Reasons>
-        <Info lang={lang}></Info>
-        <Articles lang={lang}></Articles>
-        <Seo lang={lang}></Seo>
-        <GoToTopBtn></GoToTopBtn>
+        <Slider key={'slider'} lang={lang}></Slider>
+        <Reasons key={'reasons'} lang={lang} details={details}></Reasons>
+        <Info key={'info'} lang={lang}></Info>
+        <Articles key={'articles'} lang={lang}></Articles>
+        <Seo key={'seo'} lang={lang}></Seo>
+        <GoToTopBtn key={'goToTopBtn'} />
       </PageLayout>
     </>
   )

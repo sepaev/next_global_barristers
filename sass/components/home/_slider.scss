@@ -35,7 +35,7 @@
     z-index: 500;
     background: rgba(255, 255, 255, 0.5);
     transition: background 0.3s;
-    border-radius: 1.29px;
+    border-radius: 5px;
     border: none;
     cursor: pointer;
     font-size: 30px;
@@ -77,21 +77,13 @@
 
   &__submit-bg {
     position: relative;
-    border-radius: 4px;
-    overflow: hidden;
-    background: $white-background-color;
+    border-radius: 6px;
     max-width: 251px;
     height: 40px;
     background: $orange-background-color !important;
-    border-color: $orange-background-color;
-    color: $white-color;
-    &:hover {
-      border-radius: 6px;
-      overflow: hidden;
-    }
+    overflow: hidden;
     &:hover:after {
       height: 600%;
-      opacity: 1;
     }
     &:after {
       content: '';
@@ -100,31 +92,23 @@
       top: 50%;
       left: 50%;
       background: $aqua-background-color;
-      opacity: 0;
       transform: translateX(-50%) translateY(-50%) rotate(45deg);
-      display: block;
       position: absolute;
-      transition: all 0.5s;
+      transition: all 0.4s;
     }
     &:hover .form__submit-btn {
       color: $white-color;
-      z-index: 500;
-      border-color: $aqua-background-color;
-      transition: 0.25s;
+      z-index: 5;
     }
   }
   &__submit-btn {
     height: 40px;
     background: transparent;
     padding: 0 15px;
-    color: $white-color;
     font-size: 16px;
-    border: 1px solid $white-color;
-    border-radius: 4px;
+    border-radius: 8px;
     transition: 0.25s;
     cursor: pointer;
-    color: $aqua-color;
-    position: relative;
     color: $white-color !important;
     border: 1px solid $orange-background-color !important;
     @media (min-width: 1200px) {
