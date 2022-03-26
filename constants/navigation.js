@@ -1,31 +1,52 @@
-export const aboutUs = 'about-us'
-export const ourTeam = 'our-team'
-export const ourPractices = 'practices'
-export const ourTowns = 'towns'
-export const ourSolutions = 'business-solutions'
-export const ourPartners = 'partners'
-export const ourAffiliates = 'affiliates'
+import {
+  aboutUsHtml,
+  ourTeamHtml,
+  ourPracticesHtml,
+  ourTownsHtml,
+  ourSolutionsHtml,
+  ourPartnersHtml,
+  ourAffiliatesHtml,
+  criminalLawHtml,
+  economicLawHtml,
+  familyLawHtml,
+  taxLawHtml,
+  civilLawHtml,
+  customsLawHtml,
+  immigrationLegislationHtml,
+  bankingDisputesHtml,
+  autoLawHtml,
+  kyivHtml,
+  kharkivHtml,
+  odessaHtml,
+  dniproHtml,
+  zaporizhzhiaHtml,
+  kryviyRihHtml,
+} from './pageNames'
 
 export const navigation = [
-  { navName: aboutUs, key: 101, pages: [] },
-  { navName: ourTeam, key: 102, pages: [] },
+  { navName: aboutUsHtml, key: 101, pages: [] },
+  { navName: ourTeamHtml, key: 102, pages: [] },
   {
-    navName: ourPractices,
+    navName: ourPracticesHtml,
     key: 103,
     pages: [
-      'criminal-law',
-      'economic-law',
-      'family-law',
-      'tax-law',
-      'civil-law',
-      'customs-law',
-      'immigration-legislation',
-      'banking-disputes',
-      'auto-law',
+      criminalLawHtml,
+      economicLawHtml,
+      familyLawHtml,
+      taxLawHtml,
+      civilLawHtml,
+      customsLawHtml,
+      immigrationLegislationHtml,
+      bankingDisputesHtml,
+      autoLawHtml,
     ],
   },
-  { navName: ourTowns, key: 104, pages: [] },
-  { navName: ourSolutions, key: 105, pages: [] },
-  { navName: ourPartners, key: 106, pages: [] },
-  { navName: ourAffiliates, key: 107, pages: ['kyiv', 'kharkiv', 'odessa', 'dnipro', 'zaporizhzhia', 'kryviy-rih'] },
+  { navName: ourTownsHtml, key: 104, pages: [] },
+  { navName: ourSolutionsHtml, key: 105, pages: [] },
+  { navName: ourPartnersHtml, key: 106, pages: [] },
+  {
+    navName: ourAffiliatesHtml,
+    key: 107,
+    pages: [kyivHtml, kharkivHtml, odessaHtml, dniproHtml, zaporizhzhiaHtml, kryviyRihHtml],
+  },
 ]

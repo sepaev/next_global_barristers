@@ -1,94 +1,174 @@
+import {
+  trudoviSporyHtml,
+  bankiSporyHtml,
+  sudoviSporyHtml,
+  neruhomostiHtml,
+  virishennyaSporivHtml,
+  zahistBiznesuHtml,
+  simeyniSporyHtml,
+  problemnyBorgyHtml,
+  zahistVidRejderstvaHtml,
+  rozluchennyaHtml,
+  majnoHtml,
+  podilBiznesuHtml,
+  alimentyHtml,
+  usynovlennyaHtml,
+  pozbavlennjaBatkivskihPravHtml,
+  privacyPolicyHtml,
+  offerAgreementHtml,
+  priceHtml,
+  aboutUsHtml,
+  missionHtml,
+} from '../../constants/pageNames'
+
 export function getTranslations(lang) {
-  let titles, practices, disputes, business, familyLaw, supervisor, other
+  let titles, partOne, partTwo, supervisor, other
 
   switch (lang) {
     case 'ru':
-      titles = ['Популярные услуги', 'Другое', 'Наши контакты']
-      practices = [
-        'Решение споров',
-        'Защита бизнеса',
-        'Адвокат по семейным спорам',
-        'Адвокат по взысканию задолженности',
+      titles = [{ services: 'Популярные услуги' }, { other: 'Другое' }, { contacts: 'Наши контакты' }]
+      partOne = [
+        {
+          html: virishennyaSporivHtml,
+          text: 'Решение споров',
+          subMenu: [
+            { html: trudoviSporyHtml, text: 'Адвокат по трудовым спорам' },
+            { html: bankiSporyHtml, text: 'Адвокат по банковским и финансовым спорам' },
+            { html: sudoviSporyHtml, text: 'Адвокат по судебным спорам' },
+            { html: neruhomostiHtml, text: 'Адвокат по спорам по недвижимости' },
+          ],
+        },
+        {
+          html: zahistBiznesuHtml,
+          text: 'Защита бизнеса',
+          subMenu: [{ html: zahistVidRejderstvaHtml, text: 'Защита бизнеса от рейдерства' }],
+        },
       ]
-      disputes = [
-        'Адвокат по трудовым спорам',
-        'Адвокат по банковским и финансовым спорам',
-        'Адвокат по судебным спорам',
-        'Адвокат по спорам по недвижимости',
+      partTwo = [
+        {
+          html: simeyniSporyHtml,
+          text: 'Адвокат по семейным спорам',
+          subMenu: [
+            { html: rozluchennyaHtml, text: 'Адвокат по разводу' },
+            { html: majnoHtml, text: 'Адвокат по разделу имущества' },
+            { html: podilBiznesuHtml, text: 'Адвокат по разделу бизнеса' },
+            { html: alimentyHtml, text: 'Адвокат по алиментам' },
+            { html: usynovlennyaHtml, text: 'Усыновление ребенка' },
+            { html: pozbavlennjaBatkivskihPravHtml, text: 'Лишение родительских прав' },
+          ],
+        },
+        { html: problemnyBorgyHtml, text: 'Адвокат по взысканию задолженности', subMenu: [] },
       ]
-      business = ['Защита бизнеса от рейдерства']
-      familyLaw = [
-        'Адвокат по разводу',
-        'Адвокат по разделу имущества',
-        'Адвокат по разделу бизнеса',
-        'Адвокат по алиментам',
-        'Усыновление ребенка',
-        'Лишение родительских прав',
+      supervisor = {
+        title: 'Написать руководителю',
+        text: 'Если вы остались недовольны нашей работой или что-то пошло не так. Напишите руководителю компании.',
+        button: 'Написать',
+      }
+      other = [
+        { html: privacyPolicyHtml, text: 'Политика конфиденциальности' },
+        { html: offerAgreementHtml, text: 'Договор оферты' },
+        { html: priceHtml, text: 'Прайс' },
+        { html: aboutUsHtml, text: 'О нас' },
+        { html: missionHtml, text: 'Миссия, ценности, стандарты' },
       ]
-      supervisor = [
-        'Написать руководителю',
-        'Если вы остались недовольны нашей работой или что-то пошло не так. Напишите руководителю компании',
-        'Написать',
-      ]
-      other = ['Политика конфиденциальности', 'Договор оферты', 'Прайс', 'О нас', 'Миссия, ценности, стандарты']
       break
 
     case 'en':
-      titles = ['Popular Services', 'Other', 'Our Contacts']
-      practices = ['Settlement of Disputes', 'Business protection', 'Family Dispute Lawyer', 'Debt collection lawyer']
-      disputes = [
-        'Labor Dispute Lawyer',
-        'Lawyer for banking and financial disputes',
-        'Lawyer for litigation',
-        'Real Estate Dispute Lawyer',
+      titles = [{ services: 'Popular Services' }, { other: 'Other' }, { contacts: 'Our Contacts' }]
+      partOne = [
+        {
+          html: virishennyaSporivHtml,
+          text: 'Settlement of Disputes',
+          subMenu: [
+            { html: trudoviSporyHtml, text: 'Labor Dispute Lawyer' },
+            { html: bankiSporyHtml, text: 'Lawyer for banking and financial disputes' },
+            { html: sudoviSporyHtml, text: 'Lawyer for litigation' },
+            { html: neruhomostiHtml, text: 'Real Estate Dispute Lawyer' },
+          ],
+        },
+        {
+          html: zahistBiznesuHtml,
+          text: 'Business protection',
+          subMenu: [{ html: zahistVidRejderstvaHtml, text: 'Protecting Business from Raiders' }],
+        },
       ]
-      business = ['Protecting Business from Raiders']
-      familyLaw = [
-        'Divorce Attorney',
-        'Property Division Lawyer',
-        'Business Division Lawyer',
-        'Alimony Lawyer',
-        'Adoption of a child',
-        'Deprivation of parental rights',
+      partTwo = [
+        {
+          html: simeyniSporyHtml,
+          text: 'Family Dispute Lawyer',
+          subMenu: [
+            { html: rozluchennyaHtml, text: 'Divorce Attorney' },
+            { html: majnoHtml, text: 'Property Division Lawyer' },
+            { html: podilBiznesuHtml, text: 'Business Division Lawyer' },
+            { html: alimentyHtml, text: 'Alimony Lawyer' },
+            { html: usynovlennyaHtml, text: 'Adoption of a child' },
+            { html: pozbavlennjaBatkivskihPravHtml, text: 'Deprivation of parental rights' },
+          ],
+        },
+        { html: problemnyBorgyHtml, text: 'Debt collection lawyer', subMenu: [] },
       ]
-      supervisor = [
-        'Write to the manager',
-        'If you are not happy with our work or something went wrong. Write to the head of the company ',
-        'Write',
+      supervisor = {
+        title: 'Write to the manager',
+        text: 'If you are not happy with our work or something went wrong. Write to the director of the company.',
+        button: 'Write letter',
+      }
+
+      other = [
+        { html: privacyPolicyHtml, text: 'Privacy Policy' },
+        { html: offerAgreementHtml, text: 'Offer Agreement' },
+        { html: priceHtml, text: 'Price' },
+        { html: aboutUsHtml, text: 'About Us' },
+        { html: missionHtml, text: 'Mission, Values, Standards' },
       ]
-      other = ['Privacy Policy', 'Offer Agreement', 'Price', 'About Us', 'Mission, Values, Standards']
       break
 
     default:
-      titles = ['Популярні послуги', 'Інше', 'Наші контакти']
-      practices = [
-        'Вирішення спорів',
-        'Захист бізнесу',
-        'Адвокат зі сімейних спорів',
-        'Адвокат по стягненню заборгованності',
+      titles = [{ services: 'Популярні послуги' }, { other: 'Інше' }, { contacts: 'Наші контакти' }]
+      partOne = [
+        {
+          html: virishennyaSporivHtml,
+          text: 'Вирішення спорів',
+          subMenu: [
+            { html: trudoviSporyHtml, text: 'Адвокат з трудових спорів' },
+            { html: bankiSporyHtml, text: 'Адвокат з банківських і фінансових спорів' },
+            { html: sudoviSporyHtml, text: 'Адвокат з судових спорів' },
+            { html: neruhomostiHtml, text: 'Адвокат зі спорів щодо нерухомості' },
+          ],
+        },
+        {
+          html: zahistBiznesuHtml,
+          text: 'Захист бізнесу',
+          subMenu: [{ html: zahistVidRejderstvaHtml, text: 'Захист бізнесу від рейдерства' }],
+        },
       ]
-      disputes = [
-        'Адвокат з трудових спорів',
-        'Адвокат з банківських і фінансових спорів',
-        'Адвокат з судових спорів',
-        'Адвокат зі спорів щодо нерухомості',
+      partTwo = [
+        {
+          html: simeyniSporyHtml,
+          text: 'Адвокат зі сімейних спорів',
+          subMenu: [
+            { html: rozluchennyaHtml, text: 'Адвокат з розлучення' },
+            { html: majnoHtml, text: 'Адвокат з поділу майна' },
+            { html: podilBiznesuHtml, text: 'Адвокат з поділу бізнесу' },
+            { html: alimentyHtml, text: 'Адвокат з аліментів' },
+            { html: usynovlennyaHtml, text: 'Усиновлення дитини' },
+            { html: pozbavlennjaBatkivskihPravHtml, text: 'Позбавлення батьківських прав' },
+          ],
+        },
+        { html: problemnyBorgyHtml, text: 'Адвокат по стягненню заборгованності', subMenu: [] },
       ]
-      business = ['Захист бізнесу від рейдерства']
-      familyLaw = [
-        'Адвокат з розлучення',
-        'Адвокат з поділу майна',
-        'Адвокат з поділу бізнесу',
-        'Адвокат з аліментів',
-        'Усиновлення дитини',
-        'Позбавлення батьківських прав',
+      supervisor = {
+        title: 'Написати керівнику',
+        text: 'Якщо ви залишилися не задоволені нашою роботою або щось пішло не так. Напишіть керівнику компанії',
+        button: 'Написати',
+      }
+      other = [
+        { html: privacyPolicyHtml, text: 'Політика конфіденційності' },
+        { html: offerAgreementHtml, text: 'Договір оферти' },
+        { html: priceHtml, text: 'Прайс' },
+        { html: aboutUsHtml, text: 'Про нас' },
+        { html: missionHtml, text: 'Місія, цінності, стандарти' },
       ]
-      supervisor = [
-        'Написати керівнику',
-        'Якщо ви залишилися не задоволені нашою роботою або щось пішло не так. Напишіть керівнику компанії',
-        'Написати',
-      ]
-      other = ['Політика конфіденційності', 'Договір оферти', 'Прайс', 'Про нас', 'Місія, цінності, стандарти']
       break
   }
-  return { titles, practices, disputes, business, familyLaw, supervisor, other }
+  return { titles, partOne, partTwo, supervisor, other }
 }

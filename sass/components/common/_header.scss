@@ -97,8 +97,12 @@
     align-items: center;
   }
   &__item {
+    text-align: center;
     text-transform: uppercase;
     position: relative;
+    &.sub-menu__item {
+      text-align: left;
+    }
     & > a {
       height: 100%;
       display: flex;
@@ -115,11 +119,11 @@
     display: flex;
   }
   &__button-link {
+    font-weight: 500;
     text-align: center;
     background: $orange-background-color;
     border-color: $orange-color;
     color: $white-color;
-    // border: 1px solid $orange-background-color;
   }
 }
 

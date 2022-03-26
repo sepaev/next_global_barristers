@@ -7,7 +7,6 @@ export default function ErrorPage() {
     <>
       <Head>
         <title>{'«Global Barristers» ≡ 404'}</title>
-        <link rel='icon' href='/favicon.png' />
       </Head>
       <main>
         <div className='page-header' style={{ backgroundImage: `url(${image.src})` }}></div>

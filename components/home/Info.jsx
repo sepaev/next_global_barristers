@@ -5,6 +5,7 @@ import info768Img from '../../images/info768Img.jpg'
 import info1024Img from '../../images/info1024Img.jpg'
 import { getTranslate } from '../../translations/home/info'
 import { useMemo } from 'react'
+import { ourTeamHtml } from '../../constants/pageNames'
 
 export function Info({ lang }) {
   const { infoHeading, paragraphs, buttonText } = useMemo(() => getTranslate(lang), [lang])
@@ -18,13 +19,13 @@ export function Info({ lang }) {
             </h2>
             {paragraphs.map((paragraph, index) => {
               return (
-                <p key={'info_'+index} className='info__text-p'>
+                <p key={'info_' + index} className='info__text-p'>
                   {paragraph}
                 </p>
               )
             })}
 
-            <a href={'/our-team/' + lang} className='btn-default'>
+            <a href={'/' + ourTeamHtml + '/' + lang} className='btn-default'>
               {buttonText}
             </a>
           </div>

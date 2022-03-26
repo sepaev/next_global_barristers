@@ -38,7 +38,7 @@ export function Slider({ lang = 'uk' }) {
       alert('введите номер')
       return
     }
-    const number = formValue()
+    const number = inputMask()
     alert(number + ' - заявка відправлена')
   }
 
