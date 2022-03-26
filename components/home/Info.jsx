@@ -18,7 +18,7 @@ export function Info({ lang }) {
             </h2>
             {paragraphs.map((paragraph, index) => {
               return (
-                <p key={index} className='info__text-p'>
+                <p key={'info_'+index} className='info__text-p'>
                   {paragraph}
                 </p>
               )

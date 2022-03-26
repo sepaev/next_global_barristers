@@ -15,17 +15,15 @@ export function Reasons({ lang }) {
         <ul className='ability__list'>
           {reasons.map((reason, index) => {
             return (
-              <>
-                <li key={'reason' + index} className='ability__item jsActivateAnimation' data-animation='fadeInUp'>
-                  <div className='ability__content'>
-                    <h3 className='ability__title'>{reason.reasonTitle}</h3>
-                    <p className='ability__description'>{reason.reasonDescription}</p>
-                  </div>
-                  <Link href={'/' + reason.reasonLink + '/' + lang + '/'}>
-                    <a className='ability__link btn-default'>{detailsButtonText}</a>
-                  </Link>
-                </li>
-              </>
+              <li key={'reason_' + index} className='ability__item jsActivateAnimation' data-animation='fadeInUp'>
+                <div className='ability__content'>
+                  <h3 className='ability__title'>{reason.reasonTitle}</h3>
+                  <p className='ability__description'>{reason.reasonDescription}</p>
+                </div>
+                <Link href={'/' + reason.reasonLink + '/' + lang + '/'}>
+                  <a className='ability__link btn-default'>{detailsButtonText}</a>
+                </Link>
+              </li>
             )
           })}
         </ul>

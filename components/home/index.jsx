@@ -1,5 +1,5 @@
 export { Slider } from './Slider'
 export { Reasons } from './Reasons'
-export { Projects } from './Projects'
+export { Articles } from './Articles'
 export { Info } from './Info'
 export { Seo } from './Seo'

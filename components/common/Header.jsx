@@ -37,9 +37,9 @@ export function Header({ lang = 'uk', title = '' }) {
               <div className='top-menu__numbers'>
                 {phones.map((phone, index) => {
                   return (
-                    <Link key={index} href={phone}>
-                      <a className='top-menu__link'>{phone}</a>
-                    </Link>
+                    <a key={'phones_' + index} href={phone} className='top-menu__link'>
+                      {phone}
+                    </a>
                   )
                 })}
               </div>
@@ -79,7 +79,7 @@ export function Header({ lang = 'uk', title = '' }) {
                 <ul id={'menu-' + lang + '/'} className='menu__list'>
                   {navigation.map(({ navName, pages, key }, pageIndex) => {
                     return (
-                      <li key={key} className='menu__item'>
+                      <li key={'nav_' + key} className='menu__item'>
                         <Link href={'/' + navName + '/' + lang + '/'}>
                           <a>{navTranslations[navName]}</a>
                         </Link>
@@ -88,7 +88,7 @@ export function Header({ lang = 'uk', title = '' }) {
                           <ul className='sub-menu'>
                             {pages.map((pageName, index) => {
                               return (
-                                <li key={key + '_' + index} className='menu__item sub-menu__item'>
+                                <li key={'subMenu_' + key + '_' + index} className='menu__item sub-menu__item'>
                                   <Link href={'/' + navName + '/' + pageName + '/' + lang + '/'}>
                                     <a>{subMenuTranslations[pageName]}</a>
                                   </Link>
