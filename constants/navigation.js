@@ -1,8 +1,16 @@
+export const aboutUs = 'about-us'
+export const ourTeam = 'our-team'
+export const ourPractices = 'practices'
+export const ourTowns = 'towns'
+export const ourSolutions = 'business-solutions'
+export const ourPartners = 'partners'
+export const ourAffiliates = 'affiliates'
+
 export const navigation = [
-  { navName: 'about-us', key: 101, pages: [] },
-  { navName: 'our-team', key: 102, pages: [] },
+  { navName: aboutUs, key: 101, pages: [] },
+  { navName: ourTeam, key: 102, pages: [] },
   {
-    navName: 'practices',
+    navName: ourPractices,
     key: 103,
     pages: [
       'criminal-law',
@@ -16,8 +24,8 @@ export const navigation = [
       'auto-law',
     ],
   },
-  { navName: 'towns', key: 104, pages: [] },
-  { navName: 'business-solutions', key: 105, pages: [] },
-  { navName: 'partners', key: 106, pages: [] },
-  { navName: 'affiliates', key: 107, pages: ['kyiv', 'kharkiv', 'odessa', 'dnipro', 'zaporizhzhia', 'kryviy-rih'] },
+  { navName: ourTowns, key: 104, pages: [] },
+  { navName: ourSolutions, key: 105, pages: [] },
+  { navName: ourPartners, key: 106, pages: [] },
+  { navName: ourAffiliates, key: 107, pages: ['kyiv', 'kharkiv', 'odessa', 'dnipro', 'zaporizhzhia', 'kryviy-rih'] },
 ]
