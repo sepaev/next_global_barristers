@@ -1,6 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useMemo } from 'react'
+import { phones } from '../../constants/contacts'
+import { navigation } from '../../constants/navigation'
 
 import logo from '../../images/svg/logo.svg'
 import { getTranslations } from '../../translations/common/header'
@@ -13,10 +16,9 @@ export function Header({ lang = 'uk', title = '' }) {
     keywords,
     description,
     consultButton,
-    menuItems,
-    practicesItems,
-    offices,
-  } = getTranslations(lang)
+    navTranslations,
+    subMenuTranslations,
+  } = useMemo(() => getTranslations(lang), [lang])
   return (
     <>
       <Head>
@@ -33,12 +35,13 @@ export function Header({ lang = 'uk', title = '' }) {
           <div className='top-menu'>
             <div className='top-menu__container container'>
               <div className='top-menu__numbers'>
-                <Link href='tel:+38 (099) 603 24 54'>
-                  <a className='top-menu__link'>+38 (099) 603 24 54</a>
-                </Link>
-                <Link href='tel:+38 (098) 235 02 70'>
-                  <a className='top-menu__link'>+38 (098) 235 02 70</a>
-                </Link>
+                {phones.map((phone, index) => {
+                  return (
+                    <Link key={index} href={phone}>
+                      <a className='top-menu__link'>{phone}</a>
+                    </Link>
+                  )
+                })}
               </div>
 
               <div className='lang'>
@@ -74,120 +77,29 @@ export function Header({ lang = 'uk', title = '' }) {
               </div>
               <div className='menu'>
                 <ul id={'menu-' + lang + '/'} className='menu__list'>
-                  <li className='menu__item'>
-                    <Link href={'/about-us/' + lang + '/'}>
-                      <a>{menuItems[0]}</a>
-                    </Link>
-                  </li>
-                  <li className='menu__item'>
-                    <Link href={'/our-team/' + lang + '/'}>
-                      <a>{menuItems[1]}</a>
-                    </Link>
-                  </li>
-                  <li className='menu__item'>
-                    <Link href={'/practices/' + lang + '/'}>
-                      <a>{menuItems[2]}</a>
-                    </Link>
-                    <ul className='sub-menu'>
-                      <li className='menu__item sub-menu__item'>
-                        <Link href={'/practices/criminal-law/' + lang + '/'}>
-                          <a>{practicesItems[0]}</a>
+                  {navigation.map(({ navName, pages, key }, pageIndex) => {
+                    return (
+                      <li key={key} className='menu__item'>
+                        <Link href={'/' + navName + '/' + lang + '/'}>
+                          <a>{navTranslations[navName]}</a>
                         </Link>
+                        {/* sub-menu */}
+                        {pages.length > 0 && (
+                          <ul className='sub-menu'>
+                            {pages.map((pageName, index) => {
+                              return (
+                                <li key={key + '_' + index} className='menu__item sub-menu__item'>
+                                  <Link href={'/' + navName + '/' + pageName + '/' + lang + '/'}>
+                                    <a>{subMenuTranslations[pageName]}</a>
+                                  </Link>
+                                </li>
+                              )
+                            })}
+                          </ul>
+                        )}
                       </li>
-                      <li className='menu__item sub-menu__item'>
-                        <Link href={'/practices/economic-law/' + lang + '/'}>
-                          <a>{practicesItems[1]}</a>
-                        </Link>
-                      </li>
-                      <li className='menu__item sub-menu__item'>
-                        <Link href={'/practices/family-law/' + lang + '/'}>
-                          <a>{practicesItems[2]}</a>
-                        </Link>
-                      </li>
-                      <li className='menu__item sub-menu__item'>
-                        <Link href={'/practices/tax-_law/' + lang + '/'}>
-                          <a>{practicesItems[3]}</a>
-                        </Link>
-                      </li>
-                      <li className='menu__item sub-menu__item'>
-                        <Link href={'/practices/civil-law/' + lang + '/'}>
-                          <a>{practicesItems[4]}</a>
-                        </Link>
-                      </li>
-                      <li className='menu__item sub-menu__item'>
-                        <Link href={'/practices/customs-law/' + lang + '/'}>
-                          <a>{practicesItems[5]}</a>
-                        </Link>
-                      </li>
-                      <li className='menu__item sub-menu__item'>
-                        <Link href={'/practices/immigration-legislation/' + lang + '/'}>
-                          <a>{practicesItems[6]}</a>
-                        </Link>
-                      </li>
-                      <li className='menu__item sub-menu__item'>
-                        <Link href={'/practices/banking-disputes/' + lang + '/'}>
-                          <a>{practicesItems[7]}</a>
-                        </Link>
-                      </li>
-                      <li className='menu__item sub-menu__item'>
-                        <Link href={'/practices/auto-law/' + lang + '/'}>
-                          <a>{practicesItems[8]}</a>
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className='menu__item'>
-                    <Link href={'/towns/' + lang + '/'}>
-                      <a>{menuItems[3]}</a>
-                    </Link>
-                  </li>
-                  <li className='menu__item'>
-                    <Link href={'/business-solutions/' + lang + '/'}>
-                      <a>{menuItems[4]}</a>
-                    </Link>
-                  </li>
-                  <li className='menu__item'>
-                    <Link href={'/towns/' + lang + '/'}>
-                      <a>{menuItems[5]}</a>
-                    </Link>
-                  </li>
-                  <li className='menu__item'>
-                    <Link href={'/contacts/kyiv/' + lang + '/'}>
-                      <a>{menuItems[6]}</a>
-                    </Link>
-                    <ul className='sub-menu'>
-                      <li className='menu__item sub-menu__item'>
-                        <Link href={'/contacts/kyiv/' + lang + '/'}>
-                          <a>{offices[0]}</a>
-                        </Link>
-                      </li>
-                      <li className='menu__item sub-menu__item'>
-                        <Link href={'/contacts/kharkiv/' + lang + '/'}>
-                          <a>{offices[1]}</a>
-                        </Link>
-                      </li>
-                      <li className='menu__item sub-menu__item'>
-                        <Link href={'/contacts/odessa/' + lang + '/'}>
-                          <a>{offices[2]}</a>
-                        </Link>
-                      </li>
-                      <li className='menu__item sub-menu__item'>
-                        <Link href={'/contacts/dnipro/' + lang + '/'}>
-                          <a>{offices[3]}</a>
-                        </Link>
-                      </li>
-                      <li className='menu__item sub-menu__item'>
-                        <Link href={'/contacts/zaporizhzhia/' + lang + '/'}>
-                          <a>{offices[4]}</a>
-                        </Link>
-                      </li>
-                      <li className='menu__item sub-menu__item'>
-                        <Link href={'/contacts/kryviy-rih/' + lang + '/'}>
-                          <a>{offices[5]}</a>
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
+                    )
+                  })}
                 </ul>
               </div>
               <div className='menu__button'>

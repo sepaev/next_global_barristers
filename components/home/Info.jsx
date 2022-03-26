@@ -16,10 +16,15 @@ export function Info({ lang }) {
             <h2 className='info__heading jsActivateAnimation' data-animation='fadeInUp'>
               {infoHeading}
             </h2>
-            <p className='info__text-p'>{paragraphs[0]}</p>
-            <p className='info__text-p'>{paragraphs[1]}</p>
+            {paragraphs.map((paragraph, index) => {
+              return (
+                <p key={index} className='info__text-p'>
+                  {paragraph}
+                </p>
+              )
+            })}
 
-            <a href='{{HOST}}our-team/uk/' className='btn-default'>
+            <a href={'/our-team/' + lang} className='btn-default'>
               {buttonText}
             </a>
           </div>
@@ -27,9 +32,9 @@ export function Info({ lang }) {
       </div>
       <div className='info__image-container jsActivateAnimation' data-animation='fadeInUpBig'>
         <Image
-          width='1075'
-          height='970'
-          src={infoOrignImg}
+          width='1075px'
+          height='970px'
+          src={infoOrignImg.src}
           className='info__image-img'
           alt='building'
           loading='lazy'
