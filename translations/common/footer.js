@@ -43,6 +43,16 @@ export function getTranslations(lang) {
           text: 'Защита бизнеса',
           subMenu: [{ html: zahistVidRejderstvaHtml, text: 'Защита бизнеса от рейдерства' }],
         },
+        {
+          html: '',
+          text: 'Адвокат Киев',
+          subMenu: [],
+        },
+        {
+          html: neruhomostiHtml,
+          text: 'Юрист по недвижимости',
+          subMenu: [],
+        },
       ]
       partTwo = [
         {
@@ -58,16 +68,6 @@ export function getTranslations(lang) {
           ],
         },
         { html: problemnyBorgyHtml, text: 'Адвокат по взысканию задолженности', subMenu: [] },
-        {
-          html: '',
-          text: 'Адвокат Киев',
-          subMenu: [],
-        },
-        {
-          html: neruhomostiHtml,
-          text: 'Юрист по недвижимости',
-          subMenu: [],
-        },
       ]
       supervisor = {
         title: 'Написать руководителю',

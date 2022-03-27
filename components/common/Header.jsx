@@ -68,10 +68,15 @@ export function Header({ lang = 'uk', title = '' }) {
                       className='navigation__logo-img'
                       src={logo.src}
                       alt='Global Barristers'
-                      width={306.531}
-                      height={45}
+                      width='306.5px'
+                      height='45px'
                     />
                   </a>
+                </Link>
+              </div>
+              <div className='menu__button'>
+                <Link href='#'>
+                  <a className='menu__button-link consult-btn'>{consultButton}</a>
                 </Link>
               </div>
               <div className='menu'>
@@ -100,11 +105,6 @@ export function Header({ lang = 'uk', title = '' }) {
                     )
                   })}
                 </ul>
-              </div>
-              <div className='menu__button'>
-                <Link href='#'>
-                  <a className='menu__button-link consult-btn'>{consultButton}</a>
-                </Link>
               </div>
             </div>
           </nav>
