@@ -2,13 +2,114 @@
   height: auto;
   font-weight: 400;
   padding-top: 25px;
-  background: #0a5a6a;
+  background: $aqua-background-color;
   padding-bottom: 25px;
   height: auto;
   &__wrapper {
     padding-top: 20px;
     display: flex;
-    -webkit-box-pack: justify;
     justify-content: space-between;
+  }
+  &__title {
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: $white-color;
+    white-space: nowrap;
+  }
+  &-liq__image {
+    background-color: $wheat-color;
+  }
+}
+
+.footer-menu {
+  &__list.part-two {
+    margin-top: 26px;
+  }
+  &__link {
+    font-weight: 700;
+    color: $white-color;
+    font-size: 12px;
+    line-height: 14px;
+    &:hover {
+      color: $orange-color;
+    }
+    &.phone {
+      white-space: nowrap;
+    }
+  }
+  &-sub__list {
+    padding-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    list-style: circle;
+  }
+
+  &-sub__link {
+    color: $white-color;
+    font-size: 12px;
+    line-height: 14px;
+    &:hover {
+      color: $orange-color;
+    }
+  }
+}
+
+.supervisor {
+  width: 30%;
+  &__container {
+    max-width: 430px;
+    padding-left: 118px;
+    margin-top: -11px;
+    margin-right: 20px;
+    padding-top: 10px;
+    color: $white-color;
+  }
+  &__image {
+    position: absolute;
+    left: 0;
+    top: -4px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    display: block;
+    overflow: hidden;
+  }
+  &__title {
+    font-weight: 400;
+    letter-spacing: 0.09px;
+    margin-bottom: 16px;
+    font-size: 16px !important;
+    color: $white-color;
+    line-height: 14px;
+    opacity: 1;
+  }
+  &__text {
+    color: $white-color;
+    box-sizing: border-box;
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 24px;
+    min-height: 54px;
+    font-weight: 400;
+  }
+  &__button {
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    padding: 15px 26px;
+    display: inline-block;
+    transition: border-color 0.2s ease-in-out;
+    will-change: font-weight;
+    font-weight: 600;
+    margin-top: 0px;
+    border: 1px solid $white-color;
+    font-size: 12px;
+    line-height: 14px;
+    color: $white-color;
+    &:hover {
+      color: $orange-color;
+      border: 1px solid $white-color;
+    }
   }
 }

@@ -26,7 +26,7 @@ export function getTranslations(lang) {
 
   switch (lang) {
     case 'ru':
-      titles = [{ services: 'Популярные услуги' }, { other: 'Другое' }, { contacts: 'Наши контакты' }]
+      titles = { services: 'Популярные услуги', other: 'Другое', contacts: 'Наши контакты' }
       partOne = [
         {
           html: virishennyaSporivHtml,
@@ -58,6 +58,16 @@ export function getTranslations(lang) {
           ],
         },
         { html: problemnyBorgyHtml, text: 'Адвокат по взысканию задолженности', subMenu: [] },
+        {
+          html: '',
+          text: 'Адвокат Киев',
+          subMenu: [],
+        },
+        {
+          html: neruhomostiHtml,
+          text: 'Юрист по недвижимости',
+          subMenu: [],
+        },
       ]
       supervisor = {
         title: 'Написать руководителю',
@@ -74,7 +84,7 @@ export function getTranslations(lang) {
       break
 
     case 'en':
-      titles = [{ services: 'Popular Services' }, { other: 'Other' }, { contacts: 'Our Contacts' }]
+      titles = { services: 'Popular Services', other: 'Other', contacts: 'Our Contacts' }
       partOne = [
         {
           html: virishennyaSporivHtml,
@@ -90,6 +100,16 @@ export function getTranslations(lang) {
           html: zahistBiznesuHtml,
           text: 'Business protection',
           subMenu: [{ html: zahistVidRejderstvaHtml, text: 'Protecting Business from Raiders' }],
+        },
+        {
+          html: '',
+          text: 'Lawyer in Kyiv',
+          subMenu: [],
+        },
+        {
+          html: neruhomostiHtml,
+          text: 'Real estate lawyer',
+          subMenu: [],
         },
       ]
       partTwo = [
@@ -123,7 +143,7 @@ export function getTranslations(lang) {
       break
 
     default:
-      titles = [{ services: 'Популярні послуги' }, { other: 'Інше' }, { contacts: 'Наші контакти' }]
+      titles = { services: 'Популярні послуги', other: 'Інше', contacts: 'Наші контакти' }
       partOne = [
         {
           html: virishennyaSporivHtml,
@@ -139,6 +159,16 @@ export function getTranslations(lang) {
           html: zahistBiznesuHtml,
           text: 'Захист бізнесу',
           subMenu: [{ html: zahistVidRejderstvaHtml, text: 'Захист бізнесу від рейдерства' }],
+        },
+        {
+          html: '',
+          text: 'Адвокат Київ',
+          subMenu: [],
+        },
+        {
+          html: neruhomostiHtml,
+          text: 'Юрист з нерухомості',
+          subMenu: [],
         },
       ]
       partTwo = [

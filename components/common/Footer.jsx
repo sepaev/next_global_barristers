@@ -26,7 +26,7 @@ export function Footer({ lang = 'uk' }) {
                     <>
                       <li key={'footer-menu_' + partOneIndex} className='footer-menu__item'>
                         <Link href={'/articles/' + lang + '/' + html + '/'}>
-                          <a>{text}</a>
+                          <a className='footer-menu__link'>{text}</a>
                         </Link>
                       </li>
                       {subMenu.length > 0 && (
@@ -35,7 +35,7 @@ export function Footer({ lang = 'uk' }) {
                             return (
                               <li key={'footer-sub-menu_' + subMenuIndex} className='footer-menu-sub__item'>
                                 <Link href={'/articles/' + lang + '/' + html + '/'}>
-                                  <a>{text}</a>
+                                  <a className='footer-menu-sub__link'>{text}</a>
                                 </Link>
                               </li>
                             )
@@ -50,13 +50,13 @@ export function Footer({ lang = 'uk' }) {
           </section>
           <section className='footer__services right'>
             <div className='footer-menu part-two'>
-              <ul className='footer-menu__list'>
+              <ul className='footer-menu__list part-two'>
                 {partTwo.map(({ html, text, subMenu }, partTwoIndex) => {
                   return (
                     <>
                       <li key={'footer-menu_' + partTwoIndex} className='footer-menu__item'>
                         <Link href={'/articles/' + lang + '/' + html + '/'}>
-                          <a>{text}</a>
+                          <a className='footer-menu__link'>{text}</a>
                         </Link>
                       </li>
                       {subMenu.length > 0 && (
@@ -65,7 +65,7 @@ export function Footer({ lang = 'uk' }) {
                             return (
                               <li key={'footer-sub-menu_' + subMenuIndex} className='footer-menu-sub__item'>
                                 <Link href={'/articles/' + lang + '/' + html + '/'}>
-                                  <a>{text}</a>
+                                  <a className='footer-menu-sub__link'>{text}</a>
                                 </Link>
                               </li>
                             )
@@ -84,7 +84,7 @@ export function Footer({ lang = 'uk' }) {
                   return (
                     <li key={'other_' + index} className='footer-menu__item'>
                       <Link href={'/' + html + '/' + lang}>
-                        <a target='_blank' rel='noopener noreferrer'>
+                        <a className='footer-menu__link' target='_blank' rel='noopener noreferrer'>
                           {text}
                         </a>
                       </Link>
@@ -100,7 +100,9 @@ export function Footer({ lang = 'uk' }) {
               {phones.map((phone, index) => {
                 return (
                   <li key={'footer-phones_' + index} className='footer-phone__item'>
-                    <a href={phone}>{phone}</a>
+                    <a className='footer-menu__link phone' href={phone}>
+                      {phone}
+                    </a>
                   </li>
                 )
               })}
@@ -121,10 +123,12 @@ export function Footer({ lang = 'uk' }) {
               })}
             </ul>
           </section>
-          <section className='footer__supervisor '>
+          <section className='footer__supervisor supervisor'>
             <div className='supervisor__container'>
-              <Image className='supervisor__image lazy' alt='supervisor' src={superV.src} width={90} height={90} />
-              <h4 className='footer__title'>{supervisor.title}</h4>
+              <div className='supervisor__image lazy'>
+                <Image alt='supervisor' src={superV.src} width={90} height={90} />
+              </div>
+              <h4 className='supervisor__title'>{supervisor.title}</h4>
               <p className='supervisor__text'>{supervisor.text}</p>
               <a href='#' target='_blank' onClick={writeSuperV} className='btn-default supervisor__button'>
                 {supervisor.button}
