@@ -83,14 +83,17 @@
   &__top-wrapper {
     display: flex;
     justify-content: space-around;
-    vertical-align: middle;
+    align-items: center;
+  }
+  &__logo {
+    margin-top: 3px;
+  }
+  &__logo-link {
+    display: flex;
   }
   &__logo-img {
     height: 45px;
-    // position: absolute;
-    // top: 5px;
-    // left: 140px;
-    // display: inline;
+    margin-top: 5px;
   }
   // &__button {
   //   // display: flex;
@@ -99,15 +102,27 @@
   //   // right: 140px;
   // }
   &__button-link {
+    display: flex;
     font-weight: 500;
     text-align: center;
     background: $orange-background-color;
     border-color: $orange-color;
     color: $white-color;
+    @media only screen and (max-width: $wide-desktop) {
+      & {
+        font-size: 12px;
+        padding: 10px 15px;
+      }
+    }
   }
   &__title {
     display: contents;
     margin-bottom: 0;
+    @media only screen and (max-width: $wide-desktop) {
+      & {
+        font-size: 25px;
+      }
+    }
   }
 }
 
@@ -136,6 +151,11 @@
       display: flex;
       align-items: center;
       padding: 0 21px;
+      @media only screen and (max-width: $wide-desktop) {
+        & {
+          font-size: 12px;
+        }
+      }
     }
   }
   &__item:hover .sub-menu {

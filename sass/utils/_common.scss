@@ -11,9 +11,9 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
 }
 .container {
   max-width: 1140px;
@@ -93,8 +93,9 @@ p a {
   transform: matrix(1, 0, 0, 1, 0, 0) !important;
   will-change: font-weight;
   box-sizing: content-box;
+
   &:hover {
-    color: #fff;
+    color: $white-color;
   }
   &:after {
     content: '';

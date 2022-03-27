@@ -5,7 +5,8 @@ import superV from '../../images/supervisor.jpg'
 import liqpay from '../../images/liqpay.webp'
 import { getTranslations } from '../../translations/common/footer'
 import { phones, social } from '../../constants/contacts'
-import { useMemo } from 'react'
+import { useMemo, Fragment } from 'react'
+import uniqid from 'uniqid'
 
 export function Footer({ lang = 'uk' }) {
   const { titles, partOne, partTwo, supervisor, other } = useMemo(() => getTranslations(lang), [lang])
@@ -23,9 +24,9 @@ export function Footer({ lang = 'uk' }) {
               <ul className='footer-menu__list'>
                 {partOne.map(({ html, text, subMenu }, partOneIndex) => {
                   return (
-                    <>
-                      <li key={'footer-menu_' + partOneIndex} className='footer-menu__item'>
-                        <Link href={'/articles/' + lang + '/' + html + '/'}>
+                    <Fragment key={uniqid()}>
+                      <li className='footer-menu__item'>
+                        <Link href={'/articles/' + lang + '/' + html}>
                           <a className='footer-menu__link'>{text}</a>
                         </Link>
                       </li>
@@ -33,8 +34,8 @@ export function Footer({ lang = 'uk' }) {
                         <ul className='footer-menu-sub__list'>
                           {subMenu.map(({ html, text }, subMenuIndex) => {
                             return (
-                              <li key={'footer-sub-menu_' + subMenuIndex} className='footer-menu-sub__item'>
-                                <Link href={'/articles/' + lang + '/' + html + '/'}>
+                              <li key={uniqid()} className='footer-menu-sub__item'>
+                                <Link href={'/articles/' + lang + '/' + html}>
                                   <a className='footer-menu-sub__link'>{text}</a>
                                 </Link>
                               </li>
@@ -42,7 +43,7 @@ export function Footer({ lang = 'uk' }) {
                           })}
                         </ul>
                       )}
-                    </>
+                    </Fragment>
                   )
                 })}
               </ul>
@@ -53,9 +54,9 @@ export function Footer({ lang = 'uk' }) {
               <ul className='footer-menu__list part-two'>
                 {partTwo.map(({ html, text, subMenu }, partTwoIndex) => {
                   return (
-                    <>
-                      <li key={'footer-menu_' + partTwoIndex} className='footer-menu__item'>
-                        <Link href={'/articles/' + lang + '/' + html + '/'}>
+                    <Fragment key={uniqid()}>
+                      <li className='footer-menu__item'>
+                        <Link href={'/articles/' + lang + '/' + html}>
                           <a className='footer-menu__link'>{text}</a>
                         </Link>
                       </li>
@@ -63,8 +64,8 @@ export function Footer({ lang = 'uk' }) {
                         <ul className='footer-menu-sub__list'>
                           {subMenu.map(({ html, text }, subMenuIndex) => {
                             return (
-                              <li key={'footer-sub-menu_' + subMenuIndex} className='footer-menu-sub__item'>
-                                <Link href={'/articles/' + lang + '/' + html + '/'}>
+                              <li key={uniqid()} className='footer-menu-sub__item'>
+                                <Link href={'/articles/' + lang + '/' + html}>
                                   <a className='footer-menu-sub__link'>{text}</a>
                                 </Link>
                               </li>
@@ -72,7 +73,7 @@ export function Footer({ lang = 'uk' }) {
                           })}
                         </ul>
                       )}
-                    </>
+                    </Fragment>
                   )
                 })}
               </ul>

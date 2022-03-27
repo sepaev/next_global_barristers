@@ -57,7 +57,6 @@ export function Slider({ lang = 'uk' }) {
   }
   function inputMask() {
     const [d1 = '_', d2 = '_', d3 = '_', d4 = '_', d5 = '_', d6 = '_', d7 = '_', d8 = '_', d9 = '_'] = formInput
-    console.log(formInput)
     return '+380 (' + d1 + d2 + ') ' + d3 + d4 + d5 + ' ' + d6 + d7 + ' ' + d8 + d9
   }
   const { sliderHeading, buttonText } = useMemo(() => getTranslate(lang), [lang])

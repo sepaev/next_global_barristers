@@ -20,7 +20,7 @@ export function Reasons({ lang }) {
                   <h3 className='ability__title'>{reason.reasonTitle}</h3>
                   <p className='ability__description'>{reason.reasonDescription}</p>
                 </div>
-                <Link href={'/' + reason.reasonLink + '/' + lang + '/'}>
+                <Link href={'/' + reason.reasonLink + '/' + lang }>
                   <a className='ability__link btn-default'>{detailsButtonText}</a>
                 </Link>
               </li>
