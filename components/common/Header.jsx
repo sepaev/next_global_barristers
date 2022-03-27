@@ -61,23 +61,26 @@ export function Header({ lang = 'uk', title = '' }) {
 
           <nav className='navigation'>
             <div className='navigation__container container'>
-              <div className='navigation__logo'>
-                <Link href={'/' + lang + '/'}>
-                  <a>
-                    <Image
-                      className='navigation__logo-img'
-                      src={logo.src}
-                      alt='Global Barristers'
-                      width='306.5px'
-                      height='45px'
-                    />
-                  </a>
-                </Link>
-              </div>
-              <div className='menu__button'>
-                <Link href='#'>
-                  <a className='menu__button-link consult-btn'>{consultButton}</a>
-                </Link>
+              <div className='navigation__top-wrapper'>
+                <div className='navigation__logo'>
+                  <Link href={'/' + lang + '/'}>
+                    <a>
+                      <Image
+                        className='navigation__logo-img'
+                        src={logo.src}
+                        alt='Global Barristers'
+                        width='306.5px'
+                        height='45px'
+                      />
+                    </a>
+                  </Link>
+                </div>
+                <h1 className='navigation__title'>{"Адвокатське об'эднання"}</h1>
+                <div className='navigation__button'>
+                  <Link href='#'>
+                    <a className='navigation__button-link consult-btn'>{consultButton}</a>
+                  </Link>
+                </div>
               </div>
               <div className='menu'>
                 <ul id={'menu-' + lang + '/'} className='menu__list'>

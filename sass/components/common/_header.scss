@@ -77,15 +77,37 @@
   transition: top 0.4s ease-in-out 1s;
   width: 100%;
   &__container {
-    // display: flex;
+    display: initial;
     height: 100%;
+  }
+  &__top-wrapper {
+    display: flex;
+    justify-content: space-around;
+    vertical-align: middle;
   }
   &__logo-img {
     height: 45px;
     // position: absolute;
     // top: 5px;
     // left: 140px;
-    display: inline;
+    // display: inline;
+  }
+  // &__button {
+  //   // display: flex;
+  //   // position: absolute;
+  //   // top: 5px;
+  //   // right: 140px;
+  // }
+  &__button-link {
+    font-weight: 500;
+    text-align: center;
+    background: $orange-background-color;
+    border-color: $orange-color;
+    color: $white-color;
+  }
+  &__title {
+    display: contents;
+    margin-bottom: 0;
   }
 }
 
@@ -120,19 +142,6 @@
     opacity: 1;
     padding: 30px 20px 20px;
     visibility: visible;
-  }
-  &__button {
-    display: flex;
-    position: absolute;
-    top: 5px;
-    right: 140px;
-  }
-  &__button-link {
-    font-weight: 500;
-    text-align: center;
-    background: $orange-background-color;
-    border-color: $orange-color;
-    color: $white-color;
   }
 }
 
