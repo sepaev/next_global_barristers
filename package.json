@@ -22,6 +22,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "sass": "^1.49.9",
+    "throttle-debounce": "^3.0.1",
     "uniqid": "^5.4.0"
   },
   "bugs": {
