@@ -5,7 +5,6 @@ import { Info, Articles, Reasons, Seo, Slider } from '../../components/home'
 
 function Home({ lang = 'uk' }) {
   const router = useRouter()
-  // const lang = router.query.lang ? router.query.lang : 'uk'
   let title, details
   switch (lang) {
     case 'ru':
