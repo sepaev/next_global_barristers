@@ -3,7 +3,6 @@
   padding: 0;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -111,7 +110,7 @@ p a {
     transition: all 0.5s;
   }
   &:hover:after {
-    height: 600%;
+    height: 800%;
     opacity: 1;
   }
 }

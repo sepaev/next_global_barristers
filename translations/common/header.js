@@ -1,13 +1,15 @@
+import { aboutUsHtml } from '../../constants/pageNames'
 export function getTranslations(lang) {
-  let enActive, ruActive, ukActive, keywords, description, consultButton, navTranslations, subMenuTranslations
+  let enActive, ruActive, ukActive, keywords, navTitle, description, consultButton, navTranslations, subMenuTranslations
   switch (lang) {
     case 'ru':
       ruActive = ' active'
       keywords = 'Адвокат,Адвокат Киев,Консультации'
-      description = 'Адвокатское объединение «Global Barristers» ≡ Адвокат Киев ≡ Консультации'
+      navTitle = 'Адвокатское объединение'
+      description = navTitle + ' «Global Barristers» ≡ Адвокат Киев ≡ Консультации'
       consultButton = 'Заказать консультацию'
       navTranslations = {
-        'about-us': 'О нас',
+        [aboutUsHtml]: 'О нас',
         'our-team': 'Наша команда',
         practices: 'Отрасли',
         towns: 'Города',
@@ -37,10 +39,11 @@ export function getTranslations(lang) {
     case 'en':
       enActive = ' active'
       keywords = 'Lawyer, Lawyer Kiev, Consulting'
-      description = 'Law Firm «Global Barristers» ≡ Kyiv Lawyer ≡ Consultations'
+      navTitle = 'Lawyers Association'
+      description = navTitle + ' «Global Barristers» ≡ Kyiv Lawyer ≡ Consultations'
       consultButton = 'Request consultation'
       navTranslations = {
-        'about-us': 'About us',
+        [aboutUsHtml]: 'About us',
         'our-team': 'Our team',
         practices: 'Departments',
         towns: 'Cities',
@@ -71,10 +74,11 @@ export function getTranslations(lang) {
       console.log('default')
       ukActive = ' active'
       keywords = 'Адвокат,Адвокат Київ,Консультації'
-      description = "Адвокатське об'єднання «Global Barristers» ≡ Адвокат Київ ≡ Консультації"
+      navTitle = "Адвокатське об'єднання"
+      description = navTitle + ' «Global Barristers» ≡ Адвокат Київ ≡ Консультації'
       consultButton = 'Замовити консультацію'
       navTranslations = {
-        'about-us': 'Про нас',
+        [aboutUsHtml]: 'Про нас',
         'our-team': 'Наша команда',
         practices: 'Галузі',
         towns: 'Міста',
@@ -106,6 +110,7 @@ export function getTranslations(lang) {
     ruActive,
     ukActive,
     keywords,
+    navTitle,
     description,
     consultButton,
     navTranslations,

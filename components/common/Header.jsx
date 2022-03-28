@@ -14,6 +14,7 @@ export function Header({ lang = 'uk', title = '' }) {
     ruActive = '',
     ukActive = '',
     keywords,
+    navTitle,
     description,
     consultButton,
     navTranslations,
@@ -75,11 +76,16 @@ export function Header({ lang = 'uk', title = '' }) {
                     </a>
                   </Link>
                 </div>
-                <h1 className='navigation__title'>{"Адвокатське об'єднання"}</h1>
+                <h1 className='navigation__title'>{navTitle}</h1>
                 <div className='navigation__button'>
                   <Link href='#'>
                     <a className='navigation__button-link consult-btn'>{consultButton}</a>
                   </Link>
+                </div>
+                <div className='navigation__menu-button' id='nav-icon3'>
+                  <span className='navigation__menu-line'></span>
+                  <span className='navigation__menu-line'></span>
+                  <span className='navigation__menu-line'></span>
                 </div>
               </div>
               <div className='menu'>
@@ -88,7 +94,7 @@ export function Header({ lang = 'uk', title = '' }) {
                     return (
                       <li key={'nav_' + key} className='menu__item'>
                         <Link href={'/' + navName + '/' + lang}>
-                          <a>{navTranslations[navName]}</a>
+                          <a className='menu__item-link'>{navTranslations[navName]}</a>
                         </Link>
                         {/* sub-menu */}
                         {pages.length > 0 && (
@@ -97,7 +103,7 @@ export function Header({ lang = 'uk', title = '' }) {
                               return (
                                 <li key={'subMenu_' + key + '_' + index} className='menu__item sub-menu__item'>
                                   <Link href={'/' + navName + '/' + pageName + '/' + lang}>
-                                    <a>{subMenuTranslations[pageName]}</a>
+                                    <a className='sub-menu__item-link'>{subMenuTranslations[pageName]}</a>
                                   </Link>
                                 </li>
                               )
