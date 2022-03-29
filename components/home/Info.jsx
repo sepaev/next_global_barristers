@@ -1,8 +1,4 @@
 import Image from 'next/image'
-import infoOrignImg from '../../images/infoOrignImg.jpg'
-import info300Img from '../../images/info300Img.jpg'
-import info768Img from '../../images/info768Img.jpg'
-import info1024Img from '../../images/info1024Img.jpg'
 import { getTranslate } from '../../translations/home/info'
 import { useMemo } from 'react'
 import { ourTeamHtml } from '../../constants/pageNames'
@@ -35,12 +31,10 @@ export function Info({ lang }) {
         <Image
           width='1075px'
           height='970px'
-          src={infoOrignImg.src}
+          src='/home/info.jpg'
           className='info__image-img'
-          alt='building'
+          alt='Tunnel'
           loading='lazy'
-          srcSet={infoOrignImg + ' 1075w,' + info300Img + ' 300w,' + info1024Img + ' 1024w,' + info768Img + ' 768w'}
-          sizes='(max-width: 1075px) 100vw, 1075px'
         />
       </div>
     </section>

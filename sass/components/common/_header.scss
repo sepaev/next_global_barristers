@@ -79,7 +79,7 @@
     }
 
     &:hover {
-      color: rgba(255, 255, 255, 0.7);
+      color: $half-white-color7;
     }
     &::after {
       content: '';
@@ -242,20 +242,10 @@
         padding-right: 1%;
       }
     }
-    @media only screen and (min-width: $laptop) and (max-width: $desktop) {
-      & {
-        // font-size: 16px;
-      }
-    }
+
     @media only screen and (min-width: $tablet) and (max-width: $laptop) {
       & {
-        // height: 15px;
         padding-right: 0;
-      }
-    }
-    @media only screen and (min-width: $phone) and (max-width: $tablet) {
-      & {
-        // min-height: 32px;
       }
     }
   }
@@ -386,7 +376,7 @@
         top: 95px;
         flex-direction: column;
         height: auto;
-        box-shadow: -4px 7px 12px -2px rgba(0, 0, 0, 0.3);
+        box-shadow: -4px 7px 12px -2px $half-black-background-color3;
         padding-bottom: 10px;
         align-items: flex-start;
       }
@@ -452,7 +442,7 @@
   display: flex;
   flex-direction: column;
   position: absolute;
-  left: 0;
+  left: -50px;
   margin: 0;
   min-width: 360px;
   border-radius: 5px;
@@ -468,7 +458,7 @@
     transition: 0.5s;
     width: 100%;
     padding: 12px 0 10px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid $half-black-background-color1;
   }
   &__item-link {
     height: 100%;
@@ -478,12 +468,12 @@
     font-size: 18px;
     @media only screen and (min-width: $desktop) and (max-width: $desktop4k) {
       & {
-        font-size: 12px;
+        font-size: 16px;
       }
     }
     @media only screen and (min-width: $laptop) and (max-width: $desktop) {
       & {
-        font-size: 11px;
+        font-size: 14px;
       }
     }
     @media only screen and (min-width: $tablet) and (max-width: $laptop) {
@@ -518,6 +508,6 @@
     border-width: 0 9.5px 6px;
     border-color: transparent transparent $white-color;
     top: 4px;
-    left: 20px;
+    left: 80px;
   }
 }

@@ -1,8 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import superV from '../../images/supervisor.jpg'
-import liqpay from '../../images/liqpay.webp'
 import { getTranslations } from '../../translations/common/footer'
 import { phones, social } from '../../constants/contacts'
 import { useMemo, Fragment } from 'react'
@@ -109,7 +107,7 @@ export function Footer({ lang = 'uk' }) {
               })}
             </ul>
             <div className='footer-liq'>
-              <Image src={liqpay.src} alt='liqpay' width={120} height={53.5} className='footer-liq__image' />
+              <Image src='/liqpay.webp' alt='liqpay' width={120} height={53.5} className='footer-liq__image' />
             </div>
 
             <ul className='footer-social__list'>
@@ -127,7 +125,7 @@ export function Footer({ lang = 'uk' }) {
           <section className='footer__supervisor supervisor'>
             <div className='supervisor__container'>
               <div className='supervisor__image lazy'>
-                <Image alt='supervisor' src={superV.src} width={90} height={90} />
+                <Image alt='Supervisor' src='/supervisor.jpg' width={90} height={90} />
               </div>
               <h4 className='supervisor__title'>{supervisor.title}</h4>
               <p className='supervisor__text'>{supervisor.text}</p>

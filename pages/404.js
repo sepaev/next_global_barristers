@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import image from '../images/slider/site_slide_02.webp'
+import Image from 'next/image'
+// import image from '../images/slider/site_slide_02.webp'
 import Head from 'next/head'
 
 export default function ErrorPage() {
@@ -9,7 +10,17 @@ export default function ErrorPage() {
         <title>{'«Global Barristers» ≡ 404'}</title>
       </Head>
       <main>
-        <div className='page-header' style={{ backgroundImage: `url(${image.src})` }}></div>
+        {/* <div className='page-header' style={{ backgroundImage: `url(${image.src})` }}></div> */}
+        <div className='page-header'>
+          <Image
+            src='/404/notFound.jpg'
+            alt='Night town'
+            layout='fill'
+            objectFit='cover'
+            loading='lazy'
+            objectPosition='top'
+          />
+        </div>
         <div className='container not_found'>
           <h1 className='not_found'>
             4<span>0</span>4

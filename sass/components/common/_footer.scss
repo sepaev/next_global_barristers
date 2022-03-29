@@ -16,8 +16,14 @@
     color: $white-color;
     white-space: nowrap;
   }
+  &-liq {
+    margin-bottom: 10px;
+  }
   &-liq__image {
-    background-color: $wheat-color;
+    background-color: $half-white-background-color5;
+  }
+  &-phone__list {
+    margin-bottom: 10px;
   }
 }
 
@@ -67,10 +73,10 @@
   &__image {
     position: absolute;
     left: 0;
-    top: -4px;
+    top: 9px;
     width: 90px;
     height: 90px;
-    border-radius: 50%;
+    border-radius: 25%;
     display: block;
     overflow: hidden;
   }

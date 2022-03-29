@@ -1,9 +1,6 @@
 import Image from 'next/image'
 import arrow from '../../images/svg/arrow.svg'
 import list from '../../images/svg/list.svg'
-import articlesOrignImg from '../../images/articlesOrignImg.jpg'
-import articles263Img from '../../images/articles263Img.jpg'
-import articles768Img from '../../images/articles768Img.jpg'
 import Link from 'next/link'
 import { useMemo } from 'react'
 import { getTranslate } from '../../translations/home/articles'
@@ -11,7 +8,6 @@ import { ourSolutionsHtml } from '../../constants/pageNames'
 
 export function Articles({ lang }) {
   const { articlesHeading, articlesCommonText, articlesButton, articles } = useMemo(() => getTranslate(lang), [lang])
-
   return (
     <section className='articles'>
       <div className='container'>
@@ -20,12 +16,10 @@ export function Articles({ lang }) {
             <Image
               width={801}
               height={913}
-              src={articlesOrignImg}
-              className='articles__picture-img attachment-full size-full'
-              alt=''
+              src='/home/projects.jpg'
+              className='articles__picture-img'
+              alt='Buildings'
               loading='lazy'
-              srcSet={articlesOrignImg + ' 801w,' + articles768Img + ' 768w,' + articles263Img + ' 263w'}
-              sizes='(max-width: 801px) 100vw, 801px'
             />
           </div>
 

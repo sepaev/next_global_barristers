@@ -8,10 +8,11 @@ import { throttle } from 'throttle-debounce'
 function Home({ lang = 'uk' }) {
   let GoToTopBtnRef = useRef(null)
   let title, details
-  // const router = useRouter()
+
   function btnGoTopController(currentScreenPosition, screenBottom, btnGoTop) {
     if (!btnGoTop || !btnGoTop.style) return
     if (currentScreenPosition > screenBottom) {
+      console.log(btnGoTop)
       btnGoTop.style.opacity = '1'
       btnGoTop.style.pointerEvents = 'initial'
     } else {

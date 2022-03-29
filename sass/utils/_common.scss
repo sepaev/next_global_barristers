@@ -45,6 +45,9 @@ nav ul li a {
 section {
   margin-bottom: 90px;
 }
+footer section {
+  margin-bottom: 5px;
+}
 
 .content h1,
 h1 {
@@ -115,7 +118,7 @@ p a {
   }
 }
 .btn-default {
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid $half-black-background-color2;
   border-radius: 4px;
   color: $gray-color;
   letter-spacing: 1px;

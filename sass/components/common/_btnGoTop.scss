@@ -3,7 +3,8 @@
   position: sticky;
   margin: auto;
   bottom: 41px;
-  z-index: 3;
+  z-index: 1;
+  // right: -100%;
   &__container {
     // min-width: 100%;
     display: flex;
@@ -11,7 +12,7 @@
   }
   &__image {
     background: $aqua-background-color;
-    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 4px 0 $half-black-background-color5;
     width: 48px;
     height: 48px;
     right: 48px;
