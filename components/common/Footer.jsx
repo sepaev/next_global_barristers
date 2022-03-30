@@ -21,21 +21,23 @@ export function Footer({ lang = 'uk' }) {
             <h4 className='footer__title'>{titles.services}</h4>
             <div className='footer-menu part-one'>
               <ul className='footer-menu__list'>
-                {partOne.map(({ html, text, subMenu }) => {
+                {partOne.map(({ html, subMenu }) => {
+                  const [url, text] = html
                   return (
                     <Fragment key={uniqid()}>
                       <li className='footer-menu__item'>
-                        <Link href={'/articles/' + lang + '/' + html}>
+                        <Link href={'/articles/' + lang + '/' + url}>
                           <a className='footer-menu__link'>{text[lang]}</a>
                         </Link>
                       </li>
                       {subMenu.length > 0 && (
                         <ul className='footer-menu-sub__list'>
-                          {subMenu.map(({ html, text }) => {
+                          {subMenu.map(({ html }) => {
+                            const [subUrl, subText] = html
                             return (
                               <li key={uniqid()} className='footer-menu-sub__item'>
-                                <Link href={'/articles/' + lang + '/' + html}>
-                                  <a className='footer-menu-sub__link'>{text[lang]}</a>
+                                <Link href={'/articles/' + lang + '/' + subUrl}>
+                                  <a className='footer-menu-sub__link'>{subText[lang]}</a>
                                 </Link>
                               </li>
                             )
@@ -51,21 +53,23 @@ export function Footer({ lang = 'uk' }) {
           <section className='footer__services right'>
             <div className='footer-menu part-two'>
               <ul className='footer-menu__list part-two'>
-                {partTwo.map(({ html, text, subMenu }) => {
+                {partTwo.map(({ html, subMenu }) => {
+                  const [url, text] = html
                   return (
                     <Fragment key={uniqid()}>
                       <li className='footer-menu__item'>
-                        <Link href={'/articles/' + lang + '/' + html}>
+                        <Link href={'/articles/' + lang + '/' + url}>
                           <a className='footer-menu__link'>{text[lang]}</a>
                         </Link>
                       </li>
                       {subMenu.length > 0 && (
                         <ul className='footer-menu-sub__list'>
-                          {subMenu.map(({ html, text }) => {
+                          {subMenu.map(({ html }) => {
+                            const [subUrl, subText] = html
                             return (
                               <li key={uniqid()} className='footer-menu-sub__item'>
-                                <Link href={'/articles/' + lang + '/' + html}>
-                                  <a className='footer-menu-sub__link'>{text[lang]}</a>
+                                <Link href={'/articles/' + lang + '/' + subUrl}>
+                                  <a className='footer-menu-sub__link'>{subText[lang]}</a>
                                 </Link>
                               </li>
                             )
@@ -80,10 +84,11 @@ export function Footer({ lang = 'uk' }) {
             <h4 className='footer__title'>{titles.other}</h4>
             <div className='footer-menu other'>
               <ul id='menu-drugoe-ukr' className='footer-menu__list'>
-                {other.map(({ html, text }, index) => {
+                {other.map(({ html }, index) => {
+                  const [url, text] = html
                   return (
                     <li key={'other_' + index} className='footer-menu__item'>
-                      <Link href={'/' + html + '/' + lang}>
+                      <Link href={'/' + url + '/' + lang}>
                         <a className='footer-menu__link' target='_blank' rel='noopener noreferrer'>
                           {text[lang]}
                         </a>
