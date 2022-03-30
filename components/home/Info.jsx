@@ -21,7 +21,7 @@ export function Info({ lang }) {
               )
             })}
 
-            <a href={'/' + ourTeamHtml + '/' + lang} className='btn-default'>
+            <a href={'/' + ourTeamHtml[0] + '/' + lang} className='btn-default'>
               {buttonText}
             </a>
           </div>

@@ -13,12 +13,11 @@ export function getTranslations(lang) {
       enActive = ' active'
       keywords = 'Lawyer, Lawyer Kiev, Consulting'
       navTitle = 'Lawyers Association'
-      description = navTitle + ' «Global Barristers» ≡ [kyivHtml] Lawyer ≡ Consultations'
+      description = navTitle + ' «Global Barristers» ≡ Lawyer in Kyiv ≡ Consultations'
       consultButton = 'Request consultation'
       break
 
     default:
-      console.log('default')
       ukActive = ' active'
       keywords = 'Адвокат,Адвокат Київ,Консультації'
       navTitle = "Адвокатське об'єднання"

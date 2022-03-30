@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useMemo, useRef } from 'react'
 import { phones } from '../../constants/contacts'
-import { navigation } from '../../constants/navigation'
+import { headerNav } from '../../constants/headerNav'
 
 import logo from '../../images/svg/logo.svg'
 import { getTranslations } from '../../translations/common/header'
@@ -30,7 +30,7 @@ export function Header({ lang = 'uk', title = '', currentPage = '' }) {
     }
     target.classList.toggle('opened')
   }
-  console.dir(navigation)
+  console.dir(headerNav)
   return (
     <>
       <Head>
@@ -104,7 +104,7 @@ export function Header({ lang = 'uk', title = '', currentPage = '' }) {
               </div>
               <div className='menu'>
                 <ul id={'menu-' + lang} ref={menuRef} className='menu__list'>
-                  {navigation.map(({ navPage, pages, key }) => {
+                  {headerNav.map(({ navPage, pages, key }) => {
                     return (
                       <li key={'nav_' + key} className='menu__item'>
                         <Link href={'/' + navPage[0] + '/' + lang}>

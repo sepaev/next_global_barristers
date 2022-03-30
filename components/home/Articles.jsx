@@ -46,7 +46,7 @@ export function Articles({ lang }) {
                 </li>
               )
             })}
-            <a href={'/' + ourSolutionsHtml + '/' + lang} className='btn-default'>
+            <a href={'/' + ourSolutionsHtml[0] + '/' + lang} className='btn-default'>
               {articlesButton}
             </a>
           </ul>

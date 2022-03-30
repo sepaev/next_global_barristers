@@ -1,26 +1,15 @@
-import { PageLayout } from '../../components/layouts'
+import { PageLayout, AsideLayout } from '../../components/layouts'
+import OurTeam from '../../components/asides/OurTeam'
+import { ourTeamHtml } from '../../constants/pageNames'
 
-function OurTeam({ lang = 'uk' }) {
-  let title
-  switch (lang) {
-    case 'ru':
-      title = 'Наша команда'
-      //   details = 'Подробнее'
-      break
-    case 'en':
-      title = 'Our team'
-      //   details = 'More details'
-      break
-    default:
-      title = 'Наша команда'
-      //   details = 'Детальніше'
-      break
-  }
+function ourTeam({ lang = 'uk' }) {
   return (
-    <PageLayout lang={lang} title={title}>
-      <div>{title}</div>
+    <PageLayout lang={lang} title={ourTeamHtml[1][lang]} currentPage={ourTeamHtml[0]}>
+      <AsideLayout lang={lang} currentPage={ourTeamHtml[0]}>
+        <OurTeam lang={lang} />
+      </AsideLayout>
     </PageLayout>
   )
 }
 
-export default OurTeam
+export default ourTeam

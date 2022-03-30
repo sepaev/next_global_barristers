@@ -5,6 +5,8 @@
   background: $aqua-background-color;
   padding-bottom: 25px;
   height: auto;
+  border: solid 2px $aqua-background-color;
+  // transform: translateY(1px);
   &__wrapper {
     padding-top: 20px;
     display: flex;

@@ -1,3 +1,4 @@
+export const homeHtml = ['', { en: 'Home page', ru: 'Главная страница', uk: 'Головна сторінка' }]
 export const aboutUsHtml = ['about-us', { en: 'About us', ru: 'О нас', uk: 'Про нас' }]
 export const ourTeamHtml = ['our-team', { en: 'Our team', ru: 'Наша команда', uk: 'Наша команда' }]
 export const ourPracticesHtml = ['practices', { en: 'Departments', ru: 'Отрасли', uk: 'Галузі' }]

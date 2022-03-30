@@ -23,7 +23,7 @@ import {
   kryviyRihHtml,
 } from './pageNames'
 
-export const navigation = [
+export const headerNav = [
   { navPage: aboutUsHtml, key: 101, pages: [] },
   { navPage: ourTeamHtml, key: 102, pages: [] },
   {
