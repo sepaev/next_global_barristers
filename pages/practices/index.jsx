@@ -4,7 +4,7 @@ import { ourPracticesHtml } from '../../constants/pageNames'
 
 function practices({ lang = 'uk' }) {
   return (
-    <PageLayout lang={lang} title={ourPracticesHtml[1][lang]} currentPage={ourPracticesHtml[0]}>
+    <PageLayout lang={lang} title={ourPracticesHtml[1][lang]} currentPage={ourPracticesHtml[0]} headerAlt='Сходи'>
       <AsideLayout lang={lang} currentPage={ourPracticesHtml[0]}>
         <Practices lang={lang} />
       </AsideLayout>

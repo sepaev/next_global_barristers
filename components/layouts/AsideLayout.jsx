@@ -1,16 +1,17 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { headerNav } from '../../constants/headerNav'
+import { homeHtml } from '../../constants/pageNames'
 import uniqid from 'uniqid'
 
-export function AsideLayout({ children, lang = 'uk', currentPage = '404' }) {
+export function AsideLayout({ children, lang = 'uk', currentPage, headerAlt = 'Buildings' }) {
   const menuItem = headerNav.find(item => item.navPage[0] === currentPage)
   return (
     <>
       <section className={currentPage + '__header section__page-with-aside'}>
         <Image
           src={'/asides/' + currentPage + '/header.jpg'}
-          alt='Buildings'
+          alt={headerAlt}
           layout='fill'
           objectFit='cover'
           loading='lazy'
@@ -37,7 +38,19 @@ export function AsideLayout({ children, lang = 'uk', currentPage = '404' }) {
               })}
           </ul>
         </aside>
-        {children}
+        <section className='aside-page'>
+          <h1 className='aside-page__title'>{menuItem.navPage[1][lang]}</h1>
+          <div className='aside-page__breadcrumbs'>
+            <p className='aside-page__breadcrumbs-p'>
+              <Link href={'/' + lang}>
+                <a className='aside-page__breadcrumbs-link'>{homeHtml[1][lang]}</a>
+              </Link>
+              <span className='aside-page__breadcrumbs-span'>{' >> '}</span>
+              <span className='aside-page__breadcrumbs-last'>{menuItem.navPage[1][lang]}</span>
+            </p>
+          </div>
+          {children}
+        </section>
       </div>
     </>
   )
