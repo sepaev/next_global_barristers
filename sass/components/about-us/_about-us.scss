@@ -1,0 +1,11 @@
+.our-team {
+  &__header {
+    height: 250px;
+    flex-grow: 1;
+  }
+  &__container {
+    font-weight: 400;
+    display: flex;
+    margin-bottom: 80px;
+  }
+}

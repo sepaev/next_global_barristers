@@ -8,7 +8,7 @@ import { navigation } from '../../constants/navigation'
 import logo from '../../images/svg/logo.svg'
 import { getTranslations } from '../../translations/common/header'
 
-export function Header({ lang = 'uk', title = '' }) {
+export function Header({ lang = 'uk', title = '', currentPage = '' }) {
   const menuRef = useRef(null)
   const {
     enActive = '',
@@ -30,6 +30,7 @@ export function Header({ lang = 'uk', title = '' }) {
     }
     target.classList.toggle('opened')
   }
+  console.dir(navigation)
   return (
     <>
       <Head>
@@ -59,13 +60,13 @@ export function Header({ lang = 'uk', title = '' }) {
 
               <div className='lang'>
                 <div className='lang__wrapper'>
-                  <Link href='/en/'>
+                  <Link href={'/' + currentPage + '/en'}>
                     <a className={'lang__link lang_en' + enActive}> en </a>
                   </Link>
-                  <Link href='/ru/'>
+                  <Link href={'/' + currentPage + '/ru'}>
                     <a className={'lang__link lang_en' + ruActive}> ru </a>
                   </Link>
-                  <Link href='/uk/'>
+                  <Link href={'/' + currentPage + '/uk'}>
                     <a className={'lang__link lang_en' + ukActive}> uk </a>
                   </Link>
                 </div>
@@ -103,20 +104,20 @@ export function Header({ lang = 'uk', title = '' }) {
               </div>
               <div className='menu'>
                 <ul id={'menu-' + lang} ref={menuRef} className='menu__list'>
-                  {navigation.map(({ navName, pages, key }, pageIndex) => {
+                  {navigation.map(({ navPage, pages, key }) => {
                     return (
                       <li key={'nav_' + key} className='menu__item'>
-                        <Link href={'/' + navName + '/' + lang}>
-                          <a className='menu__item-link'>{navTranslations[navName]}</a>
+                        <Link href={'/' + navPage[0] + '/' + lang}>
+                          <a className='menu__item-link'>{navPage[1][lang]}</a>
                         </Link>
                         {/* sub-menu */}
                         {pages.length > 0 && (
                           <ul className='sub-menu'>
-                            {pages.map((pageName, index) => {
+                            {pages.map((page, index) => {
                               return (
                                 <li key={'subMenu_' + key + '_' + index} className='menu__item sub-menu__item'>
-                                  <Link href={'/' + navName + '/' + pageName + '/' + lang}>
-                                    <a className='sub-menu__item-link'>{subMenuTranslations[pageName]}</a>
+                                  <Link href={'/' + navPage[0] + '/' + page[0] + '/' + lang}>
+                                    <a className='sub-menu__item-link'>{page[1][lang]}</a>
                                   </Link>
                                 </li>
                               )

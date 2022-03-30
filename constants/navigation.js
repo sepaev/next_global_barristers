@@ -24,10 +24,10 @@ import {
 } from './pageNames'
 
 export const navigation = [
-  { navName: aboutUsHtml, key: 101, pages: [] },
-  { navName: ourTeamHtml, key: 102, pages: [] },
+  { navPage: aboutUsHtml, key: 101, pages: [] },
+  { navPage: ourTeamHtml, key: 102, pages: [] },
   {
-    navName: ourPracticesHtml,
+    navPage: ourPracticesHtml,
     key: 103,
     pages: [
       criminalLawHtml,
@@ -41,11 +41,11 @@ export const navigation = [
       autoLawHtml,
     ],
   },
-  { navName: ourTownsHtml, key: 104, pages: [] },
-  { navName: ourSolutionsHtml, key: 105, pages: [] },
-  { navName: ourPartnersHtml, key: 106, pages: [] },
+  { navPage: ourTownsHtml, key: 104, pages: [] },
+  { navPage: ourSolutionsHtml, key: 105, pages: [] },
+  { navPage: ourPartnersHtml, key: 106, pages: [] },
   {
-    navName: ourAffiliatesHtml,
+    navPage: ourAffiliatesHtml,
     key: 107,
     pages: [kyivHtml, kharkivHtml, odessaHtml, dniproHtml, zaporizhzhiaHtml, kryviyRihHtml],
   },
