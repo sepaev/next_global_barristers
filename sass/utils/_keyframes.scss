@@ -3299,8 +3299,11 @@ Copyright (c) 2014 Daniel Eden
     transform: translate(0, 0);
   }
 
+  50% {
+    transform: translate(-80%, 0);
+  }
+
   100% {
-    transform: translate(-100%, 0);
-    // transform: translate(0%, 0);
+    transform: translate(0, 0);
   }
 }

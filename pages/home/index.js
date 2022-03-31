@@ -12,7 +12,6 @@ function Home({ lang = 'uk' }) {
   function btnGoTopController(currentScreenPosition, screenBottom, btnGoTop) {
     if (!btnGoTop || !btnGoTop.style) return
     if (currentScreenPosition > screenBottom) {
-      console.log(btnGoTop)
       btnGoTop.style.opacity = '1'
       btnGoTop.style.pointerEvents = 'initial'
     } else {
@@ -46,10 +45,8 @@ function Home({ lang = 'uk' }) {
       break
   }
   useEffect(() => {
-    console.log('add scroll listner')
     window.addEventListener('scroll', throttle(500, false, handleScroll))
     return _ => {
-      console.log('clear scroll listner')
       window.removeEventListener('scroll', throttle(500, false, handleScroll))
     }
   }, [handleScroll])

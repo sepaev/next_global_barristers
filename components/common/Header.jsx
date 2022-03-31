@@ -30,7 +30,7 @@ export function Header({ lang = 'uk', title = '', currentPage = '' }) {
     }
     target.classList.toggle('opened')
   }
-  console.dir(headerNav)
+
   return (
     <>
       <Head>

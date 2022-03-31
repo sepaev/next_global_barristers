@@ -1,5 +1,3 @@
-import { aboutUsHtml, homeHtml } from '../../constants/pageNames'
-// import Link from 'next/link'
 import uniqid from 'uniqid'
 
 export default function AboutUs({ lang }) {
@@ -11,12 +9,24 @@ export default function AboutUs({ lang }) {
     'Земля і нерухомість;Антирейдерство;Сімейне та спадкове право;Проблемні борги;Кримінальна практика;Екстрадиція'
 
   function stopAnimation({ target }) {
-    if (target.parentNode.style.animationDuration === '5000s') {
-      target.parentNode.style.animationDuration = '300s'
-    } else {
-      target.parentNode.style.animationDuration = '5000s'
-    }
+    const { style } = target.parentNode
+    style.animationPlayState = 'paused'
   }
+  function runAnimation({ target }) {
+    const { style } = target.parentNode
+    style.animationPlayState = 'initial'
+  }
+
+  // function pauseAnimation({ target }) {
+  //   const { style } = target.parentNode
+  //   if (style.animationPlayState === 'paused') {
+  //     style.animationPlayState = 'initial'
+  //   } else {
+  //     //element.setAttribute('style', 'animation-play-state:paused !important');
+  //     // element.style.setProperty("display", "inline", "important")
+  //     style.animationPlayState = 'paused'
+  //   }
+  // }
 
   function writeSpans(paragrapnName, cicles, color, text) {
     let items = []
@@ -28,10 +38,16 @@ export default function AboutUs({ lang }) {
     return (
       <p
         className={'about-us-practices__text-sub ' + paragrapnName}
-        style={{ animation: `runningText ${(counter + 10) * 5}s infinite linear` }}
+        style={{ animation: `runningText ${(counter + 10) * 6}s infinite linear` }}
       >
         {items.map(item => (
-          <span className={'about-us-practices__text-span ' + color} onClick={e => stopAnimation(e)} key={uniqid()}>
+          <span
+            className={'about-us-practices__text-span ' + color}
+            // onClick={pauseAnimation}
+            onMouseOver={stopAnimation}
+            onMouseOut={runAnimation}
+            key={uniqid()}
+          >
             {item}
           </span>
         ))}
@@ -54,15 +70,15 @@ export default function AboutUs({ lang }) {
         <h3 className='about-us-practices__heading visually-hidden'>Наші переваги:</h3>
         <li className='about-us-practices__item'>
           <h4 className='about-us-practices__heading-sub'>Адвокати</h4>
-          {writeSpans('lawers', 6, 'aqua', lawersText)}
+          {writeSpans('lawers', 8, 'aqua', lawersText)}
         </li>
         <li className='about-us-practices__item'>
           <h4 className='about-us-practices__heading-sub'>Дії</h4>
-          {writeSpans('actions', 9, 'orange', actionsText)}
+          {writeSpans('actions', 11, 'orange', actionsText)}
         </li>
         <li className='about-us-practices__item'>
           <h4 className='about-us-practices__heading-sub'>Галузі</h4>
-          {writeSpans('branches', 10, 'gray', branchesText)}
+          {writeSpans('branches', 13, 'gray', branchesText)}
         </li>
       </ul>
     </div>
