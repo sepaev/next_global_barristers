@@ -1,7 +1,4 @@
 .reasons {
-  //   &__container {
-  //    display: block;
-  //   }
   &__heading {
     // opacity: 0;
     animation-name: fadeInUp;
@@ -11,7 +8,11 @@
     animation-duration: $fadeInUp-duration;
     animation-fill-mode: both;
     font-size: 38px;
-
+    @media only screen and (min-width: $desktop4k) {
+      & {
+        font-size: 58px;
+      }
+    }
     @media only screen and (max-width: $laptop) {
       & {
         font-size: 34px;
@@ -96,6 +97,11 @@
   &__title {
     text-align: center;
     height: 75px;
+    @media only screen and (min-width: $desktop4k) {
+      & {
+        height: 150px;
+      }
+    }
     @media only screen and (max-width: $laptop) {
       & {
         height: auto;
@@ -105,10 +111,15 @@
   &__description {
     opacity: 1;
     letter-spacing: 0.09px;
-    line-height: 1.71429;
+    line-height: 1.7;
     margin-bottom: 16px;
     text-align: justify;
     // text-indent: 20px;
+    @media only screen and (min-width: $desktop4k) {
+      & {
+        font-size: 25px;
+      }
+    }
   }
   &__link {
     border: 1px solid $half-black-background-color2;
@@ -124,7 +135,12 @@
     text-transform: uppercase;
     animation-delay: 0.2s;
     animation-name: fadeInUp;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
+    @media only screen and (min-width: $desktop4k) {
+      & {
+        font-size: 30px;
+        width: fit-content;
+        padding: 25px 30px;
+      }
+    }
   }
 }

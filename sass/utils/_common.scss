@@ -22,6 +22,11 @@ body {
   margin: auto;
   align-items: center;
   // height: 100%;
+  @media only screen and (min-width: $desktop4k) {
+    & {
+      max-width: 80vw;
+    }
+  }
 }
 
 p {
@@ -54,23 +59,37 @@ footer section {
 .content h1,
 h1 {
   font-size: 30px;
-  line-height: 1.53333;
-  font-family: 'Montserrat', sans-serif;
+  line-height: 1.5;
   margin-bottom: 23px;
+  @media only screen and (min-width: $desktop4k) {
+    & {
+      font-size: 50px;
+    }
+  }
 }
 
 h2 {
   font-size: 36px;
   letter-spacing: 1.2px;
-  line-height: 36.8px;
+  line-height: 1;
   margin-bottom: 30px;
+  @media only screen and (min-width: $desktop4k) {
+    & {
+      font-size: 56px;
+    }
+  }
 }
 
 h3 {
   font-size: 24px;
   letter-spacing: 0;
-  line-height: 30.08px;
+  line-height: 1.25;
   margin-bottom: 15px;
+  @media only screen and (min-width: $desktop4k) {
+    & {
+      font-size: 44px;
+    }
+  }
 }
 
 h1,

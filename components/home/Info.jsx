@@ -35,6 +35,9 @@ export function Info({ lang }) {
           className='info__image-img'
           alt='Tunnel'
           loading='lazy'
+          objectPosition='center'
+          objectFit='cover'
+          layout='fill'
         />
       </div>
     </section>

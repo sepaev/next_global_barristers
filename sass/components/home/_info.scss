@@ -2,6 +2,24 @@
   &__container {
     position: relative;
     max-width: 1015px;
+    @media only screen and (min-width: $desktop4k) {
+      & {
+        max-width: 75vw;
+      }
+    }
+    @media only screen and (max-width: $desktop) {
+      & {
+        margin-right: 0;
+        margin-left: 50px;
+      }
+    }
+    @media only screen and (min-width: $tablet) and (max-width: $laptop) {
+      & {
+        // height: 90%;
+        // top: 65px;
+        // width: 50%;
+      }
+    }
   }
   &__photo-block {
     display: flex;
@@ -14,6 +32,23 @@
     width: 50.04926%;
     padding-right: 67px;
     z-index: 2;
+    @media only screen and (max-width: $desktop) {
+      & {
+        padding-right: 0;
+        width: 51%;
+      }
+    }
+    @media only screen and (min-width: $tablet) and (max-width: $laptop) {
+      & {
+        width: 100%;
+        margin-bottom: 30px;
+      }
+    }
+    @media only screen and (min-width: $phone) and (max-width: $tablet) {
+      & {
+        margin-bottom: 30px;
+      }
+    }
   }
   &__heading {
     visibility: visible;
@@ -31,6 +66,11 @@
     letter-spacing: 0.09px;
     line-height: 1.71429;
     margin-bottom: 16px;
+    @media only screen and (min-width: $desktop4k) {
+      & {
+        font-size: 27px;
+      }
+    }
   }
   &__image-container {
     visibility: visible;
@@ -38,13 +78,38 @@
     // opacity: 0;
     top: 0;
     height: 100%;
-    width: 49.95074%;
+    width: 38%;
     animation-duration: 1.2s;
     animation-fill-mode: both;
     left: 50%;
     position: absolute;
     overflow: hidden;
-    max-width: 548px;
+    max-width: 48%;
+    min-width: fit-content;
+    @media only screen and (max-width: $desktop4k) {
+      & {
+        width: 540px;
+      }
+    }
+    @media only screen and (min-width: $laptop) and (max-width: $desktop) {
+      & {
+        height: 85%;
+        top: 65px;
+        width: 50%;
+        left: 53%;
+      }
+    }
+    @media only screen and (min-width: $phone) and (max-width: $laptop) {
+      & {
+        display: block;
+        position: static;
+        min-width: 90%;
+        margin: auto;
+        // max-height: 200px;
+        object-fit: cover;
+        height: 200px;
+      }
+    }
   }
   &__image-img {
     width: 100%;

@@ -1,22 +1,65 @@
 .slider {
   display: block;
   width: 100%;
-  height: calc(100vh - 95px);
+  min-height: calc(100vh - 95px);
   margin-bottom: 60px;
   position: relative;
   overflow: hidden;
+  @media only screen and (min-width: $desktop) and (max-width: $desktop4k) {
+    & {
+      min-height: calc(100vh - 115px);
+    }
+  }
+  @media only screen and (min-width: $laptop) and (max-width: $desktop) {
+    & {
+      min-height: calc(100vh - 102px);
+    }
+  }
+  @media only screen and (min-width: $tablet) and (max-width: $laptop) {
+    & {
+      min-height: calc(100vh - 81px);
+    }
+  }
+  @media only screen and (max-width: $tablet) {
+    & {
+      min-height: calc(100vh - 77px);
+    }
+  }
 
   &__backgrnd {
-    height: calc(100vh - 95px);
+    min-height: calc(100vh - 95px);
     background: $aqua-background-color;
     background-size: cover;
     background-position: center center;
     position: relative;
     width: 100%;
+    z-index: 2;
+    @media only screen and (min-width: $desktop) and (max-width: $desktop4k) {
+      & {
+        min-height: calc(100vh - 115px);
+      }
+    }
+    @media only screen and (min-width: $laptop) and (max-width: $desktop) {
+      & {
+        min-height: calc(100vh - 102px);
+      }
+    }
+    @media only screen and (min-width: $tablet) and (max-width: $laptop) {
+      & {
+        min-height: calc(100vh - 81px);
+      }
+    }
+    @media only screen and (max-width: $tablet) {
+      & {
+        min-height: calc(100vh - 77px);
+      }
+    }
   }
   &__image {
+    position: absolute;
     display: block;
-    height: 100%;
+    min-height: 100%;
+    width: 100%;
     visibility: visible;
     transition: height 0s, opacity 0.5s cubic-bezier(0.15, 0.56, 0.74, 0.94);
   }
@@ -82,10 +125,18 @@
     &:hover {
       background-color: $wheat-background-color;
     }
+    @media only screen and (min-width: $desktop4k) {
+      & {
+        font-size: 70px;
+        width: 100px;
+        height: 100px;
+      }
+    }
   }
   &__button.right {
     right: 0;
     z-index: 10;
+
     @media only screen and (min-width: $phone) and (max-width: $tablet) {
       & {
         right: 25%;
@@ -95,6 +146,11 @@
   &__button.left {
     z-index: 10;
     right: 61px;
+    @media only screen and (min-width: $desktop4k) {
+      & {
+        right: 161px;
+      }
+    }
     @media only screen and (min-width: $phone) and (max-width: $tablet) {
       & {
         right: initial;
@@ -221,7 +277,8 @@
     font-size: 32px;
     border-radius: 8px;
     transition: 0.25s;
-    width: 460px;
+    // width: 460px;
+    width: auto;
 
     cursor: pointer;
     font-weight: 600;
