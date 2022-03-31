@@ -2,7 +2,9 @@
   position: relative;
   padding: 0;
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  // font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat Alternates', sans-serif;
+
   box-sizing: border-box;
 }
 
@@ -138,4 +140,17 @@ p a {
 .btn-default,
 aside li a {
   text-transform: uppercase;
+}
+
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
 }

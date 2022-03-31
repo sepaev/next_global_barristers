@@ -13,8 +13,13 @@
     background-color: $wheat-background-color;
   }
   &__wrapper {
-    height: 260px;
+    height: 460px;
     overflow-y: auto;
+    background-color: $ultra-lightgray-color;
+    // background-color: gainsboro;
+    padding: 20px;
+    border-radius: 10px;
+    filter: drop-shadow(2px 4px 6px black);
   }
   &__heading {
     font-weight: 400;

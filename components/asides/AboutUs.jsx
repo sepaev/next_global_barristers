@@ -1,211 +1,70 @@
 import { aboutUsHtml, homeHtml } from '../../constants/pageNames'
-import Link from 'next/link'
+// import Link from 'next/link'
+import uniqid from 'uniqid'
 
 export default function AboutUs({ lang }) {
+  const lawersText =
+    'Адвокат з корпоративних спорів;Адвокат з питань щодо дітей;Адвокат по стягненню дебіторської заборгованості;Адвокат зі спорів щодо нерухомості;Адвокат з поділу майна;Адвокат з банківських і фінансових спорів;Адвокат з держзакупівель;Адвокат з судових спорів'
+  const actionsText =
+    'Стягнення дебіторської заборгованості в судовому порядку;Вирішення спорів;Захист бізнесу;Позасудове врегулювання спорів'
+  const branchesText =
+    'Земля і нерухомість;Антирейдерство;Сімейне та спадкове право;Проблемні борги;Кримінальна практика;Екстрадиція'
+
+  function stopAnimation({ target }) {
+    if (target.parentNode.style.animationDuration === '5000s') {
+      target.parentNode.style.animationDuration = '300s'
+    } else {
+      target.parentNode.style.animationDuration = '5000s'
+    }
+  }
+
+  function writeSpans(paragrapnName, cicles, color, text) {
+    let items = []
+    const textArray = text.split(';')
+    const counter = textArray.length * cicles
+    for (let index = 0; index < cicles; index++) {
+      items = items.concat(textArray)
+    }
+    return (
+      <p
+        className={'about-us-practices__text-sub ' + paragrapnName}
+        style={{ animation: `runningText ${(counter + 10) * 5}s infinite linear` }}
+      >
+        {items.map(item => (
+          <span className={'about-us-practices__text-span ' + color} onClick={e => stopAnimation(e)} key={uniqid()}>
+            {item}
+          </span>
+        ))}
+      </p>
+    )
+  }
   return (
-    <>
-      <div className='practice-inner'>
-        <h2>
-          <span>GLOBAL BARRISTERS ОБ’ЄДНУЄ ЛЮДЕЙ ЗІ СПІЛЬНИМИ ЦІННОСТЯМИ.</span>
-        </h2>
-        <p>
-          В сьогоднішніх умовах економічної нестабільності Ваш бізнес постійно стикається з новими викликами. З Global
-          Barrsisters Ви можете розраховувати на нашу команду висококваліфікованих експертів. Ми професійні, сучасні і
-          доброзичливі. Наші глибокі знання специфіки галузей економіки дозволяють нам знаходити вирішення питань
-          будь-якого рівня складності і масштабу.
-        </p>
-        <p> </p>
-        <div className='practices-select'>
-          <span className='practices-select-label'>Практики: </span>
-          <span className='practices-select-item practices-select-item-desk' data-practice='korporatyvne-pravo'>
-            Корпоративне право
-          </span>
-          <span className='practices-select-item practices-select-item-desk' data-practice='korporativny-spory'>
-            Адвокат з корпоративних спорів
-          </span>
-          <span className='practices-select-item practices-select-item-desk' data-practice='simeyni-ta-maynovi-spori'>
-            Сімейне та спадкове право
-          </span>
-          <span
-            className='practices-select-item practices-select-item-desk'
-            data-practice='stjagnennja-debitorskoi-zaborgovanosti'
-          >
-            Адвокат по стягненню дебіторської заборгованості
-          </span>
-          <span className='practices-select-item practices-select-item-desk' data-practice='sudovi-spory'>
-            Адвокат з судових спорів
-          </span>
-          <span
-            className='practices-select-item practices-select-item-desk'
-            data-practice='stjagnennja-zaborgovanosti-v-sudi'
-          >
-            Стягнення дебіторської заборгованості в судовому порядку
-          </span>
-          <span className='practices-select-item practices-select-item-desk' data-practice='virishennya-sporiv'>
-            Вирішення спорів
-          </span>
-          <span className='practices-select-item practices-select-item-desk' data-practice='problemni-borgi'>
-            Проблемні борги
-          </span>
-          <span className='practices-select-item practices-select-item-desk' data-practice='majno'>
-            Адвокат з поділу майна
-          </span>
-          <span
-            className='practices-select-item practices-select-item-desk'
-            data-practice='finansovi-i-bankovski-spory'
-          >
-            Адвокат з банківських і фінансових спорів
-          </span>
-          <span className='practices-select-item practices-select-item-desk' data-practice='neruhomist'>
-            Земля і нерухомість
-          </span>
-          <span className='practices-select-item practices-select-item-desk' data-practice='dity'>
-            Адвокат з питань щодо дітей
-          </span>
-          <span className='practices-select-item practices-select-item-desk' data-practice='antireyderstvo'>
-            Антирейдерство
-          </span>
-          <span className='practices-select-item practices-select-item-desk' data-practice='zahist-biznesu'>
-            Захист бізнесу
-          </span>
-          <span className='practices-select-item practices-select-item-desk' data-practice='advokat-s-nedvizhimosti'>
-            Адвокат зі спорів щодо нерухомості
-          </span>
-          <span className='practices-select-item practices-select-item-desk' data-practice='kriminalna-praktika'>
-            Кримінальна практика
-          </span>
-          <span className='practices-select-item practices-select-item-desk' data-practice='advokat-z-derzhzakypivel'>
-            Адвокат з держзакупівель
-          </span>
-          <span className='practices-select-item practices-select-item-desk' data-practice='ekstraditsiya'>
-            Екстрадиція
-          </span>
-          <span
-            className='practices-select-item practices-select-item-desk'
-            data-practice='pozasudove-vregulyuvannja-sporiv'
-          >
-            Позасудове врегулювання спорів
-          </span>
-          <aside className='mobile-aside practices-dropdown'>
-            <div className='category-select'>
-              <div className='active'>Не выбрано</div>
-
-              <div className='dropdown-list'>
-                <ul>
-                  <li className='practices-select-item-wrap'>
-                    <span className='practices-select-item' data-practice='korporatyvne-pravo'>
-                      Корпоративне право
-                    </span>
-                  </li>
-                  <li className='practices-select-item-wrap'>
-                    <span className='practices-select-item' data-practice='korporativny-spory'>
-                      Адвокат з корпоративних спорів
-                    </span>
-                  </li>
-                  <li className='practices-select-item-wrap'>
-                    <span className='practices-select-item' data-practice='simeyni-ta-maynovi-spori'>
-                      Сімейне та спадкове право
-                    </span>
-                  </li>
-                  <li className='practices-select-item-wrap'>
-                    <span className='practices-select-item' data-practice='stjagnennja-debitorskoi-zaborgovanosti'>
-                      Адвокат по стягненню дебіторської заборгованості
-                    </span>
-                  </li>
-                  <li className='practices-select-item-wrap'>
-                    <span className='practices-select-item' data-practice='sudovi-spory'>
-                      Адвокат з судових спорів
-                    </span>
-                  </li>
-                  <li className='practices-select-item-wrap'>
-                    <span className='practices-select-item' data-practice='stjagnennja-zaborgovanosti-v-sudi'>
-                      Стягнення дебіторської заборгованості в судовому порядку
-                    </span>
-                  </li>
-                  <li className='practices-select-item-wrap'>
-                    <span className='practices-select-item' data-practice='virishennya-sporiv'>
-                      Вирішення спорів
-                    </span>
-                  </li>
-                  <li className='practices-select-item-wrap'>
-                    <span className='practices-select-item' data-practice='problemni-borgi'>
-                      Проблемні борги
-                    </span>
-                  </li>
-                  <li className='practices-select-item-wrap'>
-                    <span className='practices-select-item' data-practice='majno'>
-                      Адвокат з поділу майна
-                    </span>
-                  </li>
-                  <li className='practices-select-item-wrap'>
-                    <span className='practices-select-item' data-practice='finansovi-i-bankovski-spory'>
-                      Адвокат з банківських і фінансових спорів
-                    </span>
-                  </li>
-                  <li className='practices-select-item-wrap'>
-                    <span className='practices-select-item' data-practice='neruhomist'>
-                      Земля і нерухомість
-                    </span>
-                  </li>
-                  <li className='practices-select-item-wrap'>
-                    <span className='practices-select-item' data-practice='dity'>
-                      Адвокат з питань щодо дітей
-                    </span>
-                  </li>
-                  <li className='practices-select-item-wrap'>
-                    <span className='practices-select-item' data-practice='antireyderstvo'>
-                      Антирейдерство
-                    </span>
-                  </li>
-                  <li className='practices-select-item-wrap'>
-                    <span className='practices-select-item' data-practice='zahist-biznesu'>
-                      Захист бізнесу
-                    </span>
-                  </li>
-                  <li className='practices-select-item-wrap'>
-                    <span className='practices-select-item' data-practice='advokat-s-nedvizhimosti'>
-                      Адвокат зі спорів щодо нерухомості
-                    </span>
-                  </li>
-                  <li className='practices-select-item-wrap'>
-                    <span className='practices-select-item' data-practice='kriminalna-praktika'>
-                      Кримінальна практика
-                    </span>
-                  </li>
-                  <li className='practices-select-item-wrap'>
-                    <span className='practices-select-item' data-practice='advokat-z-derzhzakypivel'>
-                      Адвокат з держзакупівель
-                    </span>
-                  </li>
-                  <li className='practices-select-item-wrap'>
-                    <span className='practices-select-item' data-practice='ekstraditsiya'>
-                      Екстрадиція
-                    </span>
-                  </li>
-                  <li className='practices-select-item-wrap'>
-                    <span className='practices-select-item' data-practice='pozasudove-vregulyuvannja-sporiv'>
-                      Позасудове врегулювання спорів
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </div>
-
-      <div className='team-list-wrap'>
-        <div className='loader'>
-          <section>
-            <div className='sk-folding-cube'>
-              <div className='sk-cube sk-cube-1'></div>
-              <div className='sk-cube sk-cube-2'></div>
-              <div className='sk-cube sk-cube-4'></div>
-              <div className='sk-cube sk-cube-3'></div>
-            </div>
-          </section>
-        </div>
-      </div>
-    </>
+    <div className='about-us'>
+      <h2 className='about-us__title'>
+        GLOBAL BARRISTERS
+        <p className='about-us__title-p'> об’єднуємо людей зі спільними цінностями.</p>
+      </h2>
+      <p className='about-us__text'>
+        В сьогоднішніх умовах економічної нестабільності Ваш бізнес постійно стикається з новими викликами. З Global
+        Barrsisters Ви можете розраховувати на нашу команду висококваліфікованих експертів. Ми професійні, сучасні і
+        доброзичливі. Наші глибокі знання специфіки галузей економіки дозволяють нам знаходити вирішення питань
+        будь-якого рівня складності і масштабу.
+      </p>
+      <ul className='about-us-practices'>
+        <h3 className='about-us-practices__heading visually-hidden'>Наші переваги:</h3>
+        <li className='about-us-practices__item'>
+          <h4 className='about-us-practices__heading-sub'>Адвокати</h4>
+          {writeSpans('lawers', 6, 'aqua', lawersText)}
+        </li>
+        <li className='about-us-practices__item'>
+          <h4 className='about-us-practices__heading-sub'>Дії</h4>
+          {writeSpans('actions', 9, 'orange', actionsText)}
+        </li>
+        <li className='about-us-practices__item'>
+          <h4 className='about-us-practices__heading-sub'>Галузі</h4>
+          {writeSpans('branches', 10, 'gray', branchesText)}
+        </li>
+      </ul>
+    </div>
   )
 }

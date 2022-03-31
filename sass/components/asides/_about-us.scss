@@ -1,11 +1,61 @@
-.our-team {
-  &__header {
-    height: 250px;
-    flex-grow: 1;
+.about-us {
+  &__title {
+    font-size: 30px;
+    color: $deep-gray-color;
   }
-  &__container {
-    font-weight: 400;
+  &__title-p {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  &__text {
+    text-align: justify;
+    text-indent: $desktop-indent;
+  }
+}
+.about-us-practices {
+  &__item {
+    overflow: hidden;
+    border-bottom: 1px solid $lightgray-color;
+  }
+  &__heading {
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
+  &__heading-sub {
+    margin-top: 20px;
+    text-align: center;
+    border-bottom: 2px solid gray;
+    padding-bottom: 5px;
+    width: 200px;
+    margin: 20px auto 0;
+    text-transform: uppercase;
+    color: $aqua-color;
+  }
+  &__text-sub {
+    text-align: center;
+    padding: 2%;
+    white-space: nowrap;
+    min-width: fit-content;
     display: flex;
-    margin-bottom: 80px;
+  }
+  &__text-span {
+    color: $white-color;
+    background-color: $aqua-background-color;
+    margin-left: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    &.aqua {
+      background-color: $aqua-background-color;
+      color: $white-color;
+    }
+    &.orange {
+      background-color: $orange-background-color;
+      color: $aqua-color;
+    }
+    &.gray {
+      background-color: $lightgray-background-color;
+      color: $wheat-color;
+    }
   }
 }

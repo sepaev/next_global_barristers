@@ -8,7 +8,8 @@ $lightblack-color: #1a1a1a;
 $deep-gray-color: #252525;
 $gray-color: #333;
 $gray-background-color: #333;
-$ultra-lightgray-color: #9c9c9c;
+$ultra-lightgray-color: gainsboro;
+// $ultra-lightgray-color: #9c9c9c;
 $lightgray-color: #666;
 $lightgray-background-color: #666;
 $gray-orange-color: #595651;
@@ -32,6 +33,8 @@ $aqua-background-color: #323a43;
 
 $fadeInUp-function: cubic-bezier(0.19, 1, 0.22, 1);
 $fadeInUp-duration: 1.5s;
+
+$desktop-indent: 50px;
 
 // $orange-color: #ff9900;
 // $orange-background-color: #ff9900;
