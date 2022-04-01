@@ -10,46 +10,68 @@ export function Articles({ lang }) {
   const { articlesHeading, articlesCommonText, articlesButton, articles } = useMemo(() => getTranslate(lang), [lang])
   return (
     <section className='articles'>
-      <div className='container'>
+      <div className='articles__container container'>
         <div className='articles__info'>
-          <div className='articles__picture-box jsActivateAnimation' data-animation='fadeInUpBig'>
+          <div className='articles__picture-box jsActivateAnimation outer' data-animation='fadeInUpBig'>
             <Image
               width={801}
               height={913}
               src='/home/projects.jpg'
-              className='articles__picture-img'
-              alt='Buildings'
+              alt='Будівля'
               loading='lazy'
+              objectPosition='center'
+              objectFit='cover'
+              layout='fill'
             />
           </div>
-
-          <ul className='articles__list'>
-            <h2 className='articles__title jsActivateAnimation' data-animation='fadeInUp'>
-              {articlesHeading}
-            </h2>
-            <p className='articles__text'>{articlesCommonText}</p>
-
-            {articles.map(({ articleLink, mainBlock }, index) => {
-              return (
-                <li key={'article_' + index} className='articles__item'>
-                  <Link href={'/articles/' + lang + '/' + articleLink}>
-                    <a className='articles__item-link'>
-                      <span className='articles__item-pre'>
-                        <Image src={list.src} width='14px' height='15px' alt='list' className='articles__img-list' />
-                      </span>
-                      <h4 className='articles__item-title'>{mainBlock.title}</h4>
-                      <span className='articles__item-post'>
-                        <Image src={arrow.src} width='30px' height='30px' alt='arrow' className='articles__img-arrow' />
-                      </span>
-                    </a>
-                  </Link>
-                </li>
-              )
-            })}
-            <a href={'/' + ourSolutionsHtml[0] + '/' + lang} className='btn-default'>
-              {articlesButton}
-            </a>
-          </ul>
+          <div className='articles__wrapper'>
+            <div className='articles__head'>
+              <div className='articles__picture-box jsActivateAnimation inline' data-animation='fadeInUpBig'>
+                <Image
+                  width={801}
+                  height={913}
+                  src='/home/projects.jpg'
+                  alt='Будівля'
+                  loading='lazy'
+                  objectPosition='center'
+                  objectFit='cover'
+                  layout='fill'
+                />
+              </div>
+              <h2 className='articles__title jsActivateAnimation' data-animation='fadeInUp'>
+                {articlesHeading}
+                <p className='articles__text'>{articlesCommonText}</p>
+              </h2>
+            </div>
+            <ul className='articles__list'>
+              {articles.map(({ articleLink, mainBlock }, index) => {
+                return (
+                  <li key={'article_' + index} className='articles__item'>
+                    <Link href={'/articles/' + lang + '/' + articleLink}>
+                      <a className='articles__item-link'>
+                        <span className='articles__item-pre'>
+                          <Image src={list.src} width='14px' height='15px' alt='list' className='articles__img-list' />
+                        </span>
+                        <h4 className='articles__item-title'>{mainBlock.title}</h4>
+                        <span className='articles__item-post'>
+                          <Image
+                            src={arrow.src}
+                            width='30px'
+                            height='30px'
+                            alt='arrow'
+                            className='articles__img-arrow'
+                          />
+                        </span>
+                      </a>
+                    </Link>
+                  </li>
+                )
+              })}
+              <a href={'/' + ourSolutionsHtml[0] + '/' + lang} className='btn-default'>
+                {articlesButton}
+              </a>
+            </ul>
+          </div>
         </div>
       </div>
     </section>

@@ -9,7 +9,7 @@
 .not_found {
   font-size: 180px;
   & span {
-    color: $lightgray-color;
+    color: $light-gray-color;
   }
 }
 .not_found,
@@ -25,7 +25,7 @@
 }
 .sub_not_par {
   font-size: 16px;
-  color: $lightblack-color;
+  color: $light-black-color;
   letter-spacing: 0.1px;
   line-height: 20px;
   text-align: center;

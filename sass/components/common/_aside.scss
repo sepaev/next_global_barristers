@@ -82,7 +82,7 @@
     font-size: 30px;
     color: $aqua-color;
     line-height: 1.5;
-    filter: drop-shadow(3px 3px 3px $gray-orange-color);
+    filter: drop-shadow(3px 3px 3px $dark-orange-color);
   }
   &__breadcrumbs {
     &-p {
@@ -93,7 +93,7 @@
     }
     &-span {
       letter-spacing: 1px;
-      color: $lightgray-color;
+      color: $light-gray-color;
     }
     &-link {
       color: $black-color;

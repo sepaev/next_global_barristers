@@ -96,9 +96,9 @@ export function Slider({ lang = 'uk' }) {
           <Image src='/slides/slide_03.jpg' alt='Town' layout='fill' objectFit='cover' objectPosition='center' />
         </div>
         <div className='slider__container container'>
-          <h1 className='slider__heading' ref={sliderHeadingRef}>
+          <h2 className='slider__heading' ref={sliderHeadingRef}>
             {sliderHeading[0]}
-          </h1>
+          </h2>
 
           <div className='form__container'>
             <div className='slider__form'>

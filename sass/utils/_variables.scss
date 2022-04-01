@@ -1,50 +1,59 @@
+//black
 $black-color: #000;
 $black-background-color: #000;
 $half-black-background-color5: rgba(0, 0, 0, 0.5);
 $half-black-background-color3: rgba(0, 0, 0, 0.3);
 $half-black-background-color2: rgba(0, 0, 0, 0.2);
 $half-black-background-color1: rgba(0, 0, 0, 0.1);
-$lightblack-color: #1a1a1a;
+$light-black-color: #1a1a1a;
+//gray
 $deep-gray-color: #252525;
 $gray-color: #333;
 $gray-background-color: #333;
-$ultra-lightgray-color: gainsboro;
-// $ultra-lightgray-color: #9c9c9c;
-$lightgray-color: #666;
-$lightgray-background-color: #666;
-$gray-orange-color: #595651;
+$ultra-light-gray-color: #dcdcdc;
+$light-gray-color: #666;
+$light-gray-background-color: #666;
+//orange
 $orange-color: #d8b511;
 $orange-background-color: #d8b511;
-// $orange-color: #cdad00;
-// $orange-background-color: #cdad00;
-// $orange-color: #b8860b;
-// $orange-background-color: #b8860b;
-// $orange-color: #cdba6d;
-// $orange-background-color: #cdba6d;
+$dark-orange-color: #595651;
+//white
 $white-color: rgb(237, 245, 250);
 $half-white-color7: rgba(255, 255, 255, 0.7);
 $white-background-color: rgb(253, 255, 242);
 $half-white-background-color5: rgba(255, 255, 255, 0.5);
 $wheat-color: #fafafa;
 $wheat-background-color: #fafafa;
+//aqua (old)
 $deep-aqua-color: #293133;
 $aqua-color: #323a43;
 $aqua-background-color: #323a43;
 
+//animations
 $fadeInUp-function: cubic-bezier(0.19, 1, 0.22, 1);
 $fadeInUp-duration: 1.5s;
+//indents
+$desktop-text-indent: 50px;
+$tablet-text-indent: 20px;
+$laptop-block-indent: 80px;
+$tablet-block-indent: 40px;
+//sizes
+$desktop4k: 2000px;
+$desktop: 1124px;
+$laptop: 850px;
+$tablet: 480px;
+$phone: 320px;
 
-$desktop-indent: 50px;
-
+// $ultra-light-gray-color: #9c9c9c;
+// $orange-color: #cdad00;
+// $orange-background-color: #cdad00;
+// $orange-color: #b8860b;
+// $orange-background-color: #b8860b;
+// $orange-color: #cdba6d;
+// $orange-background-color: #cdba6d;
 // $orange-color: #ff9900;
 // $orange-background-color: #ff9900;
 // $white-color: #fff;
 // $white-background-color: #fff;
 // $aqua-color: #0a5a6a;
 // $aqua-background-color: #0a5a6a;
-
-$desktop4k: 2000px;
-$desktop: 1124px;
-$laptop: 850px;
-$tablet: 480px;
-$phone: 320px;

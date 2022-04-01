@@ -13,11 +13,16 @@
         margin-left: 50px;
       }
     }
-    @media only screen and (min-width: $tablet) and (max-width: $laptop) {
+    @media only screen and (max-width: $laptop) {
       & {
-        // height: 90%;
-        // top: 65px;
-        // width: 50%;
+        margin: 0;
+        padding: 0 $laptop-block-indent;
+        width: 100%;
+      }
+    }
+    @media only screen and (min-width: $phone) and (max-width: $tablet) {
+      & {
+        padding: 0 $tablet-block-indent;
       }
     }
   }
@@ -38,13 +43,13 @@
         width: 51%;
       }
     }
-    @media only screen and (min-width: $tablet) and (max-width: $laptop) {
+    @media only screen and (max-width: $laptop) {
       & {
         width: 100%;
         margin-bottom: 30px;
       }
     }
-    @media only screen and (min-width: $phone) and (max-width: $tablet) {
+    @media only screen and (max-width: $tablet) {
       & {
         margin-bottom: 30px;
       }
@@ -57,18 +62,30 @@
     animation-timing-function: $fadeInUp-function;
     animation-duration: $fadeInUp-duration;
     animation-fill-mode: both;
+    @media only screen and (max-width: $laptop) {
+      & {
+        text-align: center;
+      }
+    }
   }
   &__text-p {
     padding-right: 67px;
     z-index: 2;
     opacity: 1;
-    font-size: 14px;
+    font-size: 17px;
     letter-spacing: 0.09px;
     line-height: 1.71429;
     margin-bottom: 16px;
     @media only screen and (min-width: $desktop4k) {
       & {
         font-size: 27px;
+      }
+    }
+    @media only screen and (max-width: $laptop) {
+      & {
+        padding-right: 0;
+        text-align: justify;
+        text-indent: $tablet-text-indent;
       }
     }
   }
@@ -86,15 +103,17 @@
     overflow: hidden;
     max-width: 48%;
     min-width: fit-content;
-    @media only screen and (max-width: $desktop4k) {
-      & {
-        width: 540px;
-      }
-    }
+    // @media only screen and (max-width: $desktop4k) {
+    //   & {
+    //     width: 540px;
+    //   }
+    // }
     @media only screen and (min-width: $laptop) and (max-width: $desktop) {
       & {
-        height: 85%;
-        top: 65px;
+        height: 100%;
+        top: 0px;
+        // height: 85%;
+        // top: 65px;
         width: 50%;
         left: 53%;
       }
@@ -103,11 +122,11 @@
       & {
         display: block;
         position: static;
-        min-width: 90%;
+        min-width: 100%;
         margin: auto;
-        // max-height: 200px;
         object-fit: cover;
         height: 200px;
+        text-indent: $tablet-text-indent;
       }
     }
   }

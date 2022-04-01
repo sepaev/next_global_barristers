@@ -9,13 +9,13 @@
   }
   &__text {
     text-align: justify;
-    text-indent: $desktop-indent;
+    text-indent: $desktop-text-indent;
   }
 }
 .about-us-practices {
   &__item {
     overflow: hidden;
-    border-bottom: 1px solid $lightgray-color;
+    border-bottom: 1px solid $light-gray-color;
   }
   &__heading {
     margin-top: 10px;
@@ -54,7 +54,7 @@
       color: $aqua-color;
     }
     &.gray {
-      background-color: $lightgray-background-color;
+      background-color: $light-gray-background-color;
       color: $wheat-color;
     }
   }

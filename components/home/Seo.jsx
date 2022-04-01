@@ -3,7 +3,7 @@ export function Seo() {
     <section className='seo'>
       <div className='container'>
         <div className='seo__wrapper'>
-          <h1 className='seo__heading'>Допомога адвоката в Києві</h1>
+          <h2 className='seo__heading'>Допомога адвоката в Києві</h2>
           <p className='seo__paragraph'>
             <span className='seo__span'>
               Адвокатське об’єднання Mitrax – колектив досвідчених експертів в галузі права. Ми пропонуємо своїм
@@ -38,7 +38,7 @@ export function Seo() {
               консалтингові послуги – правові висновки, аудит підприємств.
             </span>
           </p>
-          <h2 className='seo__heading2'>Переваги послуг адвоката</h2>
+          <h3 className='seo__heading2'>Переваги послуг адвоката</h3>
           <p className='seo__paragraph'>
             <span className='seo__span'>
               Допомога адвоката в Києві – раціональний спосіб досягти бажаного результату в правових конфліктах. Перш
@@ -104,7 +104,7 @@ export function Seo() {
               отримати допомогу наших адвокатів і в інших регіонах України – достатньо залишити свою заявку на сайті.
             </span>
           </p>
-          <h2 className='seo__heading2'>Адвокат у Києві від компанії Мітракс – чому нам довіряють</h2>
+          <h3 className='seo__heading2'>Адвокат у Києві від компанії Мітракс – чому нам довіряють</h3>
           <p className='seo__paragraph'>
             <span className='seo__span'>
               Основні клієнти об’єднання – провідні представники банківського й інвестиційного сектору, сфери послуг,
@@ -155,7 +155,7 @@ export function Seo() {
               тільки в суді, але і в досудовому порядку.
             </span>
           </p>
-          <h2 className='seo__heading2'>Цінності нашої юридичної компанії</h2>
+          <h3 className='seo__heading2'>Цінності нашої юридичної компанії</h3>
           <p className='seo__paragraph'>
             <span className='seo__span'>
               В роботі адвокатського об’єднання Мітракс ми орієнтуємося на кілька принципів. Базові вимоги до юристів –

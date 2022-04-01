@@ -2,7 +2,7 @@
   display: block;
   width: 100%;
   min-height: calc(100vh - 95px);
-  margin-bottom: 60px;
+  // margin-bottom: 60px;
   position: relative;
   overflow: hidden;
   @media only screen and (min-width: $desktop) and (max-width: $desktop4k) {
@@ -88,25 +88,17 @@
   }
   &__heading {
     text-align: center;
-    font-size: 50px;
+    line-height: 1.5;
     max-width: 100%;
     color: $white-color;
     @media only screen and (min-width: $laptop) and (max-width: $desktop) {
       & {
-        font-size: 40px;
-
         max-width: 693px;
       }
     }
     @media only screen and (max-width: $laptop) {
       & {
-        font-size: 30px;
         text-align: center;
-      }
-    }
-    @media only screen and (min-width: $phone) and (max-width: $tablet) {
-      & {
-        font-size: 20px;
       }
     }
   }
