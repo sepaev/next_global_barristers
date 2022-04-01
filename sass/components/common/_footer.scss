@@ -18,17 +18,38 @@
     color: $white-color;
     white-space: nowrap;
   }
-  &-liq {
+  &__liq {
+    margin-bottom: 10px;
+    display: inline-block;
+    background-color: $ultra-light-gray-color;
+    filter: drop-shadow(2px 2px 3px black);
+    margin: 5px 15px;
+  }
+  // &-liq__image {
+  // }
+  &__phone-list {
+    margin-bottom: 10px;
+    display: inline-block;
+    vertical-align: bottom;
+  }
+  &__phone-item {
     margin-bottom: 10px;
   }
-  &-liq__image {
-    background-color: $half-white-background-color5;
+  &__social-list {
+    display: inline-flex;
   }
-  &-phone__list {
-    margin-bottom: 10px;
+  &__social-item {
+    margin-right: 5px;
   }
+  // &__social-link:hover {
+  //   color: #000;
+  //   fill: #000;
+  // }
 }
-
+// .icon {
+//   &-Facebook:hover {
+//   }
+// }
 .footer-menu {
   &__list.part-two {
     margin-top: 26px;
@@ -65,17 +86,19 @@
 .supervisor {
   width: 30%;
   &__container {
-    max-width: 430px;
+    min-width: fit-content;
+    max-width: 450px;
     padding-left: 118px;
     margin-top: -11px;
     margin-right: 20px;
-    padding-top: 10px;
+    padding-top: 35px;
     color: $white-color;
+    width: 380px;
   }
   &__image {
     position: absolute;
     left: 0;
-    top: 9px;
+    top: 30px;
     width: 90px;
     height: 90px;
     border-radius: 25%;

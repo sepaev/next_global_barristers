@@ -1,5 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import facebook from '../../images/svg/facebook.svg'
+import instagram from '../../images/svg/instagram.svg'
+import linkedin from '../../images/svg/linkedin.svg'
+import youtube from '../../images/svg/youtube.svg'
 
 import { getTranslations } from '../../translations/common/footer'
 import { phones, social } from '../../constants/contacts'
@@ -9,6 +13,7 @@ import { partOne, partTwo, other } from '../../constants/footerNav'
 
 export function Footer({ lang = 'uk' }) {
   const { titles, supervisor } = useMemo(() => getTranslations(lang), [lang])
+  const socialIcons = { Facebook: facebook.src, Instagram: instagram.src, LinkedIn: linkedin.src, Youtube: youtube.src }
   function writeSuperV(e) {
     e.preventDefault
     alert('вы написали Директору')
@@ -17,7 +22,7 @@ export function Footer({ lang = 'uk' }) {
     <footer className='footer'>
       <div className='footer__container container'>
         <div className='footer__wrapper'>
-          <section className='footer__services left'>
+          <section className='part-one'>
             <h4 className='footer__title'>{titles.services}</h4>
             <div className='footer-menu part-one'>
               <ul className='footer-menu__list'>
@@ -50,7 +55,7 @@ export function Footer({ lang = 'uk' }) {
               </ul>
             </div>
           </section>
-          <section className='footer__services right'>
+          <section className='part-two'>
             <div className='footer-menu part-two'>
               <ul className='footer-menu__list part-two'>
                 {partTwo.map(({ html, subMenu }) => {
@@ -99,45 +104,53 @@ export function Footer({ lang = 'uk' }) {
               </ul>
             </div>
           </section>
-          <section className='footer__contacts'>
-            <h4 className='footer__title'>{titles.contacts}</h4>
-            <ul className='footer-phone__list'>
-              {phones.map((phone, index) => {
-                return (
-                  <li key={'footer-phones_' + index} className='footer-phone__item'>
-                    <a className='footer-menu__link phone' href={phone}>
-                      {phone}
-                    </a>
-                  </li>
-                )
-              })}
-            </ul>
-            <div className='footer-liq'>
-              <Image src='/liqpay.webp' alt='liqpay' width={120} height={53.5} className='footer-liq__image' />
-            </div>
-
-            <ul className='footer-social__list'>
-              {social.map(({ name, href }, index) => {
-                return (
-                  <li key={'footer-social_' + index} className='footer-social__item'>
-                    <a href={href} target='_blank' className={'footer-social__link icon-' + name} rel='noreferrer'>
-                      {name}
-                    </a>
-                  </li>
-                )
-              })}
-            </ul>
-          </section>
-          <section className='footer__supervisor supervisor'>
-            <div className='supervisor__container'>
-              <div className='supervisor__image lazy'>
-                <Image alt='Supervisor' src='/supervisor.jpg' width={90} height={90} />
+          <section className='part-three'>
+            <div className='footer__contacts'>
+              <h4 className='footer__title'>{titles.contacts}</h4>
+              <ul className='footer__phone-list'>
+                {phones.map((phone, index) => {
+                  return (
+                    <li key={'footer-phones_' + index} className='footer__phone-item'>
+                      <a className='footer-menu__link phone' href={phone}>
+                        {phone}
+                      </a>
+                    </li>
+                  )
+                })}
+              </ul>
+              <div className='footer__liq'>
+                <Image src='/liqpay.webp' alt='liqpay' width={120} height={53.5} className='footer-liq__image' />
               </div>
-              <h4 className='supervisor__title'>{supervisor.title}</h4>
-              <p className='supervisor__text'>{supervisor.text}</p>
-              <a href='#' target='_blank' onClick={writeSuperV} className='btn-default supervisor__button'>
-                {supervisor.button}
-              </a>
+
+              <ul className='footer__social-list'>
+                {social.map(({ name, href }, index) => {
+                  return (
+                    <li key={'footer-social_' + index} className='footer__social-item'>
+                      <a href={href} target='_blank' className='footer__social-link' rel='noreferrer'>
+                        <Image
+                          src={socialIcons[name]}
+                          alt={name + ' icon'}
+                          width={25}
+                          height={25}
+                          className={'icon-' + name}
+                        ></Image>
+                      </a>
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
+            <div className='footer__supervisor supervisor'>
+              <div className='supervisor__container'>
+                <div className='supervisor__image lazy'>
+                  <Image alt='Supervisor' src='/supervisor.jpg' width={90} height={90} />
+                </div>
+                <h4 className='supervisor__title'>{supervisor.title}</h4>
+                <p className='supervisor__text'>{supervisor.text}</p>
+                <a href='#' target='_blank' onClick={writeSuperV} className='btn-default supervisor__button'>
+                  {supervisor.button}
+                </a>
+              </div>
             </div>
           </section>
         </div>
