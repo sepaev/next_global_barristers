@@ -14,8 +14,6 @@ export function Articles({ lang }) {
         <div className='articles__info'>
           <div className='articles__picture-box jsActivateAnimation outer' data-animation='fadeInUpBig'>
             <Image
-              width={801}
-              height={913}
               src='/home/projects.jpg'
               alt='Будівля'
               loading='lazy'
@@ -28,8 +26,6 @@ export function Articles({ lang }) {
             <div className='articles__head'>
               <div className='articles__picture-box jsActivateAnimation inline' data-animation='fadeInUpBig'>
                 <Image
-                  width={801}
-                  height={913}
                   src='/home/projects.jpg'
                   alt='Будівля'
                   loading='lazy'

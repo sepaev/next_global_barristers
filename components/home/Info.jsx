@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { getTranslate } from '../../translations/home/info'
 import { useMemo } from 'react'
 import { ourTeamHtml } from '../../constants/pageNames'
@@ -10,9 +11,22 @@ export function Info({ lang }) {
       <div className='info__container container'>
         <div className='info__photo-block'>
           <div className='info__text-block'>
-            <h2 className='info__heading jsActivateAnimation' data-animation='fadeInUp'>
-              {infoHeading}
-            </h2>
+            <div className='info__heading-container'>
+              <h2 className='info__heading jsActivateAnimation' data-animation='fadeInUp'>
+                {infoHeading}
+              </h2>
+              <div className='info__image-container jsActivateAnimation inline' data-animation='fadeInUpBig'>
+                <Image
+                  src='/home/info.jpg'
+                  className='info__image-img'
+                  alt='Tunnel'
+                  loading='lazy'
+                  objectPosition='center'
+                  objectFit='cover'
+                  layout='fill'
+                />
+              </div>
+            </div>
             {paragraphs.map((paragraph, index) => {
               return (
                 <p key={'info_' + index} className='info__text-p'>
@@ -20,17 +34,14 @@ export function Info({ lang }) {
                 </p>
               )
             })}
-
-            <a href={'/' + ourTeamHtml[0] + '/' + lang} className='btn-default'>
-              {buttonText}
-            </a>
+            <Link href={'/' + ourTeamHtml[0] + '/' + lang}>
+              <a className='btn-default'>{buttonText}</a>
+            </Link>
           </div>
         </div>
       </div>
-      <div className='info__image-container jsActivateAnimation' data-animation='fadeInUpBig'>
+      <div className='info__image-container jsActivateAnimation outer' data-animation='fadeInUpBig'>
         <Image
-          width='1075px'
-          height='970px'
           src='/home/info.jpg'
           className='info__image-img'
           alt='Tunnel'

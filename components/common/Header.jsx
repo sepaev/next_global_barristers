@@ -10,6 +10,8 @@ import { getTranslations } from '../../translations/common/header'
 
 export function Header({ lang = 'uk', title = '', currentPage = '' }) {
   const menuRef = useRef(null)
+  const menuButtonRef = useRef(null)
+  const overlayRef = useRef(null)
   const {
     enActive = '',
     ruActive = '',
@@ -18,17 +20,13 @@ export function Header({ lang = 'uk', title = '', currentPage = '' }) {
     navTitle,
     description,
     consultButton,
-    navTranslations,
-    subMenuTranslations,
   } = useMemo(() => getTranslations(lang), [lang])
 
-  const openModal = ({ target }) => {
+  const openModal = () => {
     menuRef.current.classList.toggle('opened')
-    if (target.nodeName === 'SPAN') {
-      target.parentNode.classList.toggle('opened')
-      return
-    }
-    target.classList.toggle('opened')
+    menuButtonRef.current.classList.toggle('opened')
+    overlayRef.current.classList.toggle('opened')
+    document.body.classList.toggle('overflovHidden')
   }
 
   return (
@@ -96,13 +94,14 @@ export function Header({ lang = 'uk', title = '', currentPage = '' }) {
                     <a className='navigation__button-link consult-btn'>{consultButton}</a>
                   </Link>
                 </div>
-                <div className='navigation__menu-button' onClick={openModal} id='nav-icon3'>
+                <div className='navigation__menu-button' onClick={openModal} ref={menuButtonRef}>
                   <span className='navigation__menu-line'></span>
                   <span className='navigation__menu-line'></span>
                   <span className='navigation__menu-line'></span>
                 </div>
               </div>
               <div className='menu'>
+                <div className='menu__overlay' ref={overlayRef} onClick={openModal}></div>
                 <ul id={'menu-' + lang} ref={menuRef} className='menu__list'>
                   {headerNav.map(({ navPage, pages, key }) => {
                     return (

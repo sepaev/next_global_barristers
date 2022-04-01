@@ -73,14 +73,14 @@ export function Slider({ lang = 'uk' }) {
     return '+380 (' + d1 + d2 + ') ' + d3 + d4 + d5 + ' ' + d6 + d7 + ' ' + d8 + d9
   }
 
-  useEffect(() => {
-    if (!auto) return
+  // useEffect(() => {
+  //   if (!auto) return
 
-    const interval = setTimeout(_ => {
-      slideRight()
-    }, 8000)
-    return _ => clearTimeout(interval)
-  }, [auto, slideRight])
+  //   const interval = setTimeout(_ => {
+  //     slideRight()
+  //   }, 8000)
+  //   return _ => clearTimeout(interval)
+  // }, [auto, slideRight])
 
   //style={{ backgroundImage: `url(${sliders[0]})` }}
   return (
@@ -106,7 +106,6 @@ export function Slider({ lang = 'uk' }) {
                 <span className='form__mask'>
                   <input
                     // type='tel'
-                    name='mask-500'
                     value={inputMask()}
                     className='form__input'
                     size={40}

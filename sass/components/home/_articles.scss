@@ -48,7 +48,7 @@
       }
       @media only screen and (max-width: $tablet) {
         & {
-          height: 120px;
+          height: 200px;
           width: 100%;
         }
       }
@@ -163,8 +163,13 @@
   &__item-title {
     color: $gray-color;
     font-size: 16px;
-    line-height: 26px;
+    line-height: 1.625;
     width: 80%;
+    @media only screen and (max-width: $tablet) {
+      & {
+        font-size: 14px;
+      }
+    }
     &:hover {
       color: $aqua-color;
     }

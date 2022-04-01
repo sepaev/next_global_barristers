@@ -1,28 +1,28 @@
 .slider {
   display: block;
   width: 100%;
-  min-height: calc(100vh - 95px);
+  min-height: calc(100vh - $top-desktop4k-indent);
   // margin-bottom: 60px;
   position: relative;
   overflow: hidden;
   @media only screen and (min-width: $desktop) and (max-width: $desktop4k) {
     & {
-      min-height: calc(100vh - 115px);
+      min-height: calc(100vh - $top-desktop-indent);
     }
   }
   @media only screen and (min-width: $laptop) and (max-width: $desktop) {
     & {
-      min-height: calc(100vh - 102px);
+      min-height: calc(100vh - $top-laptop-indent);
     }
   }
   @media only screen and (min-width: $tablet) and (max-width: $laptop) {
     & {
-      min-height: calc(100vh - 81px);
+      min-height: calc(100vh - $top-tablet-indent);
     }
   }
   @media only screen and (max-width: $tablet) {
     & {
-      min-height: calc(100vh - 77px);
+      min-height: calc(100vh - $top-phone-indent);
     }
   }
 
@@ -85,10 +85,15 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+    @media only screen and (max-width: $tablet) {
+      & {
+        top: -50px;
+      }
+    }
   }
   &__heading {
     text-align: center;
-    line-height: 1.5;
+    line-height: 1.4;
     max-width: 100%;
     color: $white-color;
     @media only screen and (min-width: $laptop) and (max-width: $desktop) {
@@ -129,9 +134,10 @@
     right: 0;
     z-index: 10;
 
-    @media only screen and (min-width: $phone) and (max-width: $tablet) {
+    @media only screen and (max-width: $tablet) {
       & {
         right: 25%;
+        bottom: 0px;
       }
     }
   }
@@ -143,10 +149,11 @@
         right: 161px;
       }
     }
-    @media only screen and (min-width: $phone) and (max-width: $tablet) {
+    @media only screen and (max-width: $tablet) {
       & {
         right: initial;
         left: 25%;
+        bottom: 0px;
       }
     }
   }
@@ -191,7 +198,7 @@
         height: 60px;
         font-size: 30px;
         padding-left: 30px;
-        width: 400px;
+        width: 330px;
       }
     }
     @media only screen and (max-width: $laptop) {

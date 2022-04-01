@@ -8,7 +8,7 @@ export function AsideLayout({ children, lang = 'uk', currentPage, headerAlt = 'B
   const menuItem = headerNav.find(item => item.navPage[0] === currentPage)
   return (
     <>
-      <section className={currentPage + '__header section__page-with-aside'}>
+      <section className={currentPage + '__header aside__top-image'}>
         <Image
           src={'/asides/' + currentPage + '/header.jpg'}
           alt={headerAlt}

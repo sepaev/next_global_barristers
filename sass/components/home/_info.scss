@@ -16,15 +16,15 @@
     @media only screen and (max-width: $laptop) {
       & {
         margin: 0;
-        padding: 0 $laptop-block-indent;
+        padding: 0 $tablet-block-indent;
         width: 100%;
       }
     }
-    @media only screen and (min-width: $phone) and (max-width: $tablet) {
-      & {
-        padding: 0 $tablet-block-indent;
-      }
-    }
+    // @media only screen and (min-width: $phone) and (max-width: $tablet) {
+    //   & {
+    //     padding: 0 $tablet-block-indent;
+    //   }
+    // }
   }
   &__photo-block {
     display: flex;
@@ -55,6 +55,18 @@
       }
     }
   }
+  &__heading-container {
+    @media only screen and (max-width: $laptop) {
+      & {
+        display: flex;
+      }
+    }
+    @media only screen and (max-width: $tablet) {
+      & {
+        flex-direction: column-reverse;
+      }
+    }
+  }
   &__heading {
     visibility: visible;
     animation-name: fadeInUp;
@@ -64,7 +76,14 @@
     animation-fill-mode: both;
     @media only screen and (max-width: $laptop) {
       & {
+        margin-top: 30px;
         text-align: center;
+        width: 50%;
+      }
+    }
+    @media only screen and (max-width: $tablet) {
+      & {
+        width: 100%;
       }
     }
   }
@@ -95,7 +114,7 @@
     // opacity: 0;
     top: 0;
     height: 100%;
-    width: 38%;
+    width: 45%;
     animation-duration: 1.2s;
     animation-fill-mode: both;
     left: 50%;
@@ -103,22 +122,18 @@
     overflow: hidden;
     max-width: 48%;
     min-width: fit-content;
-    // @media only screen and (max-width: $desktop4k) {
-    //   & {
-    //     width: 540px;
-    //   }
-    // }
+    &.inline {
+      display: none;
+    }
     @media only screen and (min-width: $laptop) and (max-width: $desktop) {
       & {
         height: 100%;
         top: 0px;
-        // height: 85%;
-        // top: 65px;
         width: 50%;
         left: 53%;
       }
     }
-    @media only screen and (min-width: $phone) and (max-width: $laptop) {
+    @media only screen and (max-width: $laptop) {
       & {
         display: block;
         position: static;
@@ -127,6 +142,24 @@
         object-fit: cover;
         height: 200px;
         text-indent: $tablet-text-indent;
+      }
+    }
+    @media only screen and (max-width: $laptop) {
+      &.outer {
+        display: none;
+      }
+      &.inline {
+        display: flex;
+        min-width: auto;
+        max-width: 50%;
+        width: 50%;
+        height: 100px;
+      }
+    }
+    @media only screen and (max-width: $tablet) {
+      &.inline {
+        min-width: 100%;
+        height: 200px;
       }
     }
   }
