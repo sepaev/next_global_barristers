@@ -18,7 +18,7 @@
     animation-name: fadeInUp;
     visibility: visible;
     text-align: center;
-    animation-timing-function: $fadeInUp-function;
+    animation-timing-function: $standart-function;
     animation-duration: $fadeInUp-duration;
     animation-fill-mode: both;
     // font-size: 38px;
@@ -61,7 +61,7 @@
     border-radius: 4.8px;
     padding: 25px;
     transition: box-shadow 0.2s ease-in-out, -webkit-box-shadow 0.2s ease-in-out;
-    animation-timing-function: $fadeInUp-function;
+    animation-timing-function: $standart-function;
     animation-duration: $fadeInUp-duration;
     animation-fill-mode: both;
     &:hover {

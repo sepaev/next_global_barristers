@@ -59,7 +59,7 @@
     visibility: visible;
     animation-name: fadeInUp;
     // opacity: 0;
-    animation-timing-function: $fadeInUp-function;
+    animation-timing-function: $standart-function;
     animation-duration: $fadeInUp-duration;
     animation-fill-mode: both;
     @media only screen and (max-width: $laptop) {

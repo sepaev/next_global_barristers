@@ -1,10 +1,5 @@
 .articles {
   &__container {
-    @media only screen and (min-width: $desktop4k) {
-      & {
-        // font-size: 27px;
-      }
-    }
     @media only screen and (max-width: $desktop) {
       & {
         width: 100%;
@@ -66,14 +61,6 @@
         }
       }
     }
-    // @media only screen and (max-width: $laptop) {
-    //   & {
-    //     display: none;
-    //     // min-width: 100%;
-    //     // margin: auto;
-    //     // height: 200px;
-    //   }
-    // }
   }
 
   &__wrapper {
@@ -118,7 +105,7 @@
     // opacity: 0;
     animation-name: fadeInUp;
     margin-bottom: 10px;
-    animation-timing-function: $fadeInUp-function;
+    animation-timing-function: $standart-function;
     animation-duration: $fadeInUp-duration;
     animation-fill-mode: both;
     @media only screen and (max-width: $laptop) {
@@ -192,8 +179,7 @@
     height: 15px;
   }
   &__img-arrow {
-    transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1), opacity 1s cubic-bezier(0.19, 1, 0.22, 1),
-      -webkit-transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: transform 1s $standart-function, opacity 1s $standart-function, -webkit-transform 1s $standart-function;
     &:hover {
       transform: translateX(10px);
       fill: $aqua-color;

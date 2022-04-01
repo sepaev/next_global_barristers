@@ -61,7 +61,7 @@
     min-height: 100%;
     width: 100%;
     visibility: visible;
-    transition: height 0s, opacity 0.5s cubic-bezier(0.15, 0.56, 0.74, 0.94);
+    transition: height 0s, opacity 0.5s $standart-function;
   }
   &__image1 {
     z-index: 1;
