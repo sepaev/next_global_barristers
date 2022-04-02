@@ -22,7 +22,7 @@ export function Footer({ lang = 'uk' }) {
     <footer className='footer'>
       <div className='footer__container container'>
         <div className='footer__wrapper'>
-          <section className='part-one'>
+          <section className='footer__part-one'>
             <h4 className='footer__title'>{titles.services}</h4>
             <div className='footer-menu part-one'>
               <ul className='footer-menu__list'>
@@ -55,7 +55,7 @@ export function Footer({ lang = 'uk' }) {
               </ul>
             </div>
           </section>
-          <section className='part-two'>
+          <section className='footer__part-two'>
             <div className='footer-menu part-two'>
               <ul className='footer-menu__list part-two'>
                 {partTwo.map(({ html, subMenu }) => {
@@ -104,7 +104,7 @@ export function Footer({ lang = 'uk' }) {
               </ul>
             </div>
           </section>
-          <section className='part-three'>
+          <section className='footer__part-three'>
             <div className='footer__contacts'>
               <h4 className='footer__title'>{titles.contacts}</h4>
               <ul className='footer__phone-list'>
@@ -130,8 +130,8 @@ export function Footer({ lang = 'uk' }) {
                         <Image
                           src={socialIcons[name]}
                           alt={name + ' icon'}
-                          width={25}
-                          height={25}
+                          width={40}
+                          height={40}
                           className={'icon-' + name}
                         ></Image>
                       </a>
