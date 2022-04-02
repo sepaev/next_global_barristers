@@ -192,9 +192,9 @@
   &-sub__item {
     @media only screen and (min-width: $tablet) and (max-width: $laptop) {
       &:not(:last-child) {
-        border-bottom-style: double;
-        border-bottom-color: $orange-background-color;
-        border-bottom-width: 4px;
+        border-bottom-style: solid;
+        border-bottom-color: $light-gray-background-color;
+        border-bottom-width: 1px;
       }
       & {
         text-align: center;
@@ -233,6 +233,12 @@
         margin: 0;
       }
     }
+    @media only screen and (max-width: $tablet) {
+      & {
+        margin-top: 0;
+        padding-top: 10px;
+      }
+    }
   }
   &__image {
     position: absolute;
@@ -247,6 +253,11 @@
       & {
         position: initial;
         display: inline-block;
+      }
+    }
+    @media only screen and (max-width: $tablet) {
+      & {
+        top: 15px;
       }
     }
   }
@@ -269,6 +280,11 @@
         text-align: center;
         margin-left: 10px;
         letter-spacing: 0;
+      }
+    }
+    @media only screen and (max-width: $tablet) {
+      & {
+        margin-bottom: 20px;
       }
     }
   }
