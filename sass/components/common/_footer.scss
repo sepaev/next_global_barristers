@@ -6,38 +6,79 @@
   padding-bottom: 25px;
   height: auto;
   border: solid 2px $aqua-background-color;
-  // transform: translateY(1px);
   &__part-one {
     max-width: 25%;
     padding-right: 1%;
+    @media only screen and (max-width: $tablet) {
+      & {
+        max-width: 100%;
+      }
+    }
   }
   &__part-two {
     max-width: 25%;
     padding-right: 1%;
+    @media only screen and (max-width: $tablet) {
+      & {
+        max-width: 100%;
+      }
+    }
   }
   &__part-three {
     // padding-left: 10px;
     max-width: 48%;
+    @media only screen and (max-width: $tablet) {
+      & {
+        max-width: 100%;
+      }
+    }
   }
   &__container {
     max-width: 1140px;
   }
   &__wrapper {
-    padding-top: 20px;
+    // padding-top: 20px;
     display: flex;
     justify-content: space-between;
+    @media only screen and (max-width: $tablet) {
+      & {
+        display: block;
+      }
+    }
   }
   &__title {
     font-weight: 400;
     margin-bottom: 10px;
     color: $white-color;
     white-space: nowrap;
+    @media only screen and (max-width: $tablet) {
+      & {
+        margin-top: 10px;
+      }
+    }
   }
   &__liq {
     display: inline-block;
     background-color: $ultra-light-gray-color;
     filter: drop-shadow(2px 2px 3px black);
     margin: 15px 30px;
+    @media only screen and (max-width: 780px) {
+      & {
+        margin-right: 45px;
+        margin-left: 0px;
+      }
+    }
+    @media only screen and (max-width: $tablet) {
+      & {
+        margin-right: 123px;
+      }
+    }
+    @media only screen and (min-width: 420px) and (max-width: $tablet) {
+      & {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+    }
   }
   // &-liq__image {
   // }
@@ -54,27 +95,70 @@
     flex-direction: column;
     position: absolute;
     right: 0px;
+    z-index: 3;
     @media only screen and (max-width: 900px) {
       & {
         right: -15px;
+      }
+    }
+    @media only screen and (max-width: $laptop) {
+      & {
+        top: 0;
+        right: 0;
+      }
+    }
+    @media only screen and (max-width: $tablet) {
+      & {
+        flex-direction: row;
+        position: absolute;
+        flex-wrap: wrap;
+        width: 100px;
+        top: 60px;
+      }
+    }
+    @media only screen and (min-width: 420px) {
+      & {
+        top: 20px;
       }
     }
   }
   &__social-item {
     margin-right: 5px;
   }
-  // &__social-link:hover {
-  //   color: #000;
-  //   fill: #000;
-  // }
 }
-// .icon {
-//   &-Facebook:hover {
-//   }
-// }
+
 .footer-menu {
   &__list.part-two {
     margin-top: 26px;
+    @media only screen and (max-width: $tablet) {
+      & {
+        margin-top: 0px;
+      }
+    }
+  }
+  &__item {
+    @media only screen and (min-width: $tablet) and (max-width: $laptop) {
+      &.marble {
+        text-align: center;
+        border: double;
+        // border-color: goldenrod;
+        border-color: darkolivegreen;
+        text-align: center;
+        // background-image: url('../../../images/marble-deep-blue.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        word-break: break-word;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        & a {
+          color: $orange-color;
+          filter: drop-shadow(1px 1px 2px black);
+        }
+      }
+      &.nowrap {
+        white-space: nowrap;
+      }
+    }
   }
   &__link {
     font-weight: 700;
@@ -87,14 +171,36 @@
     &.phone {
       white-space: nowrap;
     }
+    @media only screen and (max-width: $laptop) {
+      & {
+        font-size: 13px;
+      }
+    }
   }
   &-sub__list {
     padding-left: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
     list-style: circle;
+    @media only screen and (min-width: $tablet) and (max-width: $laptop) {
+      & {
+        padding-left: 0px;
+        list-style: none;
+      }
+    }
   }
-
+  &-sub__item {
+    @media only screen and (min-width: $tablet) and (max-width: $laptop) {
+      &:not(:last-child) {
+        border-bottom-style: double;
+        border-bottom-color: $orange-background-color;
+        border-bottom-width: 4px;
+      }
+      & {
+        text-align: center;
+      }
+    }
+  }
   &-sub__link {
     color: $white-color;
     font-size: 12px;
@@ -102,20 +208,31 @@
     &:hover {
       color: $orange-color;
     }
+    // @media only screen and (max-width: $laptop) {
+    //   & {
+    //     // color: $aqua-color;
+    //   }
+    // }
   }
 }
 
 .supervisor {
-  width: 30%;
   &__container {
     min-width: fit-content;
-    max-width: 450px;
+    max-width: 100%;
     padding-left: 118px;
     margin-top: -11px;
     margin-right: 20px;
     padding-top: 35px;
     color: $white-color;
     width: 380px;
+    @media only screen and (min-width: $tablet) and (max-width: $laptop) {
+      & {
+        padding: 10px 0;
+        max-width: 100%;
+        margin: 0;
+      }
+    }
   }
   &__image {
     position: absolute;
@@ -126,6 +243,12 @@
     border-radius: 25%;
     display: block;
     overflow: hidden;
+    @media only screen and (min-width: $tablet) and (max-width: $laptop) {
+      & {
+        position: initial;
+        display: inline-block;
+      }
+    }
   }
   &__title {
     font-weight: 400;
@@ -136,17 +259,33 @@
     line-height: 14px;
     opacity: 1;
     padding: 0 35px 16px 0;
+    @media only screen and (max-width: $laptop) {
+      & {
+        display: inline-block;
+        width: min-content;
+        padding: 0;
+        vertical-align: top;
+        line-height: 1.8;
+        text-align: center;
+        margin-left: 10px;
+        letter-spacing: 0;
+      }
+    }
   }
   &__text {
     color: $white-color;
     box-sizing: border-box;
     font-size: 12px;
     line-height: 18px;
-    // margin-bottom: 24px;
     min-height: 54px;
     font-weight: 400;
-    // padding-right: 35px;
     padding: 0 35px 24px 0;
+    @media only screen and (max-width: $laptop) {
+      & {
+        padding: 0;
+        margin-bottom: 10px;
+      }
+    }
   }
   &__button {
     text-decoration: none;

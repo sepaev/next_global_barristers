@@ -9,6 +9,9 @@ import logo from '../../images/svg/logo.svg'
 import { getTranslations } from '../../translations/common/header'
 
 export function Header({ lang = 'uk', title = '', currentPage = '' }) {
+  const ruUrl = currentPage === '' ? '/ru' : '/' + currentPage + '/ru'
+  const enUrl = currentPage === '' ? '/en' : '/' + currentPage + '/en'
+  const ukUrl = currentPage === '' ? '/uk' : '/' + currentPage + '/uk'
   const menuRef = useRef(null)
   const menuButtonRef = useRef(null)
   const overlayRef = useRef(null)
@@ -58,13 +61,13 @@ export function Header({ lang = 'uk', title = '', currentPage = '' }) {
 
               <div className='lang'>
                 <div className='lang__wrapper'>
-                  <Link href={'/' + currentPage + '/en'}>
+                  <Link href={enUrl}>
                     <a className={'lang__link lang_en' + enActive}> en </a>
                   </Link>
-                  <Link href={'/' + currentPage + '/ru'}>
+                  <Link href={ruUrl}>
                     <a className={'lang__link lang_en' + ruActive}> ru </a>
                   </Link>
-                  <Link href={'/' + currentPage + '/uk'}>
+                  <Link href={ukUrl}>
                     <a className={'lang__link lang_en' + ukActive}> uk </a>
                   </Link>
                 </div>

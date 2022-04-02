@@ -28,7 +28,7 @@ export function getTranslations(lang) {
     case 'ru':
       titles = { services: 'Популярные услуги', other: 'Другое', contacts: 'Наши контакты' }
       supervisor = {
-        title: 'Написать руководителю',
+        title: 'Написать директору',
         text: 'Если вы остались недовольны нашей работой или что-то пошло не так. Напишите руководителю компании.',
         button: 'Написать',
       }

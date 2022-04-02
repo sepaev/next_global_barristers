@@ -57,7 +57,7 @@ export const sudoviSporyHtml = [
 ]
 export const neruhomostiHtml = [
   'advokat-z-neruhomosti',
-  { en: 'Real estate lawyer', ru: 'Адвокат по спорам по недвижимости', uk: 'Юрист з нерухомості' },
+  { en: 'Real estate lawyer', ru: 'Адвокат по спорам с недвижимости', uk: 'Юрист з нерухомості' },
 ]
 export const virishennyaSporivHtml = [
   'virishennya-sporiv',

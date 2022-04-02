@@ -30,7 +30,7 @@ export function Footer({ lang = 'uk' }) {
                   const [url, text] = html
                   return (
                     <Fragment key={uniqid()}>
-                      <li className='footer-menu__item'>
+                      <li className='footer-menu__item marble'>
                         <Link href={'/articles/' + lang + '/' + url}>
                           <a className='footer-menu__link'>{text[lang]}</a>
                         </Link>
@@ -62,7 +62,7 @@ export function Footer({ lang = 'uk' }) {
                   const [url, text] = html
                   return (
                     <Fragment key={uniqid()}>
-                      <li className='footer-menu__item'>
+                      <li className='footer-menu__item marble'>
                         <Link href={'/articles/' + lang + '/' + url}>
                           <a className='footer-menu__link'>{text[lang]}</a>
                         </Link>
@@ -88,11 +88,11 @@ export function Footer({ lang = 'uk' }) {
             </div>
             <h4 className='footer__title'>{titles.other}</h4>
             <div className='footer-menu other'>
-              <ul id='menu-drugoe-ukr' className='footer-menu__list'>
+              <ul className='footer-menu__list'>
                 {other.map(({ html }, index) => {
                   const [url, text] = html
                   return (
-                    <li key={'other_' + index} className='footer-menu__item'>
+                    <li key={'other_' + index} className='footer-menu__item nowrap'>
                       <Link href={'/' + url + '/' + lang}>
                         <a className='footer-menu__link' target='_blank' rel='noopener noreferrer'>
                           {text[lang]}
@@ -140,17 +140,15 @@ export function Footer({ lang = 'uk' }) {
                 })}
               </ul>
             </div>
-            <div className='footer__supervisor supervisor'>
-              <div className='supervisor__container'>
-                <div className='supervisor__image lazy'>
-                  <Image alt='Supervisor' src='/supervisor.jpg' width={90} height={90} />
-                </div>
-                <h4 className='supervisor__title'>{supervisor.title}</h4>
-                <p className='supervisor__text'>{supervisor.text}</p>
-                <a href='#' target='_blank' onClick={writeSuperV} className='btn-default supervisor__button'>
-                  {supervisor.button}
-                </a>
+            <div className='supervisor__container'>
+              <div className='supervisor__image lazy'>
+                <Image alt='Supervisor' src='/supervisor.jpg' width={90} height={90} />
               </div>
+              <h4 className='supervisor__title'>{supervisor.title}</h4>
+              <p className='supervisor__text'>{supervisor.text}</p>
+              <a href='#' target='_blank' onClick={writeSuperV} className='btn-default supervisor__button'>
+                {supervisor.button}
+              </a>
             </div>
           </section>
         </div>
