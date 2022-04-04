@@ -7,13 +7,41 @@
 
 .aside {
   width: 26%;
-  margin-right: 4.5%;
+  margin-right: 4%;
   flex: none;
   display: block;
+  min-width: fit-content;
+  @media only screen and (max-width: $laptop) {
+    & {
+      background-color: $white-background-color;
+      position: absolute;
+      z-index: 3;
+      height: 100%;
+      top: 0;
+      left: 0;
+      margin: 0;
+      padding-right: 15px;
+      padding-top: 10px;
+      filter: drop-shadow(1px 1px 1px $black-background-color);
+      transform: translateX(-85%);
+      transition: transform 250ms $standart-function;
+      border-radius: 5px;
+    }
+    &.opened {
+      left: 0;
+      border: none;
+      transform: translateX(0%);
+    }
+  }
   &__container {
     display: flex;
     margin-bottom: 80px;
     align-items: flex-start;
+    @media only screen and (max-width: $desktop) {
+      & {
+        width: 100%;
+      }
+    }
   }
   &__list {
     margin-bottom: 60px;
@@ -31,7 +59,6 @@
   &__item-main {
     padding-left: 0px;
     padding-right: 0px;
-    box-shadow: 0 1px 2px 0 $half-black-background-color2;
     font-size: 20px;
     color: $deep-aqua-color;
     letter-spacing: 0.11px;
@@ -73,11 +100,27 @@
     &:hover:after {
       width: 100%;
     }
+    @media only screen and (max-width: $laptop) {
+      & {
+        padding-right: 40px;
+      }
+    }
   }
 }
 
 .aside-page {
-  width: 74%;
+  width: 70%;
+  @media only screen and (max-width: $desktop) {
+    & {
+      padding-right: 5%;
+    }
+  }
+  @media only screen and (max-width: $laptop) {
+    & {
+      width: 100%;
+      padding-left: 10%;
+    }
+  }
   &__title {
     margin-bottom: 8px;
     font-size: 30px;

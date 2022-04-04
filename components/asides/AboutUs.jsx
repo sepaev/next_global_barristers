@@ -1,12 +1,10 @@
+import { useMemo } from 'react'
 import uniqid from 'uniqid'
+import { getTranslations } from '../../translations/asides/aboutUs'
 
 export default function AboutUs({ lang }) {
-  const lawersText =
-    'Адвокат з корпоративних спорів;Адвокат з питань щодо дітей;Адвокат по стягненню дебіторської заборгованості;Адвокат зі спорів щодо нерухомості;Адвокат з поділу майна;Адвокат з банківських і фінансових спорів;Адвокат з держзакупівель;Адвокат з судових спорів'
-  const actionsText =
-    'Стягнення дебіторської заборгованості в судовому порядку;Вирішення спорів;Захист бізнесу;Позасудове врегулювання спорів'
-  const branchesText =
-    'Земля і нерухомість;Антирейдерство;Сімейне та спадкове право;Проблемні борги;Кримінальна практика;Екстрадиція'
+  const { lawyersText, actionsText, branchesText, titleParagraph, mainTextParagraphs, benefitsTitle, benefits } =
+    useMemo(() => getTranslations(lang), [lang])
 
   function stopAnimation({ target }) {
     const { style } = target.parentNode
@@ -58,26 +56,28 @@ export default function AboutUs({ lang }) {
     <div className='about-us'>
       <h2 className='about-us__title'>
         GLOBAL BARRISTERS
-        <p className='about-us__title-p'> об’єднуємо людей зі спільними цінностями.</p>
+        <p className='about-us__title-p'>{titleParagraph}</p>
       </h2>
-      <p className='about-us__text'>
-        В сьогоднішніх умовах економічної нестабільності Ваш бізнес постійно стикається з новими викликами. З Global
-        Barrsisters Ви можете розраховувати на нашу команду висококваліфікованих експертів. Ми професійні, сучасні і
-        доброзичливі. Наші глибокі знання специфіки галузей економіки дозволяють нам знаходити вирішення питань
-        будь-якого рівня складності і масштабу.
-      </p>
+      {mainTextParagraphs.map(paragraph => {
+        return (
+          <p key={uniqid()} className='about-us__text'>
+            {paragraph}
+          </p>
+        )
+      })}
+
       <ul className='about-us-practices'>
-        <h3 className='about-us-practices__heading visually-hidden'>Наші переваги:</h3>
+        <h3 className='about-us-practices__heading visually-hidden'>{benefitsTitle}</h3>
         <li className='about-us-practices__item'>
-          <h4 className='about-us-practices__heading-sub'>Адвокати</h4>
-          {writeSpans('lawers', 8, 'aqua', lawersText)}
+          <h4 className='about-us-practices__heading-sub'>{benefits.lawyers}</h4>
+          {writeSpans('lawyers', 8, 'aqua', lawyersText)}
         </li>
         <li className='about-us-practices__item'>
-          <h4 className='about-us-practices__heading-sub'>Дії</h4>
+          <h4 className='about-us-practices__heading-sub'>{benefits.actions}</h4>
           {writeSpans('actions', 11, 'orange', actionsText)}
         </li>
         <li className='about-us-practices__item'>
-          <h4 className='about-us-practices__heading-sub'>Галузі</h4>
+          <h4 className='about-us-practices__heading-sub'>{benefits.departments}</h4>
           {writeSpans('branches', 13, 'gray', branchesText)}
         </li>
       </ul>

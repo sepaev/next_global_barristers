@@ -3,9 +3,13 @@ import Link from 'next/link'
 import { headerNav } from '../../constants/headerNav'
 import { homeHtml } from '../../constants/pageNames'
 import uniqid from 'uniqid'
+import { useRef } from 'react'
 
 export function AsideLayout({ children, lang = 'uk', currentPage, headerAlt = 'Buildings' }) {
   const menuItem = headerNav.find(item => item.navPage[0] === currentPage)
+  const asideRef = useRef(null)
+
+  const openAside = () => asideRef.current.classList.toggle('opened')
   return (
     <>
       <section className={currentPage + '__header aside__top-image'}>
@@ -19,7 +23,7 @@ export function AsideLayout({ children, lang = 'uk', currentPage, headerAlt = 'B
         />
       </section>
       <div className='container aside__container'>
-        <aside className='aside'>
+        <aside className='aside' onClick={openAside} ref={asideRef}>
           <ul className='aside__list'>
             <li className='aside__item aside__item-main'>
               <Link href={'/' + menuItem.navPage[0] + '/' + lang}>

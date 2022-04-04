@@ -422,6 +422,7 @@
     height: 100%;
     display: flex;
     align-items: center;
+    text-align: left !important;
     font-size: 20px;
     @media only screen and (min-width: $desktop) and (max-width: $desktop4k) {
       & {
@@ -463,7 +464,7 @@
   display: flex;
   flex-direction: column;
   position: absolute;
-  left: -50px;
+  left: -100px;
   margin: 0;
   min-width: 360px;
   border-radius: 5px;
@@ -529,6 +530,6 @@
     border-width: 0 9.5px 6px;
     border-color: transparent transparent $white-color;
     top: 4px;
-    left: 80px;
+    left: 50%;
   }
 }
