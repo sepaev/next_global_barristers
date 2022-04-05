@@ -1,4 +1,110 @@
-.lawyer__photo {
-  width: 150px;
-  height: 200px;
+.lawyers {
+  &__title {
+    padding: 30px;
+    overflow: hidden;
+    text-align: center;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 27px;
+    margin-bottom: 0;
+    &::after,
+    &::before {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      box-sizing: border-box;
+      width: 100%;
+      height: 2px;
+      background: $darker-white-background-color;
+      border: solid $white-color;
+      border-width: 0 10px;
+    }
+  }
+  &__list {
+    flex-wrap: wrap;
+    display: flex;
+  }
+}
+
+.lawyer {
+  flex-basis: 48%;
+  margin: 1%;
+  @media only screen and (max-width: 540px) {
+    & {
+      flex-basis: 100%;
+    }
+  }
+  &__photo {
+    min-width: 29vw;
+    min-height: 36vw;
+    border-radius: 10px;
+    overflow: hidden;
+    filter: drop-shadow(2px 4px 6px $half-black-background-color5);
+    @media only screen and (max-width: $laptop) {
+      & {
+        min-height: 50vw;
+      }
+    }
+    @media only screen and (max-width: 540px) {
+      & {
+        min-height: 100vw;
+      }
+    }
+  }
+  &__photo-img {
+    transition: transform 550ms $standart-function;
+    &:hover {
+      transform: matrix(1.1, 0, 0, 1.1, 0, 0);
+    }
+  }
+  &__info {
+    // background: $wheat-color;
+    padding: 20px;
+  }
+  &__name {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 20px;
+    padding-bottom: 12px;
+  }
+  &__description {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.2;
+    color: $light-gray-color;
+    padding-bottom: 16px;
+  }
+  &__button {
+    text-transform: uppercase;
+  }
+}
+
+.competations {
+  &__title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.625;
+    color: $black-color;
+    margin-bottom: 10px;
+  }
+  &__list {
+    list-style-type: none;
+  }
+  &__item {
+    padding-left: 20px;
+    margin: 10px;
+    font-size: 14px;
+    line-height: 1;
+    color: $light-gray-color;
+    &::before {
+      content: url('../../../images/svg/checkMark.svg');
+      position: absolute;
+      top: -4px;
+      left: 0;
+      color: $aqua-color;
+      font-size: 17px;
+      width: 13px;
+    }
+  }
 }

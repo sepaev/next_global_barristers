@@ -3,11 +3,11 @@ import arrow from '../../images/svg/arrow.svg'
 import list from '../../images/svg/list.svg'
 import Link from 'next/link'
 import { useMemo } from 'react'
-import { getTranslate } from '../../translations/home/articles'
+import { getTranslations } from '../../translations/home/articles'
 import { ourSolutionsHtml } from '../../constants/pageNames'
 
 export function Articles({ lang }) {
-  const { articlesHeading, articlesCommonText, articlesButton, articles } = useMemo(() => getTranslate(lang), [lang])
+  const { articlesHeading, articlesCommonText, articlesButton, articles } = useMemo(() => getTranslations(lang), [lang])
   return (
     <section className='articles'>
       <div className='articles__container container'>

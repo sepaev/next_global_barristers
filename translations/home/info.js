@@ -1,4 +1,4 @@
-export function getTranslate(lang) {
+export function getTranslations(lang) {
   let paragraphs = []
   let infoHeading
   let buttonText

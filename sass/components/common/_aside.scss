@@ -121,6 +121,11 @@
       padding-left: 10%;
     }
   }
+  @media only screen and (max-width: $tablet) {
+    & {
+      padding-left: 15%;
+    }
+  }
   &__title {
     margin-bottom: 8px;
     font-size: 30px;

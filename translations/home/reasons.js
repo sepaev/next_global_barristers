@@ -1,6 +1,6 @@
 import { aboutUsHtml, ourPracticesHtml, ourTeamHtml } from '../../constants/pageNames'
 
-export function getTranslate(lang) {
+export function getTranslations(lang) {
   let detailsButtonText, reasonsHeading, reasons
   switch (lang) {
     case 'ru':

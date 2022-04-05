@@ -1,12 +1,23 @@
-import { ourTeamHtml, homeHtml } from '../../constants/pageNames'
+import { getTranslations } from '../../translations/asides/ourTeam'
+import { getCommonTranslations } from '../../translations/common/common'
+import { useMemo } from 'react'
 import { lawyers } from '../../constants/lawyers'
 import uniqid from 'uniqid'
 import Image from 'next/image'
+import { useRef } from 'react'
+import checkMark from '../../images/svg/checkMark.svg'
 
 export default function OurTeam({ lang }) {
+  const { lawyersTitle, competationsTitle, buttonText } = useMemo(() => getTranslations(lang), [lang])
+  const { sendToText } = useMemo(() => getCommonTranslations(lang), [lang])
+  const lawyerButton = useRef(null)
+  const buttonClick = pib => {
+    alert(sendToText + ' ' + pib[lang])
+  }
+
   return (
     <>
-      <div className='lawyers__title'>Наші адвокати</div>
+      <h2 className='lawyers__title'>{lawyersTitle}</h2>
       <div className='lawyers__container'>
         <ul className='lawyers__list'>
           {lawyers.map(({ fileName, pib, description, competencies }) => {
@@ -29,23 +40,24 @@ export default function OurTeam({ lang }) {
                   <div className='lawyer__description'>{description[lang]}</div>
 
                   <div className='competations'>
-                    <div className='title_comp'>Компетенции: </div>
-                    <ul>
+                    <div className='competations__title'>{competationsTitle}</div>
+                    <ul className='competations__list'>
                       {competencies[lang].split(';').map(competence => {
-                        return <li key={uniqid()}>{competence}</li>
+                        return (
+                          <li className='competations__item' key={uniqid()}>
+                            {competence}
+                          </li>
+                        )
                       })}
                     </ul>
                   </div>
-
-                  <a className='mail_key' href='mailto:ponomarenko@mitrax.com.ua'>
-                    ponomarenko@mitrax.com.ua
-                  </a>
-
-                  <div className='consult-btn js-consult-btn'>
-                    <a href='mailto:ponomarenko@mitrax.com.ua' className='key_btn'>
-                      отправить запрос{' '}
-                    </a>
-                  </div>
+                  <button
+                    className='lawyer__button consult-btn js-consult-btn'
+                    onClick={() => buttonClick(pib)}
+                    ref={lawyerButton}
+                  >
+                    {buttonText}
+                  </button>
                 </div>
               </li>
             )

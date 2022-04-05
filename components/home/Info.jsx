@@ -1,11 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { getTranslate } from '../../translations/home/info'
+import { getTranslations } from '../../translations/home/info'
 import { useMemo } from 'react'
 import { ourTeamHtml } from '../../constants/pageNames'
 
 export function Info({ lang }) {
-  const { infoHeading, paragraphs, buttonText } = useMemo(() => getTranslate(lang), [lang])
+  const { infoHeading, paragraphs, buttonText } = useMemo(() => getTranslations(lang), [lang])
   return (
     <section className='info'>
       <div className='info__container container'>

@@ -1,4 +1,4 @@
-export function getTranslate(lang) {
+export function getTranslations(lang) {
   let articlesHeading, articlesCommonText, articlesButton, articles
   switch (lang) {
     case 'ru':

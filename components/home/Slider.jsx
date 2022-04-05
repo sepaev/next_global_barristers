@@ -1,4 +1,5 @@
-import { getTranslate } from '../../translations/home/slider'
+import { getTranslations } from '../../translations/home/slider'
+import { getCommonTranslations } from '../../translations/common/common'
 import React, { useEffect, useState, useMemo, useRef, useCallback } from 'react'
 import Image from 'next/image'
 
@@ -6,12 +7,14 @@ export function Slider({ lang = 'uk' }) {
   const slider1Ref = useRef(null)
   const slider2Ref = useRef(null)
   const slider3Ref = useRef(null)
-  const countSlides = 3
+  const { sliderHeading, buttonText } = useMemo(() => getTranslations(lang), [lang])
+  const countSlides = sliderHeading.length
   const [counter, setCounter] = useState(2)
   const [formInput, setFormInput] = useState('')
   const [auto, setAuto] = useState(true)
 
   const sliderHeadingRef = useRef()
+  const { numberError, sendText } = useMemo(() => getCommonTranslations(lang), [lang])
 
   function inputChange(e) {}
   function inputHandler({ key, keyCode }) {
@@ -35,13 +38,12 @@ export function Slider({ lang = 'uk' }) {
   function formSubmit(e) {
     e.preventDefault
     if (formInput.length < 9) {
-      alert('введите номер')
+      alert(numberError)
       return
     }
     const number = inputMask()
-    alert(number + ' - заявка відправлена')
+    alert(number + ' - ' + sendText)
   }
-  const { sliderHeading, buttonText } = useMemo(() => getTranslate(lang), [lang])
 
   const setSlide = useCallback(
     index => {
@@ -55,7 +57,6 @@ export function Slider({ lang = 'uk' }) {
           slide.style.opacity = 0
         }
       })
-      // sliderBackgroundRef.current.style.backgroundImage = `url(${sliders[index]})`
       sliderHeadingRef.current.innerText = sliderHeading[index] ? sliderHeading[index] : sliderHeading[0]
     },
     [sliderHeading],
@@ -73,16 +74,15 @@ export function Slider({ lang = 'uk' }) {
     return '+380 (' + d1 + d2 + ') ' + d3 + d4 + d5 + ' ' + d6 + d7 + ' ' + d8 + d9
   }
 
-  // useEffect(() => {
-  //   if (!auto) return
+  useEffect(() => {
+    if (!auto) return
 
-  //   const interval = setTimeout(_ => {
-  //     slideRight()
-  //   }, 8000)
-  //   return _ => clearTimeout(interval)
-  // }, [auto, slideRight])
+    const interval = setTimeout(_ => {
+      slideRight()
+    }, 8000)
+    return _ => clearTimeout(interval)
+  }, [auto, slideRight])
 
-  //style={{ backgroundImage: `url(${sliders[0]})` }}
   return (
     <section className='slider'>
       <div className='slider__backgrnd'>

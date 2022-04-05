@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import { useMemo } from 'react'
-import { getTranslate } from '../../translations/home/reasons'
+import { getTranslations } from '../../translations/home/reasons'
 
 export function Reasons({ lang }) {
-  const { detailsButtonText, reasonsHeading, reasons } = useMemo(() => getTranslate(lang), [lang])
+  const { detailsButtonText, reasonsHeading, reasons } = useMemo(() => getTranslations(lang), [lang])
 
   return (
     <section className='reasons'>
@@ -20,7 +20,7 @@ export function Reasons({ lang }) {
                   <h3 className='ability__title'>{reason.reasonTitle}</h3>
                   <p className='ability__description'>{reason.reasonDescription}</p>
                 </div>
-                <Link href={'/' + reason.reasonLink + '/' + lang }>
+                <Link href={'/' + reason.reasonLink + '/' + lang}>
                   <a className='ability__link btn-default'>{detailsButtonText}</a>
                 </Link>
               </li>
