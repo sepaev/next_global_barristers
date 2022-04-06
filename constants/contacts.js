@@ -5,5 +5,5 @@ export const social = [
   { name: 'LinkedIn', href: 'https://www.linkedin.com/' },
   { name: 'Youtube', href: 'https://www.youtube.com/' },
 ]
-export const ownerEmail = 'sepaev@gmail.com'
-// export const ownerEmail = 'Zaitsev.o.1984@gmail.com'
+// export const ownerEmail = 'sepaev@gmail.com'
+export const ownerEmail = 'Zaitsev.o.1984@gmail.com'
