@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import facebook from '../../images/svg/facebook.svg'
 import instagram from '../../images/svg/instagram.svg'
-import linkedin from '../../images/svg/linkedin.svg'
+import linkedin from '../../images/svg/linkedIn.svg'
 import youtube from '../../images/svg/youtube.svg'
 
 import { getTranslations } from '../../translations/common/footer'
