@@ -1,21 +1,24 @@
 export function getCommonTranslations(lang) {
-  let sendText, sendToText, numberError
+  let sendSuccessText, sendFailureText, sendToText, numberErrorText
   switch (lang) {
     case 'ru':
-      sendText = 'Запрос отправлен'
+      sendSuccessText = 'Запрос отправлен'
+      sendFailureText = 'Запрос не отправлен'
       sendToText = 'Отправлен запрос на консультацию с'
-      numberError = 'Введите правильный номер телефона'
+      numberErrorText = 'Введите правильный номер телефона'
       break
     case 'en':
-      sendText = 'Request sent'
+      sendSuccessText = 'Request sent'
+      sendFailureText = 'Request not sent'
       sendToText = 'A request for a consultation has been sent to'
-      numberError = 'Enter valid phone number'
+      numberErrorText = 'Enter valid phone number'
       break
     default:
-      sendText = 'Запит надіслано'
+      sendSuccessText = 'Запит надіслано'
+      sendFailureText = 'Запит не надіслано'
       sendToText = 'Відправлено запит на консультацію з'
-      numberError = 'Введіть вірий номер телефону'
+      numberErrorText = 'Введіть вірий номер телефону'
       break
   }
-  return { sendText, sendToText, numberError }
+  return { sendSuccessText, sendFailureText, sendToText, numberErrorText }
 }

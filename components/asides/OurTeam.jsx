@@ -5,7 +5,6 @@ import { lawyers } from '../../constants/lawyers'
 import uniqid from 'uniqid'
 import Image from 'next/image'
 import { useRef } from 'react'
-import checkMark from '../../images/svg/checkMark.svg'
 
 export default function OurTeam({ lang }) {
   const { lawyersTitle, competationsTitle, buttonText } = useMemo(() => getTranslations(lang), [lang])

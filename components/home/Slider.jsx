@@ -1,7 +1,9 @@
 import { getTranslations } from '../../translations/home/slider'
 import { getCommonTranslations } from '../../translations/common/common'
+import Notiflix from 'notiflix'
 import React, { useEffect, useState, useMemo, useRef, useCallback } from 'react'
 import Image from 'next/image'
+import sendMail from '../../helpers/sendMail'
 
 export function Slider({ lang = 'uk' }) {
   const slider1Ref = useRef(null)
@@ -14,7 +16,7 @@ export function Slider({ lang = 'uk' }) {
   const [auto, setAuto] = useState(true)
 
   const sliderHeadingRef = useRef()
-  const { numberError, sendText } = useMemo(() => getCommonTranslations(lang), [lang])
+  const { numberErrorText, sendSuccessText, sendFailureText } = useMemo(() => getCommonTranslations(lang), [lang])
 
   function inputChange(e) {}
   function inputHandler({ key, keyCode }) {
@@ -38,11 +40,11 @@ export function Slider({ lang = 'uk' }) {
   function formSubmit(e) {
     e.preventDefault
     if (formInput.length < 9) {
-      alert(numberError)
+      Notiflix.Notify.failure(numberErrorText)
       return
     }
     const number = inputMask()
-    alert(number + ' - ' + sendText)
+    sendMail(number, { sendSuccessText, sendFailureText })
   }
 
   const setSlide = useCallback(
