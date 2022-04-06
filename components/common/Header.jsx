@@ -1,17 +1,19 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useMemo, useRef } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import { phones } from '../../constants/contacts'
 import { headerNav } from '../../constants/headerNav'
 
 import logo from '../../images/svg/logo.svg'
 import { getTranslations } from '../../translations/common/header'
+import { Modal } from './Modal'
 
 export function Header({ lang = 'uk', title = '', currentPage = '' }) {
   const ruUrl = currentPage === '' ? '/ru' : '/' + currentPage + '/ru'
   const enUrl = currentPage === '' ? '/en' : '/' + currentPage + '/en'
   const ukUrl = currentPage === '' ? '/uk' : '/' + currentPage + '/uk'
+  const [modalIsOpen, setModalIsOpen] = useState(false)
   const menuRef = useRef(null)
   const menuButtonRef = useRef(null)
   const overlayRef = useRef(null)
@@ -24,11 +26,16 @@ export function Header({ lang = 'uk', title = '', currentPage = '' }) {
     description,
     consultButton,
   } = useMemo(() => getTranslations(lang), [lang])
-
-  const openModal = () => {
+  const openModalMenu = () => {
     menuRef.current.classList.toggle('opened')
     menuButtonRef.current.classList.toggle('opened')
     overlayRef.current.classList.toggle('opened')
+    document.body.classList.toggle('overflovHidden')
+  }
+  const toggleModalForm = e => {
+    e.preventDefault
+    setModalIsOpen(prev => (prev ? false : true))
+    console.log(modalIsOpen)
     document.body.classList.toggle('overflovHidden')
   }
 
@@ -94,17 +101,19 @@ export function Header({ lang = 'uk', title = '', currentPage = '' }) {
                 <h1 className='navigation__title'>{navTitle}</h1>
                 <div className='navigation__button'>
                   <Link href='#'>
-                    <a className='navigation__button-link consult-btn'>{consultButton}</a>
+                    <a className='navigation__button-link consult-btn' onClick={toggleModalForm}>
+                      {consultButton}
+                    </a>
                   </Link>
                 </div>
-                <div className='navigation__menu-button' onClick={openModal} ref={menuButtonRef}>
+                <div className='navigation__menu-button' onClick={openModalMenu} ref={menuButtonRef}>
                   <span className='navigation__menu-line'></span>
                   <span className='navigation__menu-line'></span>
                   <span className='navigation__menu-line'></span>
                 </div>
               </div>
               <div className='menu'>
-                <div className='menu__overlay' ref={overlayRef} onClick={openModal}></div>
+                <div className='menu__overlay' ref={overlayRef} onClick={openModalMenu}></div>
                 <ul id={'menu-' + lang} ref={menuRef} className='menu__list'>
                   {headerNav.map(({ navPage, pages, key }) => {
                     return (
@@ -135,6 +144,9 @@ export function Header({ lang = 'uk', title = '', currentPage = '' }) {
           </nav>
         </section>
       </header>
+      {modalIsOpen && (
+        <Modal key='modalWindow' lang={lang} modalIsOpen={modalIsOpen} toggleModalForm={toggleModalForm} />
+      )}
     </>
   )
 }

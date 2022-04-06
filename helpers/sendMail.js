@@ -7,7 +7,7 @@ export default async function sendMail(phone, { sendSuccessText, sendFailureText
   const siteUrl = document.URL
   const dateString = getCurrentDate()
   let data
-
+  Notiflix.Loading.circle()
   try {
     data = await fetch('https://ipapi.co/json/').then(data => data.json())
   } catch (error) {
@@ -24,11 +24,15 @@ export default async function sendMail(phone, { sendSuccessText, sendFailureText
     body: JSON.stringify({ dateString, userHost, siteUrl, ip, country_name, city, userPlatform, phone }),
   })
     .then(res => {
+      Notiflix.Loading.remove()
       if (res.status === 200) {
         Notiflix.Notify.success(phone + ' - ' + sendSuccessText)
       } else {
         Notiflix.Notify.success(phone + ' - ' + sendFailureText)
       }
     })
-    .catch(e => console.log(e.message))
+    .catch(e => {
+      Notiflix.Loading.remove()
+      console.log(e.message)
+    })
 }
