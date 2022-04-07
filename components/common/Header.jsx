@@ -25,7 +25,6 @@ export function Header({ lang = 'uk', title = '', currentPage = '' }) {
     keywords,
     navTitle,
     description,
-    consultButton,
   } = useMemo(() => getTranslations(lang), [lang])
   const { modalConsultationText } = useMemo(() => getCommonTranslations(lang), [lang])
   const openModalMenu = () => {
@@ -36,12 +35,7 @@ export function Header({ lang = 'uk', title = '', currentPage = '' }) {
   }
   const toggleModalForm = e => {
     e.preventDefault
-    // className: "modal__overlay"
-    //navigation__button-link consult-btn
-    // modal__close-line
-    //modal__close
     const targetClass = e.target.className
-    console.dir(e.target.className)
     if (
       targetClass.includes('modal__overlay') ||
       targetClass.includes('consult-btn') ||
@@ -49,7 +43,6 @@ export function Header({ lang = 'uk', title = '', currentPage = '' }) {
       targetClass.includes('modal__close')
     ) {
       setModalIsOpen(prev => (prev ? false : true))
-      // console.log(modalIsOpen)
       document.body.classList.toggle('overflovHidden')
     }
   }
@@ -115,11 +108,9 @@ export function Header({ lang = 'uk', title = '', currentPage = '' }) {
                 </div>
                 <h1 className='navigation__title'>{navTitle}</h1>
                 <div className='navigation__button'>
-                  <Link href='#'>
-                    <a className='navigation__button-link consult-btn' onClick={toggleModalForm}>
-                      {modalConsultationText}
-                    </a>
-                  </Link>
+                  <button onClick={toggleModalForm} className='navigation__button-link consult-btn'>
+                    {modalConsultationText}
+                  </button>
                 </div>
                 <div className='navigation__menu-button' onClick={openModalMenu} ref={menuButtonRef}>
                   <span className='navigation__menu-line'></span>

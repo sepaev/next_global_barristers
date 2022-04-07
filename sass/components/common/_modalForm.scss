@@ -76,6 +76,15 @@
       }
     }
   }
+  &__success {
+    text-align: center;
+    &-heading {
+      font-size: 35px;
+    }
+    &-paragraph {
+      font-size: 20px;
+    }
+  }
 }
 
 .modal-form {
@@ -105,8 +114,6 @@
     background-size: 13px;
     background-repeat: no-repeat;
     background-position: 95% center;
+    margin-top: 5px;
   }
-  // &__textarea {
-  //   display: block;
-  // }
 }

@@ -1,5 +1,11 @@
 export function getCommonTranslations(lang) {
-  let sendSuccessText, sendFailureText, sendToText, numberErrorText, modalSupervisorText, modalConsultationText
+  let sendSuccessText,
+    sendFailureText,
+    sendToText,
+    numberErrorText,
+    modalSupervisorText,
+    modalConsultationText,
+    waitText
   switch (lang) {
     case 'ru':
       sendSuccessText = 'Запрос отправлен'
@@ -8,6 +14,7 @@ export function getCommonTranslations(lang) {
       numberErrorText = 'Введите верный номер телефона'
       modalSupervisorText = 'Написать директору'
       modalConsultationText = 'Заказать консультацию'
+      waitText = 'Ожидайте. Мы свяжемся с Вами.'
       break
     case 'en':
       sendSuccessText = 'Request sent'
@@ -16,6 +23,7 @@ export function getCommonTranslations(lang) {
       numberErrorText = 'Enter valid phone number'
       modalSupervisorText = 'Write to the manager'
       modalConsultationText = 'Request a consultation'
+      waitText = 'Please wait. We will contact you.'
       break
     default:
       sendSuccessText = 'Запит надіслано'
@@ -24,7 +32,16 @@ export function getCommonTranslations(lang) {
       numberErrorText = 'Введіть вірий номер телефону'
       modalSupervisorText = 'Написати керівнику'
       modalConsultationText = 'Замовити консультацію'
+      waitText = "Чекайте. Ми зв'яжемось з Вами."
       break
   }
-  return { sendSuccessText, sendFailureText, sendToText, numberErrorText, modalSupervisorText, modalConsultationText }
+  return {
+    sendSuccessText,
+    sendFailureText,
+    sendToText,
+    numberErrorText,
+    modalSupervisorText,
+    modalConsultationText,
+    waitText,
+  }
 }
