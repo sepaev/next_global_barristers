@@ -209,7 +209,7 @@
         padding-left: 25px;
       }
     }
-    @media only screen and (min-width: $phone) and (max-width: $tablet) {
+    @media only screen and (max-width: $tablet) {
       & {
         font-size: 20px;
         width: 260px;
@@ -246,7 +246,7 @@
         height: 50px;
       }
     }
-    @media only screen and (min-width: $phone) and (max-width: $tablet) {
+    @media only screen and (max-width: $tablet) {
       & {
         margin: auto;
       }
@@ -285,14 +285,15 @@
     border: 1px solid $orange-background-color !important;
     @media only screen and (min-width: $desktop) and (max-width: $desktop4k) {
       & {
-        padding: 5px 23px;
+        padding: 5px 22px;
         font-size: 20px;
         width: 250px;
       }
     }
     @media only screen and (min-width: $laptop) and (max-width: $desktop) {
       & {
-        padding: 5px 15px;
+        padding: 5px 22px;
+        // padding: 5px 15px;
         font-size: 20px;
         width: 250px;
       }
@@ -301,7 +302,8 @@
       & {
         width: 170px;
         font-size: 15px;
-        padding: 5px 1px;
+        padding: 5px 8px;
+        // padding: 5px 1px;
       }
     }
   }

@@ -7,7 +7,8 @@ import { headerNav } from '../../constants/headerNav'
 
 import logo from '../../images/svg/logo.svg'
 import { getTranslations } from '../../translations/common/header'
-import { Modal } from './Modal'
+import { getCommonTranslations } from '../../translations/common/common'
+import { ModalForm } from './ModalForm'
 
 export function Header({ lang = 'uk', title = '', currentPage = '' }) {
   const ruUrl = currentPage === '' ? '/ru' : '/' + currentPage + '/ru'
@@ -26,6 +27,7 @@ export function Header({ lang = 'uk', title = '', currentPage = '' }) {
     description,
     consultButton,
   } = useMemo(() => getTranslations(lang), [lang])
+  const { modalConsultationText } = useMemo(() => getCommonTranslations(lang), [lang])
   const openModalMenu = () => {
     menuRef.current.classList.toggle('opened')
     menuButtonRef.current.classList.toggle('opened')
@@ -34,9 +36,22 @@ export function Header({ lang = 'uk', title = '', currentPage = '' }) {
   }
   const toggleModalForm = e => {
     e.preventDefault
-    setModalIsOpen(prev => (prev ? false : true))
-    console.log(modalIsOpen)
-    document.body.classList.toggle('overflovHidden')
+    // className: "modal__overlay"
+    //navigation__button-link consult-btn
+    // modal__close-line
+    //modal__close
+    const targetClass = e.target.className
+    console.dir(e.target.className)
+    if (
+      targetClass.includes('modal__overlay') ||
+      targetClass.includes('consult-btn') ||
+      targetClass.includes('modal__close-line') ||
+      targetClass.includes('modal__close')
+    ) {
+      setModalIsOpen(prev => (prev ? false : true))
+      // console.log(modalIsOpen)
+      document.body.classList.toggle('overflovHidden')
+    }
   }
 
   return (
@@ -44,12 +59,12 @@ export function Header({ lang = 'uk', title = '', currentPage = '' }) {
       <Head>
         <title>{'«Global Barristers» ≡ ' + title}</title>
         <meta
-          name='viewport'
+          Class='viewport'
           content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
         ></meta>
 
-        <meta name='keywords' content={keywords} />
-        <meta name='description' content={description} />
+        <meta Class='keywords' content={keywords} />
+        <meta Class='description' content={description} />
       </Head>
       <header>
         <section className='header__pre'></section>
@@ -102,7 +117,7 @@ export function Header({ lang = 'uk', title = '', currentPage = '' }) {
                 <div className='navigation__button'>
                   <Link href='#'>
                     <a className='navigation__button-link consult-btn' onClick={toggleModalForm}>
-                      {consultButton}
+                      {modalConsultationText}
                     </a>
                   </Link>
                 </div>
@@ -145,7 +160,14 @@ export function Header({ lang = 'uk', title = '', currentPage = '' }) {
         </section>
       </header>
       {modalIsOpen && (
-        <Modal key='modalWindow' lang={lang} modalIsOpen={modalIsOpen} toggleModalForm={toggleModalForm} />
+        <ModalForm
+          key='modalWindow'
+          lang={lang}
+          modalIsOpen={modalIsOpen}
+          toggleModalForm={toggleModalForm}
+          eMailInput={false}
+          title={modalConsultationText}
+        />
       )}
     </>
   )

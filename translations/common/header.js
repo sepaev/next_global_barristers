@@ -14,7 +14,7 @@ export function getTranslations(lang) {
       keywords = 'Lawyer, Lawyer Kiev, Consulting'
       navTitle = 'Lawyers Association'
       description = navTitle + ' «Global Barristers» ≡ Lawyer in Kyiv ≡ Consultations'
-      consultButton = 'Request consultation'
+      consultButton = 'Request a consultation'
       break
 
     default:

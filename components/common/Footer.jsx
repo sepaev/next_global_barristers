@@ -6,6 +6,7 @@ import linkedin from '../../images/svg/linkedIn.svg'
 import youtube from '../../images/svg/youtube.svg'
 
 import { getTranslations } from '../../translations/common/footer'
+import { getCommonTranslations } from '../../translations/common/common'
 import { phones, social } from '../../constants/contacts'
 import { useMemo, Fragment } from 'react'
 import uniqid from 'uniqid'
@@ -13,6 +14,7 @@ import { partOne, partTwo, other } from '../../constants/footerNav'
 
 export function Footer({ lang = 'uk' }) {
   const { titles, supervisor } = useMemo(() => getTranslations(lang), [lang])
+  const { modalSupervisorText } = useMemo(() => getCommonTranslations(lang), [lang])
   const socialIcons = { Facebook: facebook.src, Instagram: instagram.src, LinkedIn: linkedin.src, Youtube: youtube.src }
   function writeSuperV(e) {
     e.preventDefault
@@ -144,7 +146,7 @@ export function Footer({ lang = 'uk' }) {
               <div className='supervisor__image lazy'>
                 <Image alt='Supervisor' src='/supervisor.jpg' width={90} height={90} />
               </div>
-              <h4 className='supervisor__title'>{supervisor.title}</h4>
+              <h4 className='supervisor__title'>{modalSupervisorText}</h4>
               <p className='supervisor__text'>{supervisor.text}</p>
               <a href='#' target='_blank' onClick={writeSuperV} className='btn-default supervisor__button'>
                 {supervisor.button}

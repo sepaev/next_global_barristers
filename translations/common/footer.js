@@ -28,7 +28,6 @@ export function getTranslations(lang) {
     case 'ru':
       titles = { services: 'Популярные услуги', other: 'Другое', contacts: 'Наши контакты' }
       supervisor = {
-        title: 'Написать директору',
         text: 'Если вы остались недовольны нашей работой или что-то пошло не так. Напишите руководителю компании.',
         button: 'Написать',
       }
@@ -37,7 +36,6 @@ export function getTranslations(lang) {
     case 'en':
       titles = { services: 'Popular Services', other: 'Other', contacts: 'Our Contacts' }
       supervisor = {
-        title: 'Write to the manager',
         text: 'If you are not happy with our work or something went wrong. Write to the director of the company.',
         button: 'Write letter',
       }
@@ -46,7 +44,6 @@ export function getTranslations(lang) {
     default:
       titles = { services: 'Популярні послуги', other: 'Інше', contacts: 'Наші контакти' }
       supervisor = {
-        title: 'Написати керівнику',
         text: 'Якщо ви залишилися не задоволені нашою роботою або щось пішло не так. Напишіть керівнику компанії',
         button: 'Написати',
       }

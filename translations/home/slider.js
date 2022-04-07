@@ -8,7 +8,7 @@ export function getTranslations(lang) {
         'Global Barristers - наши узкопрофильные специалисты, помогают отстоять свои права.',
         'Global Barristers - наши клиенты нам доверяют самое главное.',
       ]
-      buttonText = 'Получить консультацию'
+      buttonText = 'Заказать обратный звонок'
 
       break
     case 'en':
@@ -17,7 +17,7 @@ export function getTranslations(lang) {
         'Global Barristers - our specialized specialists help to defend their rights.',
         'Global Barristers - our clients trust us with their own head',
       ]
-      buttonText = 'Request a consultation'
+      buttonText = 'Please call me back'
       break
     default:
       sliderHeading = [
@@ -25,7 +25,7 @@ export function getTranslations(lang) {
         'Global Barristers - наші вузькопрофільні спеціалісти, допомагають відстояти свої права.',
         'Global Barristers - наші клієнти нам довіряють найголовніше.',
       ]
-      buttonText = 'Отримати консультацію'
+      buttonText = 'Зворотній дзвінок'
       break
   }
   return { sliderHeading, buttonText }
