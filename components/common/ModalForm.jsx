@@ -7,8 +7,8 @@ import successImg from '../../images/svg/success.svg'
 import InputMask from 'react-input-mask'
 import sendMail from '../../helpers/sendMail'
 
-export function ModalForm({ lang, toggleModalForm, source, messageReqired = false }) {
-  let title, eMailInput
+export function ModalForm({ lang, toggleModalForm, source, lawyer }) {
+  let title, eMailInput, messageReqired
   const {
     clientName,
     clientNameError,
@@ -21,10 +21,8 @@ export function ModalForm({ lang, toggleModalForm, source, messageReqired = fals
     clientMessageError,
     buttonText,
   } = useMemo(() => getTranslations(lang), [lang])
-  const { sendSuccessText, waitText, modalConsultationText, modalSupervisorText } = useMemo(
-    () => getCommonTranslations(lang),
-    [lang],
-  )
+  const { sendSuccessText, waitText, requestConsultationText, requestConsultationWithText, writeToSupervisorText } =
+    useMemo(() => getCommonTranslations(lang), [lang])
   const [stateName, setStateName] = useState('')
   const [statePhone, setStatePhone] = useState('')
   const [stateMail, setStateMail] = useState('')
@@ -78,12 +76,19 @@ export function ModalForm({ lang, toggleModalForm, source, messageReqired = fals
   }
   switch (source) {
     case 'supervisor__button':
-      title = modalSupervisorText
+      title = writeToSupervisorText
       eMailInput = true
+      messageReqired = true
       break
     case 'consult-btn':
-      title = modalConsultationText
+      title = requestConsultationText
       eMailInput = false
+      messageReqired = false
+      break
+    case 'lawyer__button':
+      title = requestConsultationWithText + lawyer[lang]
+      eMailInput = true
+      messageReqired = false
       break
 
     default:
@@ -116,7 +121,7 @@ export function ModalForm({ lang, toggleModalForm, source, messageReqired = fals
                   maxLength='40'
                   size='40'
                   title='Имя может состоять только из букв, апострофа, тире и пробелов.'
-                  maskChar=' '
+                  maskchar=' '
                   required
                 />
               </label>

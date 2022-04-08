@@ -6,14 +6,13 @@ import uniqid from 'uniqid'
 import Image from 'next/image'
 import { useRef } from 'react'
 
-export default function OurTeam({ lang }) {
-  const { lawyersTitle, competationsTitle, buttonText } = useMemo(() => getTranslations(lang), [lang])
-  const { sendToText } = useMemo(() => getCommonTranslations(lang), [lang])
+export default function OurTeam({ lang, toggleModalForm }) {
+  const { lawyersTitle, competationsTitle } = useMemo(() => getTranslations(lang), [lang])
+  const { sendToText, requestConsultationText } = useMemo(() => getCommonTranslations(lang), [lang])
   const lawyerButton = useRef(null)
   const buttonClick = pib => {
     alert(sendToText + ' ' + pib[lang])
   }
-
   return (
     <>
       <h2 className='lawyers__title'>{lawyersTitle}</h2>
@@ -27,7 +26,7 @@ export default function OurTeam({ lang }) {
                     src={'/lawyers/' + fileName}
                     className='lawyer__photo-img'
                     alt={pib[lang]}
-                    loading='lazy'
+                    priority={true}
                     objectPosition='center'
                     objectFit='cover'
                     layout='fill'
@@ -52,10 +51,10 @@ export default function OurTeam({ lang }) {
                   </div>
                   <button
                     className='lawyer__button consult-btn js-consult-btn'
-                    onClick={() => buttonClick(pib)}
+                    onClick={e => toggleModalForm(e, 'lawyer__button', pib)}
                     ref={lawyerButton}
                   >
-                    {buttonText}
+                    {requestConsultationText}
                   </button>
                 </div>
               </li>

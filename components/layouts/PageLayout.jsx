@@ -1,11 +1,11 @@
-import { useEffect, useState, useMemo } from 'react'
+import { cloneElement, useEffect, useState, useMemo, createContext } from 'react'
 import { Header, Footer, ModalForm } from '../common'
 import { getCommonTranslations } from '../../translations/common/common'
+import { Fragment } from 'react/cjs/react.production.min'
 
 export function PageLayout({ children, lang = 'uk', title = '', currentPage = '' }) {
-  const [modalIsOpen, setModalIsOpen] = useState({ status: false, source: '', lawyer: '' })
-  const { modalConsultationText, modalSupervisorText } = useMemo(() => getCommonTranslations(lang), [lang])
-
+  const [modalFormState, setModalFormState] = useState({ isOpen: false, source: '', lawyer: '' })
+  const { requestConsultationText, writeToSupervisorText } = useMemo(() => getCommonTranslations(lang), [lang])
   const toggleModalForm = (e, source, lawyer = '') => {
     e.preventDefault
     const targetClass = e.target.className
@@ -16,8 +16,8 @@ export function PageLayout({ children, lang = 'uk', title = '', currentPage = ''
       targetClass.includes('supervisor__button') ||
       targetClass.includes('modal__close')
     ) {
-      setModalIsOpen(prev =>
-        prev.status ? { status: false, source: '', lawyer: '' } : { status: true, source, lawyer },
+      setModalFormState(prev =>
+        prev.isOpen ? { isOpen: false, source: '', lawyer: '' } : { isOpen: true, source, lawyer },
       )
       document.body.classList.toggle('overflovHidden')
     }
@@ -25,6 +25,17 @@ export function PageLayout({ children, lang = 'uk', title = '', currentPage = ''
   useEffect(() => {
     document.body.classList = ''
   }, [])
+
+  let childrenWithCustomProps
+  let isAsideLayout = false
+  if (children.type && children.type.name === 'AsideLayout') {
+    isAsideLayout = true
+    const asideLayout = children.props.children
+    const asideLayoutProps = children.props.children.props
+    childrenWithCustomProps = cloneElement(children, {
+      children: { ...asideLayout, props: { ...asideLayoutProps, toggleModalForm } },
+    })
+  }
   return (
     <>
       <Header
@@ -32,19 +43,26 @@ export function PageLayout({ children, lang = 'uk', title = '', currentPage = ''
         lang={lang}
         title={title}
         currentPage={currentPage}
-        modalIsOpen={modalIsOpen}
+        modalFormState={modalFormState}
         toggleModalForm={toggleModalForm}
-        modalConsultationText={modalConsultationText}
+        requestConsultationText={requestConsultationText}
       />
-      <main key='mainKey'>{children}</main>
-      <Footer key='footerKey' lang={lang} toggleModalForm={toggleModalForm} modalSupervisorText={modalSupervisorText} />
-      {modalIsOpen.status && (
+      <main>
+        {isAsideLayout && childrenWithCustomProps} {!isAsideLayout && children}
+      </main>
+      <Footer
+        key='footerKey'
+        lang={lang}
+        toggleModalForm={toggleModalForm}
+        writeToSupervisorText={writeToSupervisorText}
+      />
+      {modalFormState.isOpen && (
         <ModalForm
           key='ModalFormKey'
           lang={lang}
           toggleModalForm={toggleModalForm}
-          source={modalIsOpen.source}
-          lawyer={modalIsOpen.lawyer}
+          source={modalFormState.source}
+          lawyer={modalFormState.lawyer}
         />
       )}
     </>

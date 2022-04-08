@@ -11,7 +11,7 @@ import { useMemo, Fragment } from 'react'
 import uniqid from 'uniqid'
 import { partOne, partTwo, other } from '../../constants/footerNav'
 
-export function Footer({ lang = 'uk', toggleModalForm, modalSupervisorText }) {
+export function Footer({ lang = 'uk', toggleModalForm, writeToSupervisorText }) {
   const { titles, supervisor } = useMemo(() => getTranslations(lang), [lang])
   const socialIcons = { Facebook: facebook.src, Instagram: instagram.src, LinkedIn: linkedin.src, Youtube: youtube.src }
   function writeSuperV(e) {
@@ -144,7 +144,7 @@ export function Footer({ lang = 'uk', toggleModalForm, modalSupervisorText }) {
               <div className='supervisor__image lazy'>
                 <Image alt='Supervisor' src='/supervisor.jpg' width={90} height={90} />
               </div>
-              <h4 className='supervisor__title'>{modalSupervisorText}</h4>
+              <h4 className='supervisor__title'>{writeToSupervisorText}</h4>
               <p className='supervisor__text'>{supervisor.text}</p>
               <button
                 onClick={e => {

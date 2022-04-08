@@ -8,7 +8,7 @@ import { headerNav } from '../../constants/headerNav'
 import logo from '../../images/svg/logo.svg'
 import { getTranslations } from '../../translations/common/header'
 
-export function Header({ lang = 'uk', title = '', currentPage = '', toggleModalForm, modalConsultationText }) {
+export function Header({ lang = 'uk', title = '', currentPage = '', toggleModalForm, requestConsultationText }) {
   const ruUrl = currentPage === '' ? '/ru' : '/' + currentPage + '/ru'
   const enUrl = currentPage === '' ? '/en' : '/' + currentPage + '/en'
   const ukUrl = currentPage === '' ? '/uk' : '/' + currentPage + '/uk'
@@ -97,7 +97,7 @@ export function Header({ lang = 'uk', title = '', currentPage = '', toggleModalF
                     }}
                     className='navigation__button-link consult-btn'
                   >
-                    {modalConsultationText}
+                    {requestConsultationText}
                   </button>
                 </div>
                 <div className='navigation__menu-button' onClick={openModalMenu} ref={menuButtonRef}>

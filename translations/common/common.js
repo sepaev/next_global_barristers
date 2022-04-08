@@ -3,8 +3,9 @@ export function getCommonTranslations(lang) {
     sendFailureText,
     sendToText,
     numberErrorText,
-    modalSupervisorText,
-    modalConsultationText,
+    writeToSupervisorText,
+    requestConsultationText,
+    requestConsultationWithText,
     waitText
   switch (lang) {
     case 'ru':
@@ -12,8 +13,9 @@ export function getCommonTranslations(lang) {
       sendFailureText = 'Запрос не отправлен'
       sendToText = 'Отправлен запрос на консультацию с'
       numberErrorText = 'Введите верный номер телефона'
-      modalSupervisorText = 'Написать директору'
-      modalConsultationText = 'Заказать консультацию'
+      writeToSupervisorText = 'Написать директору'
+      requestConsultationText = 'Заказать консультацию'
+      requestConsultationWithText = 'Заказать консультацию c '
       waitText = 'Ожидайте. Мы свяжемся с Вами.'
       break
     case 'en':
@@ -21,8 +23,9 @@ export function getCommonTranslations(lang) {
       sendFailureText = 'Request not sent'
       sendToText = 'A request for a consultation has been sent to'
       numberErrorText = 'Enter valid phone number'
-      modalSupervisorText = 'Write to the manager'
-      modalConsultationText = 'Request a consultation'
+      writeToSupervisorText = 'Write to the manager'
+      requestConsultationText = 'Request a consultation'
+      requestConsultationWithText = 'Request a consultation with '
       waitText = 'Please wait. We will contact you.'
       break
     default:
@@ -30,8 +33,9 @@ export function getCommonTranslations(lang) {
       sendFailureText = 'Запит не надіслано'
       sendToText = 'Відправлено запит на консультацію з'
       numberErrorText = 'Введіть вірий номер телефону'
-      modalSupervisorText = 'Написати керівнику'
-      modalConsultationText = 'Замовити консультацію'
+      writeToSupervisorText = 'Написати керівнику'
+      requestConsultationText = 'Замовити консультацію'
+      requestConsultationWithText = 'Замовити консультацію з '
       waitText = "Чекайте. Ми зв'яжемось з Вами."
       break
   }
@@ -40,8 +44,9 @@ export function getCommonTranslations(lang) {
     sendFailureText,
     sendToText,
     numberErrorText,
-    modalSupervisorText,
-    modalConsultationText,
+    writeToSupervisorText,
+    requestConsultationText,
+    requestConsultationWithText,
     waitText,
   }
 }
