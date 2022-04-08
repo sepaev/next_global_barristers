@@ -7,7 +7,8 @@ import successImg from '../../images/svg/success.svg'
 import InputMask from 'react-input-mask'
 import sendMail from '../../helpers/sendMail'
 
-export function ModalForm({ lang, toggleModalForm, eMailInput, title, messageReqired = false }) {
+export function ModalForm({ lang, toggleModalForm, source, messageReqired = false }) {
+  let title, eMailInput
   const {
     clientName,
     clientNameError,
@@ -20,7 +21,10 @@ export function ModalForm({ lang, toggleModalForm, eMailInput, title, messageReq
     clientMessageError,
     buttonText,
   } = useMemo(() => getTranslations(lang), [lang])
-  const { sendSuccessText, waitText } = useMemo(() => getCommonTranslations(lang), [lang])
+  const { sendSuccessText, waitText, modalConsultationText, modalSupervisorText } = useMemo(
+    () => getCommonTranslations(lang),
+    [lang],
+  )
   const [stateName, setStateName] = useState('')
   const [statePhone, setStatePhone] = useState('')
   const [stateMail, setStateMail] = useState('')
@@ -72,6 +76,20 @@ export function ModalForm({ lang, toggleModalForm, eMailInput, title, messageReq
     })
     if (result) setStateFormSend(true)
   }
+  switch (source) {
+    case 'supervisor__button':
+      title = modalSupervisorText
+      eMailInput = true
+      break
+    case 'consult-btn':
+      title = modalConsultationText
+      eMailInput = false
+      break
+
+    default:
+      break
+  }
+
   return (
     <div className='modal__overlay' onClick={toggleModalForm}>
       <div className='modal__container'>

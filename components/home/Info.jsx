@@ -41,15 +41,18 @@ export function Info({ lang }) {
         </div>
       </div>
       <div className='info__image-container jsActivateAnimation outer' data-animation='fadeInUpBig'>
-        <Image
-          src='/home/info.jpg'
-          className='info__image-img'
-          alt='Tunnel'
-          loading='lazy'
-          objectPosition='center'
-          objectFit='cover'
-          layout='fill'
-        />
+        <div className='absolute__image-wrapper'>
+          <Image
+            src='/home/info.jpg'
+            className='info__image-img'
+            alt='Tunnel'
+            priority={true}
+            // loading='lazy'
+            objectPosition='center'
+            objectFit='cover'
+            layout='fill'
+          />
+        </div>
       </div>
     </section>
   )

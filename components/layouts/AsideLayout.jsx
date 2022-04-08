@@ -12,7 +12,7 @@ export function AsideLayout({ children, lang = 'uk', currentPage, headerAlt = 'B
   const openAside = () => asideRef.current.classList.toggle('opened')
   return (
     <>
-      <section className={currentPage + '__header aside__top-image'}>
+      <section key='asideHeaderImageKey' className={currentPage + '__header aside__top-image'}>
         <Image
           src={'/asides/' + currentPage + '/header.jpg'}
           alt={headerAlt}
@@ -23,7 +23,7 @@ export function AsideLayout({ children, lang = 'uk', currentPage, headerAlt = 'B
         />
       </section>
       <div className='container aside__container'>
-        <aside className='aside' onClick={openAside} ref={asideRef}>
+        <aside key='asideKey' className='aside' onClick={openAside} ref={asideRef}>
           <ul className='aside__list'>
             <li className='aside__item aside__item-main'>
               <Link href={'/' + menuItem.navPage[0] + '/' + lang}>
@@ -42,7 +42,7 @@ export function AsideLayout({ children, lang = 'uk', currentPage, headerAlt = 'B
               })}
           </ul>
         </aside>
-        <section className='aside-page'>
+        <section key='asidePageKey' className='aside-page'>
           <h1 className='aside-page__title'>{menuItem.navPage[1][lang]}</h1>
           <div className='aside-page__breadcrumbs'>
             <p className='aside-page__breadcrumbs-p'>

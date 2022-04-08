@@ -1,20 +1,17 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useMemo, useRef, useState } from 'react'
+import { useMemo, useRef } from 'react'
 import { phones } from '../../constants/contacts'
 import { headerNav } from '../../constants/headerNav'
 
 import logo from '../../images/svg/logo.svg'
 import { getTranslations } from '../../translations/common/header'
-import { getCommonTranslations } from '../../translations/common/common'
-import { ModalForm } from './ModalForm'
 
-export function Header({ lang = 'uk', title = '', currentPage = '' }) {
+export function Header({ lang = 'uk', title = '', currentPage = '', toggleModalForm, modalConsultationText }) {
   const ruUrl = currentPage === '' ? '/ru' : '/' + currentPage + '/ru'
   const enUrl = currentPage === '' ? '/en' : '/' + currentPage + '/en'
   const ukUrl = currentPage === '' ? '/uk' : '/' + currentPage + '/uk'
-  const [modalIsOpen, setModalIsOpen] = useState(false)
   const menuRef = useRef(null)
   const menuButtonRef = useRef(null)
   const overlayRef = useRef(null)
@@ -26,25 +23,11 @@ export function Header({ lang = 'uk', title = '', currentPage = '' }) {
     navTitle,
     description,
   } = useMemo(() => getTranslations(lang), [lang])
-  const { modalConsultationText } = useMemo(() => getCommonTranslations(lang), [lang])
   const openModalMenu = () => {
     menuRef.current.classList.toggle('opened')
     menuButtonRef.current.classList.toggle('opened')
     overlayRef.current.classList.toggle('opened')
     document.body.classList.toggle('overflovHidden')
-  }
-  const toggleModalForm = e => {
-    e.preventDefault
-    const targetClass = e.target.className
-    if (
-      targetClass.includes('modal__overlay') ||
-      targetClass.includes('consult-btn') ||
-      targetClass.includes('modal__close-line') ||
-      targetClass.includes('modal__close')
-    ) {
-      setModalIsOpen(prev => (prev ? false : true))
-      document.body.classList.toggle('overflovHidden')
-    }
   }
 
   return (
@@ -108,7 +91,12 @@ export function Header({ lang = 'uk', title = '', currentPage = '' }) {
                 </div>
                 <h1 className='navigation__title'>{navTitle}</h1>
                 <div className='navigation__button'>
-                  <button onClick={toggleModalForm} className='navigation__button-link consult-btn'>
+                  <button
+                    onClick={e => {
+                      toggleModalForm(e, 'consult-btn')
+                    }}
+                    className='navigation__button-link consult-btn'
+                  >
                     {modalConsultationText}
                   </button>
                 </div>
@@ -150,16 +138,6 @@ export function Header({ lang = 'uk', title = '', currentPage = '' }) {
           </nav>
         </section>
       </header>
-      {modalIsOpen && (
-        <ModalForm
-          key='modalWindow'
-          lang={lang}
-          modalIsOpen={modalIsOpen}
-          toggleModalForm={toggleModalForm}
-          eMailInput={false}
-          title={modalConsultationText}
-        />
-      )}
     </>
   )
 }

@@ -21,7 +21,7 @@ export function Slider({ lang = 'uk' }) {
   const countSlides = sliderTextArray.length
 
   function formSubmit() {
-    if (statePhone.includes('_')) {
+    if (statePhone.includes('_') || !statePhone) {
       Notiflix.Notify.failure(numberErrorText)
       return
     }
@@ -63,16 +63,29 @@ export function Slider({ lang = 'uk' }) {
   }, [slideRight])
 
   return (
-    <section className='slider'>
+    <section key='sliderKey' className='slider'>
       <div className='slider__backgrnd'>
         <div className='slider__image slider__image1' ref={slider1Ref}>
-          <Image src='/slides/slide_01.jpg' alt='Town' layout='fill' objectFit='cover' objectPosition='center' />
+          <div className='absolute__image-wrapper'>
+            <Image
+              src='/slides/slide_01.jpg'
+              alt='Town'
+              priority={true}
+              layout='fill'
+              objectFit='cover'
+              objectPosition='center'
+            />
+          </div>
         </div>
         <div className='slider__image slider__image2' ref={slider2Ref}>
-          <Image src='/slides/slide_02.jpg' alt='Town' layout='fill' objectFit='cover' objectPosition='center' />
+          <div className='absolute__image-wrapper'>
+            <Image src='/slides/slide_02.jpg' alt='Town' layout='fill' objectFit='cover' objectPosition='center' />
+          </div>
         </div>
         <div className='slider__image slider__image3' ref={slider3Ref}>
-          <Image src='/slides/slide_03.jpg' alt='Town' layout='fill' objectFit='cover' objectPosition='center' />
+          <div className='absolute__image-wrapper'>
+            <Image src='/slides/slide_03.jpg' alt='Town' layout='fill' objectFit='cover' objectPosition='center' />
+          </div>{' '}
         </div>
         <div className='slider__container container'>
           <h2 className='slider__heading' ref={sliderHeadingRef}>

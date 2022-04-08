@@ -6,15 +6,13 @@ import linkedin from '../../images/svg/linkedIn.svg'
 import youtube from '../../images/svg/youtube.svg'
 
 import { getTranslations } from '../../translations/common/footer'
-import { getCommonTranslations } from '../../translations/common/common'
 import { phones, social } from '../../constants/contacts'
 import { useMemo, Fragment } from 'react'
 import uniqid from 'uniqid'
 import { partOne, partTwo, other } from '../../constants/footerNav'
 
-export function Footer({ lang = 'uk' }) {
+export function Footer({ lang = 'uk', toggleModalForm, modalSupervisorText }) {
   const { titles, supervisor } = useMemo(() => getTranslations(lang), [lang])
-  const { modalSupervisorText } = useMemo(() => getCommonTranslations(lang), [lang])
   const socialIcons = { Facebook: facebook.src, Instagram: instagram.src, LinkedIn: linkedin.src, Youtube: youtube.src }
   function writeSuperV(e) {
     e.preventDefault
@@ -148,9 +146,15 @@ export function Footer({ lang = 'uk' }) {
               </div>
               <h4 className='supervisor__title'>{modalSupervisorText}</h4>
               <p className='supervisor__text'>{supervisor.text}</p>
-              <a href='#' target='_blank' onClick={writeSuperV} className='btn-default supervisor__button'>
+              <button
+                onClick={e => {
+                  toggleModalForm(e, 'supervisor__button')
+                }}
+                className='btn-default supervisor__button'
+              >
+                {' '}
                 {supervisor.button}
-              </a>
+              </button>
             </div>
           </section>
         </div>

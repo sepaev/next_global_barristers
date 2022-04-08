@@ -2,7 +2,6 @@
   display: block;
   width: 100%;
   min-height: calc(100vh - $top-desktop4k-indent);
-  // margin-bottom: 60px;
   position: relative;
   overflow: hidden;
   @media only screen and (min-width: $desktop) and (max-width: $desktop4k) {
@@ -28,6 +27,7 @@
 
   &__backgrnd {
     min-height: calc(100vh - 95px);
+    height: calc(100vh - 95px);
     background: $aqua-background-color;
     background-size: cover;
     background-position: center center;
@@ -37,21 +37,25 @@
     @media only screen and (min-width: $desktop) and (max-width: $desktop4k) {
       & {
         min-height: calc(100vh - 115px);
+        height: calc(100vh - 115px);
       }
     }
     @media only screen and (min-width: $laptop) and (max-width: $desktop) {
       & {
         min-height: calc(100vh - 102px);
+        height: calc(100vh - 102px);
       }
     }
     @media only screen and (min-width: $tablet) and (max-width: $laptop) {
       & {
         min-height: calc(100vh - 81px);
+        height: calc(100vh - 81px);
       }
     }
     @media only screen and (max-width: $tablet) {
       & {
         min-height: calc(100vh - 77px);
+        height: calc(100vh - 77px);
       }
     }
   }
@@ -62,6 +66,7 @@
     width: 100%;
     visibility: visible;
     transition: height 0s, opacity 0.5s $standart-function;
+
   }
   &__image1 {
     z-index: 1;
@@ -231,7 +236,6 @@
     @media only screen and (min-width: $desktop) and (max-width: $desktop4k) {
       & {
         height: 60px;
-        // width: 250px;
       }
     }
     @media only screen and (min-width: $laptop) and (max-width: $desktop) {
@@ -276,7 +280,6 @@
     font-size: 32px;
     border-radius: 8px;
     transition: 0.25s;
-    // width: 460px;
     width: auto;
 
     cursor: pointer;
@@ -293,7 +296,6 @@
     @media only screen and (min-width: $laptop) and (max-width: $desktop) {
       & {
         padding: 5px 22px;
-        // padding: 5px 15px;
         font-size: 20px;
         width: 250px;
       }
@@ -303,7 +305,6 @@
         width: 170px;
         font-size: 15px;
         padding: 5px 8px;
-        // padding: 5px 1px;
       }
     }
   }

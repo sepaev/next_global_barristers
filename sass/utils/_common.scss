@@ -201,7 +201,10 @@ p a {
 aside li a {
   text-transform: uppercase;
 }
-
+.absolute__image-wrapper {
+  width: 100%;
+  height: 100%;
+}
 .visually-hidden {
   position: absolute;
   white-space: nowrap;
