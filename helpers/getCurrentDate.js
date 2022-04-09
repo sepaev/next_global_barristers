@@ -24,5 +24,5 @@ export default function getCurrentDate() {
   const date = d.getDate()
   const year = d.getFullYear()
 
-  return day + ' ' + date + 'го ' + month + ' ' + year + 'г. ровно в ' + hr + ':' + min
+  return day + ' ' + date + 'го ' + month + ' ' + year + 'г. (' + hr + ':' + min + ')'
 }

@@ -4,6 +4,8 @@
   width: 100%;
   transition: top 0.4s ease-in-out 0s;
   position: fixed;
+  filter: drop-shadow(1px 1px 3px $light-gray-background-color);
+  margin-bottom: 0;
   &__pre {
     width: 100%;
     height: $top-desktop4k-indent;
@@ -138,7 +140,6 @@
 
 .navigation {
   background: $white-background-color;
-  border-bottom: 1px solid $light-gray-background-color;
   transition: top 0.4s ease-in-out 1s;
   width: 100%;
   &__container {

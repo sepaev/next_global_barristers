@@ -26,6 +26,7 @@ export function Slider({ lang = 'uk' }) {
       return
     }
     sendMail({ phone: statePhone, language: lang, request: 'обратный звонок' })
+    setStatePhone('')
   }
 
   const changeSlide = useCallback(

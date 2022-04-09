@@ -10,6 +10,7 @@ export default async function sendMail(user) {
   if (!user.name) user.name = 'Не указано'
   if (!user.mail) user.mail = 'Не указано'
   if (!user.message) user.message = 'Текст отсутствует'
+  user.messageArray = user.message.trim().split('\n')
   const dateString = getCurrentDate()
   let data
   Notiflix.Loading.circle()
@@ -23,7 +24,7 @@ export default async function sendMail(user) {
   user.country = data.country_name
   user.city = data.city
 
-  const result = await fetch('/api/send-email', {
+  const result = await fetch('/api/send-message', {
     method: 'POST',
     headers: {
       Accept: 'application/json, text/plain, */*',
