@@ -8,11 +8,8 @@ import { useRef } from 'react'
 
 export default function OurTeam({ lang, toggleModalForm }) {
   const { lawyersTitle, competationsTitle } = useMemo(() => getTranslations(lang), [lang])
-  const { sendToText, requestConsultationText } = useMemo(() => getCommonTranslations(lang), [lang])
+  const { requestConsultationText } = useMemo(() => getCommonTranslations(lang), [lang])
   const lawyerButton = useRef(null)
-  const buttonClick = pib => {
-    alert(sendToText + ' ' + pib[lang])
-  }
   return (
     <>
       <h2 className='lawyers__title'>{lawyersTitle}</h2>
