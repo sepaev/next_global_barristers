@@ -170,11 +170,9 @@ export function ModalForm({ lang, toggleModalForm, source, lawyer }) {
                   onChange={e => inputChange(e, 'message')}
                 />
               </label>
-              <div className='sbm-wrapper'>
-                <button type='submit' value={buttonText} onClick={formSubmit} className='btn-default'>
-                  {buttonText}
-                </button>
-              </div>
+              <button type='submit' value={buttonText} onClick={formSubmit} className='modal-form__button btn-default'>
+                {buttonText}
+              </button>
             </div>
           </>
         )}

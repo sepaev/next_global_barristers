@@ -28,7 +28,10 @@ export function PageLayout({ children, lang = 'uk', title = '', currentPage = ''
 
   let childrenWithCustomProps
   let isAsideLayout = false
-  if (children.type && children.type.name === 'AsideLayout') {
+  // console.log('length', children.length)
+  // if (children.type && children.type.name === 'AsideLayout') {
+  if (!children.length) {
+    // когда один ребенок значит AsideLayout
     isAsideLayout = true
     const asideLayout = children.props.children
     const asideLayoutProps = children.props.children.props
