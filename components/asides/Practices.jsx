@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import uniqid from 'uniqid'
 import { getTranslations } from '../../translations/asides/practices'
 import { useMemo } from 'react'
@@ -38,6 +39,16 @@ export default function Practices({ lang }) {
               <li key={uniqid()} className='practices__item'>
                 <Link href={'/practices/' + html + '/' + lang}>
                   <a className='practices__item-link'>
+                    <div className='practices__item-picture'>
+                      <Image
+                        src={`/asides/practices/${html}.jpg`}
+                        alt={text[lang]}
+                        layout='fill'
+                        objectFit='cover'
+                        loading='lazy'
+                        objectPosition='center'
+                      />
+                    </div>
                     <div className='practices__item-overlay'>
                       <h2 className='practices__item-title'>{text[lang]}</h2>
                       <p className='practices__item-paragraph'>{paragraphs[html]}</p>
