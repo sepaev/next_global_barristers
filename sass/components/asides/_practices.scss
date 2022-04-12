@@ -1,6 +1,6 @@
 .practices {
   &__container {
-    @media only screen and (max-width: 1400px) {
+    @media only screen and (min-width: $desktop) and (max-width: 1400px) {
       & {
         width: 100%;
       }
@@ -24,9 +24,14 @@
     border-radius: 10px;
     overflow: hidden;
     transition: filter 1s $standart-function;
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (min-width: $desktop) and (max-width: 1300px) {
       & {
         height: 400px;
+      }
+    }
+    @media only screen and (max-width: $desktop) {
+      & {
+        width: 90%;
       }
     }
     &:hover {
@@ -60,9 +65,14 @@
           width: 28.8vw;
         }
       }
-      @media only screen and (max-width: 1300px) {
+      @media only screen and (min-width: $desktop) and (max-width: 1300px) {
         & {
           height: 400px;
+        }
+      }
+      @media only screen and (max-width: $desktop) {
+        & {
+          width: 48.8vw;
         }
       }
     }
